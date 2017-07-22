@@ -1,0 +1,68 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import "minima";
+
+
+$cherry-color: #b21434; // Temple cherry?
+$nice-blue: #125699; 
+
+.site-title {
+  font-weight: 500;
+  color: $cherry-color;
+  letter-spacing: -0.75px;
+  //float: right;
+}
+
+/*
+.site-nav {
+    float: left;
+}
+*/
+a {
+  color: $cherry-color;
+  text-decoration: none;
+
+  &:visited {
+    color: darken($cherry-color, 10%);
+  }
+
+  &:hover {
+    color: lighten($cherry-color, 10%);
+  }
+}
+.post h1 {
+    font-size: $base-font-size * 2;
+    font-weight: 500;
+    text-align: center;
+    color: $cherry-color;
+}
+.post h2 {
+    font-size: $base-font-size * 1.7;
+    font-weight: 500;
+    text-decoration: underline;
+    color: $nice-blue;
+}
+.post h3 {
+    font-size: $base-font-size * 1.2;
+    font-weight: 500;
+}
+
+.post ul {
+    list-style: none;
+}
+
+.home h1 {
+    font-size: $base-font-size * 1.75;
+}
+
+.post-link { 
+    font-size: $base-font-size * 1.25;
+}
+    
+.post-list {
+    margin-left: 8%;
+    list-style-type: lower-greek; // I AM SO COOL
+}
+  
