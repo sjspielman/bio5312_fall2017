@@ -1,0 +1,7 @@
+001_2014GNRDataset_Child-Adult-Nutrition.xls (application/vnd.ms-excel) 157696 bytes.
+002_2014GNRDataset_Economics-Demography.XLSX (application/octet-stream) 46735 bytes.
+003_2014GNRDataset_InterventionCoverage.xls (application/vnd.ms-excel) 112128 bytes.
+004_2014GNRDataset_PolicyLegislation.XLSX (application/octet-stream) 31500 bytes.
+005_2014GNRDataset_UnderlyingDeterminants.XLSX (application/octet-stream) 86720 bytes.
+2014GlobalNutritionReportData.xls (application/vnd.ms-excel) 407552 bytes.
+_tableofcontents.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document) 14859 bytes.

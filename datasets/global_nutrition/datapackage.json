@@ -1,0 +1,39 @@
+{
+  "sources": [
+    {
+      "name": "International Food Policy Research Institute (IFPRI)"
+    }
+  ], 
+  "description": "The 2014 Global Nutrition Report Dataset contains data for all the indicators that were used in Global Nutrition Report 2014: Actions and Accountability to Accelerate the World's Progress on Nutrition . The data are compiled from secondary sources including United Nations Children's Fund (UNICEF), World Health Organization (WHO), and the World Bank among many others. The dataset broadly contains information on adult and child nutrition, economic demography, nutrition intervention coverage, and policy legislation in the nutrition sector.", 
+  "license": {
+    "url": "http://creativecommons.org/licenses/by-nc/2.0/", 
+    "type": "cc-nc", 
+    "title": "Creative Commons Non-Commercial (Any)"
+  }, 
+  "title": "2014 Global Nutrition Report Dataset", 
+  "keywords": [
+    "anemia", 
+    "argentina missing children", 
+    "birth weight", 
+    "breast feeding", 
+    "diet", 
+    "education", 
+    "expenditure", 
+    "food security", 
+    "malnutrition", 
+    "micronutrient deficiencies"
+  ], 
+  "author": {
+    "name": "IFPRI-Data", 
+    "email": "IFPRI-Data@cgiar.org"
+  }, 
+  "resources": [
+    {
+      "url": "http://dx.doi.org/10.7910/DVN/27857", 
+      "title": "2014 Global Nutrition Report  Dataset", 
+      "name": "2014-global-nutrition-report-dataset", 
+      "format": "CSV"
+    }
+  ], 
+  "name": "2014-global-nutrition-report-dataset"
+}
