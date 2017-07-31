@@ -15,6 +15,10 @@
 + `gapminder` [https://github.com/jennybc/gapminder](https://github.com/jennybc/gapminder)
 	+ in unfiltered, tabulate n entries per country? per region?
  
++ **untidy data:** `hiv_prevalence.csv` is from [gapminder.org](gapminder.org)
+ 	+ The data from 1990 onwards you see in this graph is from UNAIDS, but Gapminder has provided extra estimates for some countries before 1990, and the compilation was documented and could be accessed from the link below.Due to visualization limits, we only display the countries with the 1st available estimate before 1988, and for countries that have no data or estimate available until 1988, we display it from 1990 onwards using the data from UNAIDS. Data for Brazil was the average of the high and low estimate from UNAIDS from 1990 onwards, and 1979 was the estimate from Gapminder Foundation.
+ 		+ Column 1 `Estimated HIV Prevalence% - (Ages 15-49)`	
+ 
 + `MOMv3.3.txt`
 
 	+ Metadata
