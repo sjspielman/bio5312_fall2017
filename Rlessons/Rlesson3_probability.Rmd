@@ -1,0 +1,130 @@
+---
+title: Introduction to R
+subtitle: R Lesson One
+author: Stephanie J. Spielman
+date: 08/29/17
+output:
+  html_document:
+    css: styles.css # For blockquote formatting
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(highlight = TRUE)
+knitr::opts_chunk$set(out.width = "120%")
+```
+
+## Basic use of R
+
+R is a statistical computing language and environment widely used in Biology and related fields. This section details fundamental aspects of `Base R`, meaning the native functionality that R comes with as distinguished from R functionality included in *external packages*. 
+
+### R as a calculator
+
+The simplest way to use R is as you would a calculator:
+
+```{r calculator}
+# Addition in R
+7+8
+
+# Division in R
+84/93  # R will ignore this commented part of the line
+```
+
+As you can see, any line (or part of a line) beginning with a `#` symbol represents a **comment**, that is a section of your code that R should ignore. Comments are an exceptionally useful tool (in all of programming!) for leaving helpful notes in the code for yourself and others that explains what the code does and why.
+
+### R variables
+
+In R, we assign variables using the symbol `<-` (although `=` will still work, it may cause some interpersonal headaches, ala the tabs vs. spaces issue). 
+```{r variable_assignment1}
+x <- 5
+typeof(x) ## what type of variable is x?
+
+y <- "String"
+typeof(y) ## what type of variable is y?
+
+z <- TRUE
+typeof(z) ## what type of variable is z?
+```
+<p></br></p>
+
+
+<!--The variables defined above may have familiar types. An additional important way to represent values in R is inside `factors`, which are essentially categorical variables. The categories of a factor can be seen with the function `levels`():
+
+```{r variable_assignment_factors, show=FALSE}
+## Use as.factor() to coerce variable to a factor
+x <- as.factor(c("big", "medium", "small") )
+levels(x) ## what are the categories?
+
+## What happens when we call levels() on a non-factor?
+y <- c("big", "medium", "small")
+levels(y)
+```
+<p></br></p>
+-->
+
+R additionally features *vectors* and *lists*, where *vectors* can only contain data of a single type but *lists* can contain different types of data.
+
+```{r variable_assignment2}
+## Create a vector with the c() function
+my_vector1 <- c(1,2,3,4,5)
+my_vector2 <- c("a", "b", "c")
+
+## Add a value to my_vector1
+my_vector1 <- c(my_vector1, 10)
+my_vector1
+
+typeof(my_vector1)
+### Can we coerce my_vector1 to be character? Yes!
+as.character(my_vector1)
+
+typeof(my_vector2)
+### Can we coerce my_vector2 to be double? Not really!
+as.double(my_vector2)
+```
+
+We can operate on and index vectors as well. Importantly, **indexing starts at 1 in R**.
+
+```{r vector_manip}
+my_vector <- c(9,8,7,6,5)
+my_vector * 5.5  ## Note that this does not re-assign the vector
+
+## Index first element
+my_vector[1] 
+```
+
+In general, we will use lists less frequently than vectors, but they are still important! Indexing lists is a bit trickier than with vectors and requires a bit more forethought.
+```{r variable_assignment3}
+## Create a list with the list() function
+my_list1 <- list(1,2,3,4)
+my_list1
+
+## Lists can have different types as values, including lists!
+my_list2 <- list("Stephanie", 100, list(1,2,3,"four"))
+my_list2
+
+## Indexing is much more involved here
+my_list2[[1]][1] # first element
+my_list2[[3]][[1]][1] ## first element of third element
+```
+<p></br></p>
+
+Finally, (arguably) the most important data structure in R is the **data frame**, which we will come back to in-depth in a later section.
+
+
+### R functions
+Base R contains a variety of useful built-in functions (we have already seen `typeof()`, `c()`, and `list()`, among others), including the following examples:
+
+Function | What it does | Usage | Output
+--------|--------|------|-------
+`log()`  | Natural log (default) | `log(5)` | `1.609438`
+`sum()`   | Sum a list or vector |  `sum( c(1,2,3,4) )` | `10`
+`length()` | Determine length of object |  `length( c(1,2,3,4) )` | `4`
+`paste()` | Concatenate a string | `paste("I", "am", "now", "a", "string.", sep = " ")` | `"I am now a string."`
+`paste0()` | Concatenate a string with `sep=""` | `paste0("I", "am", "now", "a", "string."` | `"Iamnowastring."`
+
+In order to see which arguments a function requires, you can type a question mark followed by the name of the function. 
+
+> Note: In the RStudio environment, documentation will appear in the **Help** box, not in the Console. 
+
+For instance, typing `?log` will reveal a screen describing what the “log” function does and which arguments you should provide. (In R, log() takes the natural log by default).
+If you provide an incorrect argument for a function, R will give you a warning/error message.

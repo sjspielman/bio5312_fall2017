@@ -1,0 +1,198 @@
+Variable,Description
+Country,Country 
+Continent,Continent
+RegionUN,UN Regional Classification
+SubregionUN,UN Subregional Classification
+TotalPop2012,Total population (thousands)
+under5pop2012,Total under-5 population (thousands)
+urbanpop_percent2010,Population urban (%)
+over65pop_percent2012,Population >65 years (%)
+u5mr_1990,Under-5 mortality rate (Deaths per 1,000 live births)
+u5mr_2000,Under-5 mortality rate (Deaths per 1,000 live births)
+u5mr_2010,Under-5 mortality rate (Deaths per 1,000 live births)
+u5mr_2012,Under-5 mortality rate (Deaths per 1,000 live births)
+Poverty_125_1990,Poverty rates $1.25 a day (%), 1990
+Poverty_125_2000,Poverty rates $1.25 a day (%), 2000
+Poverty_125_2010,Poverty rates $1.25 a day (%), 2010
+Poverty_125_2011_12,Poverty rates $1.25 a day (%), most recent survey between 2011 and 2012
+Poverty_2_1990,Poverty rates $2 a day (%), 1990
+Poverty_2_2000,Poverty rates $2 a day (%), 2000
+Poverty_2_2010,Poverty rates $2 a day (%), 2010
+Poverty_2_2011_12,Poverty rates $2 a day (%), most recent survey between 2011 and 2012
+GDP_1990,Gross domestic product (GDP) per capita, purchasing power parity (PPP) (constant 2011 international $), 1990
+GDP_2000,Gross domestic product (GDP) per capita, purchasing power parity (PPP) (constant 2011 international $), 2000
+GDP_2010,Gross domestic product (GDP) per capita, purchasing power parity (PPP) (constant 2011 international $), 2010
+GDP_2011_13,Gross domestic product (GDP) per capita, purchasing power parity (PPP) (constant 2011 international $), most recent survey between 2011 and 2013
+year_GiniIndex,Year, Income inequality (Gini Index)
+GiniIndex,Income inequality (Gini Index)
+year_U5Anthro,Year, under-5 anthropometric surveys
+stuntingRATE,Under-5 stunting (%) 
+wastingRATE,Under-5 wasting (%)
+severewastingRATE,Under-5 severe wasting (%)
+overweightRATE,Under-5 overweight (%)
+stuntingNUMBER,Under-5 stunting, total population affected (thousands)
+wastingNUMBER,Under-5 wasting, total population affected (thousands)
+overweightNUMBER,Under-5 overweight, total population affected (thousands)
+year_LBW,Year, low birth weight incidence (%)
+LBWrate,Low birth weight incidence (%)
+year_stuntingtrend1,Year, trend in under-5 stunting, 1st of 5 most recent surveys
+rate_stuntingtrend1,Trends in under-5 stunting, 1st of 5 most recent surveys
+year_stuntingtrend2,Year, trends in under-5 stunting, 2nd of 5 most recent surveys
+rate_stuntingtrend2,Trends in under-5 stunting, 2nd of 5 most recent surveys
+year_stuntingtrend3,Year, trends in under-5 stunting, 3rd of 5 most recent surveys
+rate_stuntingtrend3,Trends in under-5 stunting, 3rd of 5 most recent surveys
+year_stuntingtrend4,Year, trends in under-5 stunting, 4th of 5 most recent surveys
+rate_stuntingtrend4,Trends in under-5 stunting, 4th of 5 most recent surveys
+year_stuntingtrend5,Year, trends in under-5 stunting, 5th of 5 most recent surveys
+rate_stuntingtrend5,Trends in under-5 stunting, 5th of 5 most recent surveys
+year_adolescentAnthro,Year, adolescent anthropometric survey
+overweight_adolescent,Adolescent overweight (%)
+obesity_adolescent,Adolescent obesity (%)
+year_WRA_thin_short,Year, women of reproductive age anthropometric survey
+BMIbelow18_WRA_thin,Women of reproductive age thinness (%)
+Heightbelow145_WRA_short,Women of reproductive age short stature (%)
+year_adult_OWOB,Year, adult anthropometry
+OWbothsex,Adult overweight (%), both sexes
+OWmale,Adult overweight (%), male
+OWfemale,Adult overweight (%), female
+OBbothsex,Adult obesity (%), both sexes
+OBmale,Adult obesity (%), male
+OBfemale,Adult obesity (%), female
+year_WRAanaemia,Year, anaemia in women of reproductive age
+WRAanaemia_RATE,Women of reproductive age anemia (%)
+WRAanaemia_NUMBER,Women of reproductive age anemia, total population affected (thousands) 
+year_vitaminAdef,Year, vitamin A deficiency in preschool-age children (%)
+rate_vitaminAdef,Vitamin A deficiency in preschool-age children (%)
+year_IodineNutrition,Year, classification of iodine nutrition
+Class_IodineNutrition,Classification of iodine nutrition
+year_bloodglucose,Year, adult raised blood glucose (%)
+BGboth,Adult raised blood glucose (%), both sexes
+BGmale,Adult raised blood glucose (%), male
+BGfemale,Adult raised blood glucose (%), female
+year_bloodpressure,Year, adult raised blood pressure (%)
+BPboth,Adult raised blood pressure (%), both sexes
+BPmale,Adult raised blood pressure (%), male
+BPfemale,Adult raised blood pressure (%), female
+year_cholesterol,Year, adult raised cholesterol (%)
+cholesterol_BOTH,Adult raised cholesterol levels (%), both sexes
+cholesterol_MALE,Adult raised cholesterol levels (%), male
+cholesterol_FEMALE,Adult raised cholesterol levels (%), female
+year_stunt_waste_OW,Year, World Health Assembly (WHA) indicators: Progress against Global WHA Target (anthropometry)
+WHAtarget_Stunting1,Under-5 stunting on/not on course for Global WHA Target 
+WHAtarget_Wasting1,Under-5 wasting on/not on course for Global WHA Target
+WHAtarget_Overweight1,Under-5 overweight on/not on course for Global WHA Target
+year_WHAtarget_WRAanaemia,Year, World Health Assembly (WHA) indicators: Progress against Global WHA Target (WRA anaemia)
+WHAtarget_WRAanaemia1,Women of reproductive age anemia on/not on course for Global WHA Target
+year_MADMDD,Year, MAD and MDD
+MinAccDiet,Minimum acceptable diet (%)
+MinDietDiv,Minimum dietary diversity (%)
+year_ANC4,Year, Antenatal care (4+ visits) (%)
+ANC4_rate,Antenatal care (4+ visits) (%)
+year_SBA,Year, Skilled attendant at birth (%)
+SBA_rate,Skilled attendant at birth (%)
+year_earlyBF,Year, Early initiation of breastfeeding (within 1 hour after birth) (%)
+earlyBF_rate,Early initiation of breastfeeding (within 1 hour after birth) (%)
+year_contBF,Year, Continued breastfeeding (at 1 year) (%)
+contBF_rate,Continued breastfeeding (at 1 year) (%)
+year_UMN_FP,Year, Unmet need for family planning (%)
+UMN_FP_percent,Unmet need for family planning (%)
+year_EBFtrend1,Year, trends in Exclusive breastfeeding <6 months (%), 1st of 3 most recent surveys
+EBF_rate1,Trends in Exclusive breastfeeding <6 months (%), 1st of 3 most recent surveys
+year_EBFtrend2,Year, trends in Exclusive breastfeeding <6 months (%), 2nd of 3 most recent surveys
+EBF_rate2,Trends in Exclusive breastfeeding <6 months (%), 2nd of 3 most recent surveys
+year_EBFtrend3,Year, trends in Exclusive breastfeeding <6 months (%), 3rd of 3 most recent surveys
+EBF_rate3,Trends in Exclusive breastfeeding <6 months (%), 3rd of 3 most recent surveys
+year_SAM,Year, Severe Acute Malnutrition Geographical Coverage (%)
+SAMcoverage_rate,Severe Acute Malnutrition Geographical Coverage (%)
+year_VitAsupp,Year, Vitamin A supplementation, full coverage (%)
+vitAcoverage_rate,Vitamin A supplementation, full coverage (%)
+year_ORS,Year, Under-5 with diarrhea receiving oral rehydration salts (ORS) (%)
+ORS_rate,Under-5 with diarrhea receiving oral rehydration salts (ORS) (%)
+year_DPT3,Year, Immunization coverage DTP3 (%)
+DPT3_rate,Immunization coverage DTP3 (%)
+year_HHiodizedsalt,Year, Iodized salt consumption (%)
+HHiodizedsalt_rate,Iodized salt consumption (%)
+percent_undernourishment1991,Undernourishment (%), 1991
+percent_undernourishment2000,Undernourishment (%), 2000
+percent_undernourishment2010,Undernourishment (%), 2010
+percent_undernourishment2014,Undernourishment (%), 2014
+fruitandveg_gram1990,Availability of fruit and vegetables (grams), 1990
+fruitandveg_gram2000,Availability of fruit and vegetables (grams), 2000
+fruitandveg_gram2010,Availability of fruit and vegetables (grams), 2010
+fruitandveg_gram2011,Availability of fruit and vegetables (grams), 2011
+percent_nonstaples1991,Available kcal from nonstaples (%), 1991
+percent_nonstaples2000,Available kcal from nonstaples (%), 2000
+percent_nonstaples2009,Available kcal from nonstaples (%), 2009
+gender_inequality_index,Gender Inequality Index (score), 2013
+gender_inequality_rank,Gender Inequality Index (country rank), 2013
+Year_PhysicianDensity,Year, Population density of health workers (per 1,000 population) density of physicians
+Ratio_Physician,Population density of health workers (per 1,000 population) density of physicians
+Year_CHWdensity,Year, Population density of health workers (per 1,000 population) density of community health workers
+Ratio_CHWdensity,Population density of health workers (per 1,000 population) density of community health workers
+Year_NursesMidwivesDensity,Year, Population density of health workers (per 1,000 population) density of nurses and midwives
+Ratio_NursesMidwivesDensity,Population density of health workers (per 1,000 population) density of nurses and midwives
+year_earlychildbearing,Year, Early childbearing—births by age 18 (%)
+percent_earlychildbearing,Early childbearing—births by age 18 (%)
+A1990_femaleED,Female secondary enrollment rates (gross) (%), 1990 
+A2000_femaleED,Female secondary enrollment rates (gross) (%), 2000 
+A2010_femaleED,Female secondary enrollment rates (gross) (%), 2000 
+A2011_13_femaleED,Female secondary enrollment rates (gross) (%), most recent survey between 2011 and 2013 
+waterpiped1990,Water coverage, piped on premises (%), 1990
+waterOtherIm1990,Water coverage, other improved (%), 1990
+waterotherUnIm1990,Water coverage, other unimproved (%), 1990
+watersurface1990,Water coverage, surface water (%), 1990
+waterpiped2000,Water coverage, piped on premises (%), 2000
+waterOtherIm2000,Water coverage, other improved (%), 2000
+waterotherUnIm2000,Water coverage, other unimproved (%), 2000
+watersurface2000,Water coverage, surface water (%), 2000
+waterpiped2012,Water coverage, piped on premises (%), 2012
+waterOtherIm2012,Water coverage, other improved (%), 2012
+waterotherUnIm2012,Water coverage, other unimproved (%), 2012
+watersurface2012,Water coverage, surface water (%), 2012
+SantotalIm1990,Sanitation coverage, total improved (%), 1990
+Sanshared1990,Sanitation coverage, shared (%), 1990
+SanOtherUnIm1990,Sanitation coverage, other unimproved (%), 1990
+SanDefecation1990,Sanitation coverage, open defecation (%), 1990
+SantotalIm2000,Sanitation coverage, total improved (%), 2000
+Sanshared2000,Sanitation coverage, shared (%), 2000
+SanOtherUnIm2000,Sanitation coverage, other unimproved (%), 2000
+SanDefecation2000,Sanitation coverage, open defecation (%), 2000
+SantotalIm2012,Sanitation coverage, total improved (%), 2012
+Sanshared2012,Sanitation coverage, shared (%), 2012
+SanOtherUnIm2012,Sanitation coverage, other unimproved (%), 2012
+SanDefecation2012,Sanitation coverage, open defecation (%), 2012
+agriculture1990_govspend,Government expenditure on agriculture (%),  1990
+education1990_govspend,Government expenditure on education (%), 1990
+health1990_govspend,Government expenditure on health (%), 1990
+socialprotection1990_govspend,Government expenditure on social protection (%), 1990
+agriculture2000_govspend,Government expenditure on agriculture (%), 2000
+education2000_govspend,Government expenditure on education (%), 2000
+health2000_govspend,Government expenditure on health (%), 2000
+socialprotection2000_govspend,Government expenditure on social protection (%), 2000
+agriculture2010_govspend,Government expenditure on agriculture (%), 2010
+education2010_govspend,Government expenditure on education (%), 2010
+health2010_govspend,Government expenditure on health (%), 2010
+socialprotection2010_govspend,Government expenditure on social protection (%), 2010
+agriculture2012_govspend,Government expenditure on agriculture (%), 2012
+education2012_govspend,Government expenditure on education (%), 2012
+health2012_govspend,Government expenditure on health (%), 2012
+socialprotection2012_govspend,Government expenditure on social protection (%), 2012
+year_BFcode,Year, National Implementation of the International Code of Marketing of Breast Milk Substitutes
+BFcode_status1,National Implementation of the International Code of Marketing of Breast Milk Substitutes
+year_RTF,Year, Extent of Constitutional Right to Food
+RTF_level1,Extent of Constitutional Right to Food
+year_maternityprotection,Year, Maternity protection (Convention 183)
+cat_maternityprotection,Maternity protection (Convention 183)
+year_wheatfortification,Year,Wheat fortification legislation 
+status_wheatfortification,Wheat fortification legislation 
+year_policyrank,Year of policy documents, undernutrition in national development plans and economic growth strategies (country rank)
+policyrank_1to83,Undernutrition in national development plans and economic growth strategies (country rank)
+year_NCDpolicy,Year, policy for Noncommunicable diseases (NCDs) - hypertension and diabetes
+hypertension_policy,Availability and stage of implementation of guidelines, protocols, and standards for the management of hypertension
+diabetes_policy,Availability and stage of implementation of guidelines, protocols, and standards for the management of diabetes
+year_SUN,Year, Scaling up Nutrition (SUN) countries’ Institutional Transformations
+SUN_Process1,Bringing people into a shared space for action (%)
+SUN_Process2,Ensuring a coherent policy and legal framework (%)
+SUN_Process3,Aligning actions around a common results framework (%)
+SUN_Process4,Financial tracking and resource mobilization (%)
+SUN_TotalAccomplished,Total weighed score (%)
