@@ -23,12 +23,11 @@ layout: default
   <h2 class="page-heading">Course Schedule and Materials</h2>
   
   <ul class="post-list">
-    {% for post in site.posts %}
+    {% for post in site.posts reversed %}
       <li>
         {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
             <!--<span class="post-meta">{{ post.date | date: date_format }}</span>-->
-            <a class="post-link" href="{{ post.url | relative_url }}"> Aug 29, 2017:  {{ post.title | escape }} </a> 
-
+            <a class="post-link" href="{{ post.url | relative_url }}"> {{ post.date | date: date_format }}:  {{ post.title | escape }} </a> 
       </li>
     {% endfor %}
   </ul>
