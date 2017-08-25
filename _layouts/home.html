@@ -9,7 +9,13 @@ layout: default
   
   <h2 class="page-heading">Course Information</h2>
 
-  {{ content }}
+  <p> 
+    <ul class="post-list">
+        <li> <a href="{{ '/files/bio5312_fall2017_syllabus.pdf' | relative_url }}"> Link to syllabus </a> </li>
+        <li> <a href="https://templeu.instructure.com/"> Link to Canvas Instructure </a> </li>
+        <li> <a href="{{ './resources' | relative_url }}"> Helpful links and resources </a> </li>
+    </ul>
+  </p>
 
 
   <br>
@@ -20,12 +26,25 @@ layout: default
     {% for post in site.posts %}
       <li>
         {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }} </a>
-            <span class="post-meta">{{ post.date | date: date_format }}</span>
+            <!--<span class="post-meta">{{ post.date | date: date_format }}</span>-->
+            <a class="post-link" href="{{ post.url | relative_url }}"> Aug 29, 2017:  {{ post.title | escape }} </a> 
 
       </li>
     {% endfor %}
   </ul>
+
+  <br>
+  <br>
+  <h2 class="page-heading">Assignments</h2>
+  
+  <ul class="post-list">
+      <li> <a class="post-link" href="{{ '/homeworks/HW1.pdf' | relative_url }}"> Homework 1 (due 9/5/17 by 5:30 pm) </a>
+        <ul class="post-list-child">
+            <li> <a style="color:#8e8e8e; "class="post-link-child" href="{{ '/datasets/sparrows.csv' | relative_url }}"> Download <code>sparrows.csv</code> </a> </li>
+        <ul>
+      </li> 
+  </ul>
+
 
   <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
 

@@ -4,13 +4,14 @@
 @import "minima";
 
 
-$cherry-color: #b21434; // Temple cherry?
-$nice-blue: #125699; 
+$cherry-color: #8e1029; // Temple cherry?
+$nice-grey: #585858; 
 
 .site-title {
-  font-weight: 400;
+  color: $cherry-color;
+  font-weight: 500;
   letter-spacing: -0.75px;
-  //float: right;
+  float: right;
 }
 
 /*
@@ -18,18 +19,41 @@ $nice-blue: #125699;
     float: left;
 }
 */
+
+table, th, td {
+   border-collapse: collapse;
+   border: 1px solid black;
+   margin-left: 10%;
+   margin-top: 5%;
+   margin-bottom: 5%;
+   padding: 5px;
+}
+th {
+   text-align: center;
+}
+td {
+   text-align: left;
+}
+tr:nth-child(even) {background-color: #dcdcdc}
+
+
 a {
   color: $cherry-color;
   text-decoration: none;
 
   &:visited {
-    color: darken($cherry-color, 10%);
+    color: $cherry-color;
   }
 
   &:hover {
-    color: lighten($cherry-color, 10%);
+    text-decoration: underline;
   }
 }
+
+.post-meta {
+    font-size:$base-font-size;
+}
+
 .post h1 {
     font-size: $base-font-size * 2;
     font-weight: 500;
@@ -37,25 +61,35 @@ a {
     color: $cherry-color;
 }
 .post h2 {
-    font-size: $base-font-size * 1.7;
+    font-size: $base-font-size * 1.6;
     font-weight: 500;
-    text-decoration: underline;
-    color: $nice-blue;
+    //text-decoration: underline;
+    //color: $nice-grey;
 }
 .post h3 {
     font-size: $base-font-size * 1.2;
     font-weight: 500;
+    margin-top: 5%;
+}
+
+.post h4 {
+    font-size: $base-font-size;
+    margin-left: 3%;
+    font-weight: 600;
 }
 
 .post ul {
-    list-style: none;
+    list-style-type: disc;
+    margin-bottom: 1%;
 }
 
 .home h1 {
-    font-size: $base-font-size * 2;
+    font-size: $base-font-size * 2.5;
+    font-variant: small-caps;
     text-align: center;
-    color: $nice-blue;
+    color: $nice-grey;
     font-weight: 600;
+    margin-bottom: 5%;
 }
 
 .home h2 {
@@ -64,11 +98,38 @@ a {
 }
 
 .post-link { 
-    font-size: $base-font-size * 1.2;
+    font-size: $base-font-size * 1.1;
 }
-    
+
+.post-link-child { 
+    font-size: $base-font-size;
+    color: #2c2c2c;
+}
+
+
+.post-header { 
+    margin-bottom: 7%;
+    font-variant: small-caps;
+}
+        
 .post-list {
     margin-left: 8%;
     list-style-type: lower-greek; // I AM SO COOL
 }
+ 
+.post-list-child {
+    list-style-type: disc;
+} 
+.post-list li {
+    margin-bottom: 1%;
+}
+  
+  
+  
+  
+  
+  
+
+  
+  
   
