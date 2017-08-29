@@ -113,6 +113,11 @@ a {
 li {
     list-style-type: lower-greek;// I AM SO COOL
 }
+
+.contact-list li {
+    list-style-type: none;
+    color: $cherry-color;
+}
         
 .post-list {
     margin-left: 8%;
