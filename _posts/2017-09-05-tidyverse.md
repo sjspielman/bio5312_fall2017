@@ -1,13 +1,14 @@
 ---
 layout: post
-title:  "The Tidyverse"
+title:  "Introduction to The Tidyverse"
 date:   2017-09-05
 ---
 
 
 ## Lecture 
 
-
++ [Slides](./slides/day2_tidyverse.pdf)
++ [In-class exercises](./files/inclass/day2.html)
 
 <br>
 ## R lab
@@ -16,20 +17,20 @@ date:   2017-09-05
 
 This "meta-package" consists of several R packages, or as the Founding Father Hadley Wickahm says, "The tidyverse is an opinionated collection of R packages designed for data science." 
 
-+ `ggplot2`, for plotting
-+ `dplyr`, for transforming and summarizing dataframe content
-+ `tidyr`, for transforming ("tidying") data frame structure
-+ `purrr`, an upgrade of base R functional programming tools 
-	+ This package is more advanced and beyond the scope of this class.
-+ `tibble`, an improved data frame 
-	+ This package will be used implicitly.
++ [`ggplot2`](http://ggplot2.tidyverse.org/reference/index.html), for plotting.
++ [`dplyr`](http://http://dplyr.tidyverse.org/reference/index.html), for transforming and summarizing dataframe content
++ [`tidyr`](http://tidyr.tidyverse.org/reference/index.html), for transforming ("tidying") data frame structure
++ `purrr`, an upgrade of base R functional programming tools. (Beyond scope of class.)
++ `tibble`, an improved data frame. (Package will be used implicitly.)
 
-Read about other packages that accompany the Tidyverse but aren't technically packaged with it [here](https://www.tidyverse.org/packages/).
+Read about other packages that accompany the Tidyverse but aren't technically packaged with it [here](https://www.tidyverse.org/packages/). Click on `ggplot2`, `dplyr`, and `tidyr`, above for the **comprehensive** references for virtually all functionality of these packages. Most material within will be beyond the scope of this class, but everything you might need will be there.
+
+
+**This class will focus on `dplyr` and `ggplot2`, as well as `RMarkdown`. Next week we will continue to explore `ggplot2` and introduce `tidyr`.**
+
+#### `dplyr` and `tidyr` Functions
 
 Commands can be strung together in order using the pipe `%>%` operator. 
-
-### `dplyr` and `tidyr` Functions
-
 
 
 Function  |  Package  | Use
@@ -47,10 +48,15 @@ Function  |  Package  | Use
 `unite()` | `tidyr`| Unite multiple columns into one (opposite of `separate()`)
 
 
-### Header 
+#### `dplyr` Examples 
 <pre><code class="language-r">
 require(tidyverse)
 </code></pre>
 
 
+#### `ggplot2`
+
+#### `Rmarkdown`
+
++ [RMarkdown reference](http://rmarkdown.rstudio.com/authoring_basics.html)
 
