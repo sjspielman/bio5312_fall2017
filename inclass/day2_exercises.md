@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Inclass exercises, Day II
-permalink: /inclass-exercises-day2/
+permalink: /inclass_exercises_day2/
 ---
 > Follow [this link]({{ '/day2_tidyverse1' | relative_url }}) for day 2 materials and notes
 
