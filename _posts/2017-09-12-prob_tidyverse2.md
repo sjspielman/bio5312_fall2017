@@ -1,9 +1,11 @@
 ---
 layout: post
 title:  "Basic Probability and Tidyverse II"
-date:   2017-09-05
+date:   2017-09-12
 permalink: /day3_probability_tidyverse1
 ---
+
+**Forthcoming.**
 <!--
 
 ## Lecture 
