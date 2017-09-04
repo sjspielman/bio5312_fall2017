@@ -5,7 +5,7 @@ date:   2017-09-05
 permalink: /day2_tidyverse1
 ---
 
-<!--
+
 ## Lecture 
 
 + [Slides](./slides/day2_intro_to_tidyverse.pdf)
@@ -39,28 +39,29 @@ Function  | Use
 `filter()`  | Filter data frame on row
 `select()`  | Filter data frame on column
 `mutate()`     | Add new column to data frame
-`group_by()`  | Establish a group for downstream operations
+`group_by()`  | Establish a grouping for downstream operations
+`tally()`      |Count the number of observations per grouping
 `summarize()` | Perform a summary statistic on a column. Also can spell `summarise()`
-`arrange()`   | Arrange a column. 
-`n()`        | Count the number of observations in the current group
+`arrange()`   | Arrange a column
 
 
 #### `dplyr` Examples 
+
 <pre><code class="language-r">
 ### Install the packages ####
-> install.packages("tidyverse") # Only do this one time
+install.packages("tidyverse") # Only do this one time
 
 ### Load the packages ###
-> library(tidyverse) # Do this for every R session where you use the package(s)
+library(tidyverse) # Do this for every R session where you use the package(s)
 
 
 ###### Picking rows with filter() #######
 
 ### Base R equivalent
-> iris[iris$Species == "virginica",]
+iris[iris$Species == "virginica",]
 
 ### using dplyr::filter()
-> filter(iris, Species == "virginica") 
+filter(iris, Species == "virginica") 
 	    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
 	1           6.3         3.3          6.0         2.5 virginica
 	2           5.8         2.7          5.1         1.9 virginica
@@ -72,13 +73,114 @@ Function  | Use
 	8           7.3         2.9          6.3         1.8 virginica
 	9           6.7         2.5          5.8         1.8 virginica
 # Equivalent code with %>% pipe
-> iris %>% filter(Species == "virginica")
+iris %>% filter(Species == "virginica")
+
+
+
+###### Picking rows with filter(), with multiple conditions #######
+
+### Separate "and" conditions with a comma
+iris %>% filter(Species == "virginica", Sepal.Length > 7.5)
+	  Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+	1          7.6         3.0          6.6         2.1 virginica
+	2          7.7         3.8          6.7         2.2 virginica
+	3          7.7         2.6          6.9         2.3 virginica
+	4          7.7         2.8          6.7         2.0 virginica
+	5          7.9         3.8          6.4         2.0 virginica
+	6          7.7         3.0          6.1         2.3 virginica
+	
+
+
+###### Picking rows with select() #######
+iris %>% select(Species, Petal.Length)
+	       Species Petal.Length
+	1       setosa          1.4
+	2       setosa          1.4
+	3       setosa          1.3
+	4       setosa          1.5
+	5       setosa          1.4
+	6       setosa          1.7
+	
+###### Removing rows with select(-) ######
+iris %>% select(-Species)
+	    Sepal.Length Sepal.Width Petal.Length Petal.Width
+	1            5.1         3.5          1.4         0.2
+	2            4.9         3.0          1.4         0.2
+	3            4.7         3.2          1.3         0.2
+	4            4.6         3.1          1.5         0.2
+	5            5.0         3.6          1.4         0.2
+	6            5.4         3.9          1.7         0.4
+	
+
+##### Combining filter() and select() with %>% #########
+iris %>% filter(Species == "virginica", Sepal.Width > 3.5) %>% select(Petal.Width)
+	  Petal.Width
+	1         2.5
+	2         2.2
+	3         2.0
+	
+	
+##### Creating new columns with mutate() #####
+iris %>% mutate(Sepal.Area = Sepal.Width * Sepal.Length) 
+		    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species Sepal.Area
+	1            5.1         3.5          1.4         0.2     setosa      17.85
+	2            4.9         3.0          1.4         0.2     setosa      14.70
+	3            4.7         3.2          1.3         0.2     setosa      15.04
+	4            4.6         3.1          1.5         0.2     setosa      14.26
+	5            5.0         3.6          1.4         0.2     setosa      18.00
+	6            5.4         3.9          1.7         0.4     setosa      21.06
+	
+#### Combining verbs: Which flowers have sepal areas less than 15, ordered by area?
+iris %>% mutate(Sepal.Area = Sepal.Width * Sepal.Length) %>% filter(Sepal.Area < 15) %>% arrange(Sepal.Area)
+	1           5.0         2.0          3.5         1.0 versicolor      10.00
+	2           4.5         2.3          1.3         0.3     setosa      10.35
+	3           5.0         2.3          3.3         1.0 versicolor      11.50
+	4           4.9         2.4          3.3         1.0 versicolor      11.76
+	5           4.9         2.5          4.5         1.7  virginica      12.25
+	6           5.5         2.3          4.0         1.3 versicolor      12.65
+	7           5.1         2.5          3.0         1.1 versicolor      12.75
+
+#### Combining verbs: Which flowers have sepal areas less than 15, ordered by descending area?
+iris %>% mutate(Sepal.Area = Sepal.Width * Sepal.Length) %>% filter(Sepal.Area < 15) %>% arrange(desc(Sepal.Area))
+	   Sepal.Length Sepal.Width Petal.Length Petal.Width    Species Sepal.Area
+	1           4.8         3.1          1.6         0.2     setosa      14.88
+	2           5.7         2.6          3.5         1.0 versicolor      14.82
+	3           4.6         3.2          1.4         0.2     setosa      14.72
+	4           4.9         3.0          1.4         0.2     setosa      14.70
+	5           6.3         2.3          4.4         1.3 versicolor      14.49
+
+##### Combining verbs: How many flowers have sepal areas less than 15?
+iris %>% mutate(Sepal.Area = Sepal.Width * Sepal.Length) %>% filter(Sepal.Area < 15) %>% tally()
+	  n
+	1 29
+
+
+
+
+##### Combining verbs: How many flowers of each species have sepal areas less than 15?
+
+iris %>% mutate(Sepal.Area = Sepal.Width * Sepal.Length) %>% filter(Sepal.Area < 15) %>% group_by(Species) %>% tally()
+	     Species     n
+	1     setosa    11
+	2 versicolor    15
+	3  virginica     3
+	
+
+
+##### Summarizing data ####
+iris %>% summarize(mean.sepal.width = mean(Sepal.Width))
+	  mean.sepal.width
+	1         3.057333
+
+iris %>% group_by(Species) %>% summarize(mean.sepal.width = mean(Sepal.Width))
+	     Species mean.sepal.width
+	1     setosa            3.428
+	2 versicolor            2.770
+	3  virginica            2.974
+
 
 </code></pre>
-
 
 #### `Rmarkdown`
 
 + [RMarkdown reference](http://rmarkdown.rstudio.com/authoring_basics.html)
-
--->
