@@ -129,52 +129,45 @@ $(document).ready(function () {
 <p><strong>Enter your name here</strong></p>
 <p><br> This homework again uses the <strong>sparrows.csv</strong> dataset we used in homework 1. To begin, set your working directory (<code>Session -&gt; Set Working Directory</code>) to the appropriate folder on your computer where the dataset is located, and read the dataset into R. You may also use the command <code>setwd()</code> if you are comfortable.</p>
 <pre class="r"><code>sparrows &lt;- read.csv(&quot;sparrows.csv&quot;)</code></pre>
-<p>For each question, show your code and its output (i.e. do not add either <code>echo=FALSE</code> or <code>results=&quot;hide&quot;</code> to your R chunk settings!). For questions which ask you to provide a written response, please limit yourself to 1-3 concise sentences.</p>
-<p><br></p>
+<p>For each question, show your code and its output (i.e. do not add either <code>echo=FALSE</code> or <code>results=&quot;hide&quot;</code> to your R chunk settings!). <strong>Complete this assignment using <code>ggplot2</code> for visualization and <code>dplyr</code> with the <code>%&gt;%</code> operator for data manipulation. Do not use base R indexing or plotting.</strong></p>
+<p><br><br></p>
 </div>
-<div id="question-1-5-pts" class="section level4">
-<h4>Question 1 (5 pts)</h4>
-<p>Repeat question 3c from homework 1 using <code>dplyr</code>: Determine the sex, age, and survival status for the bird with the longest and shortest wingspread. Complete this task in <em>1 line of code</em>, using the <code>%&gt;%</code> operator to link your <code>dplyr</code> commands. <em>Hint: you will need to use the functions <code>filter</code> and <code>select</code>.</em></p>
+<div id="question-1-5-pts" class="section level3">
+<h3>Question 1 (5 pts)</h3>
+<p>Repeat question 3c from homework 1 using <code>dplyr</code>: Determine the sex, age, and survival status for the bird with the longest and shortest wingspread. Complete this task in <em>1 line of code</em>.</p>
 <pre class="r"><code>### Enter your code here.</code></pre>
-<p><br></p>
+<p><br><br></p>
 </div>
-<div id="question-2-5-pts." class="section level4">
-<h4>Question 2 (5 pts).</h4>
-<p>Make a scatterplot of sparrow skull lengths (response variable) against sparrow skull widths (explanatory variable). Make two versions of this plot: 1. Set the point color based on wingspread 2. Set the point size based on wingspread. You may wish to include the <code>alpha</code> parameter when calling <code>geom_point()</code> for this plot. Which version do you think is more informative?</p>
+<div id="question-2-5-pts" class="section level3">
+<h3>Question 2 (5 pts)</h3>
+<p>Make a scatterplot of sparrow skull lengths (response variable) against sparrow skull widths (explanatory variable). Make two versions of this plot:</p>
+<ul>
+<li>Set the point <em>color</em> based on wingspread</li>
+<li>Set the point <em>size</em> based on wingspread. You may wish to include the <code>alpha</code> parameter when calling <code>geom_point()</code> for this plot.</li>
+</ul>
 <pre class="r"><code>### Enter your code here.</code></pre>
-<p><strong>Provide your brief answer here.</strong></p>
-<p><br></p>
+<p><br><br></p>
 </div>
-<div id="question-2" class="section level4">
-<h4>Question 2</h4>
-<p><br> <strong>Question 2a (5 pts).</strong> Use <code>dplyr</code> to summarize the mean and standard deviation of Tarsus lengths between Sex groupings (i.e. male and female). <em>Hint: your result should be a data frame with 2 rows.</em></p>
+<div id="question-3" class="section level3">
+<h3>Question 3</h3>
+<p><br> <strong>Question 3a (5 pts).</strong> Use <code>ggplot2</code> to make density plots (<em>hint: use the <code>alpha</code> parameter</em>) showing bird Weights for the Alive and Dead birds.</p>
 <pre class="r"><code>### Enter your code here.</code></pre>
-<p><br> <strong>Question 2b (5 pts).</strong> Now, use <code>dplyr</code> to summarize the mean and standard deviation of Tarsus lengths for all combinations of Sex and Age. Have the output printed arranged according to <em>descending</em> Tarsus length standard deviations. <em>Hint: your result should be a data frame with 4 rows.</em></p>
-<pre class="r"><code>### Enter your code here.</code></pre>
-<p><br> <strong>Question 2c (5 pts).</strong> Use <code>ggplot2</code> to generate a line plot showing the differences between the mean Tarsus Length across sexes, showing separate lines for young vs adult birds. In other words, create a plot similar to this one: <a href="http://sjspielman.org/bio5312_fall2017/examples/example_2c.pdf">example_2c.pdf</a>: <em>Hint: you will need to specify a <code>group</code> aesthetic.</em></p>
-<pre class="r"><code>### Enter your code here.</code></pre>
-<p><br> <strong>Question 2d (5 pts).</strong> Instead of merely showing the <em>means</em>, visualize the full distributions for the Tarsus Lengths across sexes and age. Make this plot for only the birds which survived. Make this figure two ways, using a violin plot and then using a boxplot. Which plot do you prefer for representing the data and why? <em>Hint: you will <em>not</em> need to specify a <code>group</code> aesthetic.</em></p>
-<pre class="r"><code>### Enter your code here.</code></pre>
-<p><strong>Explain your plot preference here.</strong></p>
-<p><br></p>
-</div>
-<div id="question-3" class="section level4">
-<h4>Question 3</h4>
-<p><br> <strong>Question 3a (5 pts).</strong> Use <code>ggplot2</code> to make overlayed density plots (<em>hint: use the <code>alpha</code> parameter</em>) showing bird Weights for the Alive and Dead birds.</p>
-<pre class="r"><code>### Enter your code here.</code></pre>
-<!--
-<br>
-**Question 3b (5 pts).** Use `dplyr` and `ggplot2` to make overlayed density plots (*hint: use the `alpha` parameter*) showing bird Weights for the Alive and Dead birds, specifically for young birds with a sternum length between 20--22 (including 20 and 22). 
-
-```r
-sparrows %>% filter(Sternum_Length >= 20, Sternum_Length <=22) %>% ggplot(aes(x = Weight, fill = Survival)) + geom_density(alpha = 0.4)
-```
-
-<img src="HW2_files/figure-html/unnamed-chunk-9-1.png" width="432" style="display: block; margin: auto;" />
--->
-<p><br> <strong>Question 3b (5 pts).</strong> We are also interested in viewing “sparrow BMI” (defined for birds as weight divided by length). Use <code>dplyr</code> to create a new BMI column in the sparrows data, and then use <code>ggplot2</code> to make overlayed density plots of BMI for Alive vs Dead birds. Do you think “BMI” influenced survival? Why or why not?</p>
+<p><br> <strong>Question 3b (5 pts).</strong> We are also interested in viewing “bird BMI” (defined for birds as weight divided by length squared, or <span class="math inline">\(weight/(length^2)\)</span>). Create a new BMI column in the sparrows data, and then make density plots of BMI for Alive vs Dead birds. Do you think bird BMI influenced survival? Explain why or why not in 1-2 sentences.</p>
 <pre class="r"><code>### Enter your code here.</code></pre>
 <p><strong>Explain why (not) BMI influenced survival here.</strong></p>
+<p><br><br></p>
+</div>
+<div id="question-4" class="section level3">
+<h3>Question 4</h3>
+<p><br> <strong>Question 4a (5 pts).</strong> Use <code>dplyr</code> to summarize the mean and standard deviation of Tarsus lengths between Sex groupings (i.e. male and female). Your result should be a data frame with 2 rows.</p>
+<pre class="r"><code>### Enter your code here.</code></pre>
+<p><br> <strong>Question 4b (5 pts).</strong> Now, use <code>dplyr</code> to summarize the mean and standard deviation of Tarsus lengths for all combinations of Sex and Age. Have the output displayed according to <em>descending</em> Tarsus length standard deviations. Your result should be a data frame with 4 rows.</p>
+<pre class="r"><code>### Enter your code here.</code></pre>
+<p><br> <strong>Question 4c (10 pts).</strong> Use <code>ggplot2</code> to generate a line plot showing the differences between the mean Tarsus Length across sexes, showing separate lines for young vs adult birds. In other words, create a plot similar to <a href="http://sjspielman.org/bio5312_fall2017/files/examples/example_4c.pdf">this one</a>. <br> <em>Hint: you will need to specify a <code>group</code> aesthetic. See the documumentation for ggplot2 <code>geom_path</code>/<code>geom_line</code> at this link: <a href="http://ggplot2.tidyverse.org/reference/geom_path.html" class="uri">http://ggplot2.tidyverse.org/reference/geom_path.html</a> </em></p>
+<pre class="r"><code>### Enter your code here.</code></pre>
+<p><br> <strong>Question 4d (10 pts).</strong> Instead of merely showing the <em>means</em>, visualize the full distributions for the Tarsus Lengths across sexes and age. Make this plot for only the birds which survived. Make this figure two ways, using a grouped violin plot and then using a grouped boxplot. Which plot do you prefer for representing the data and why?</p>
+<pre class="r"><code>### Enter your code here.</code></pre>
+<p><strong>Explain your plot preference here.</strong></p>
 </div>
 </div>
 

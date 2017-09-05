@@ -83,7 +83,7 @@ a {
 }
 
 .home h1 {
-    font-size: $base-font-size * 2.5;
+    font-size: $base-font-size * 2;
     text-align: center;
     //color: $nice-grey;
     font-weight: 500;
@@ -92,12 +92,12 @@ a {
 }
 
 .home h2 {
-    font-size: $base-font-size * 1.4;
+    font-size: $base-font-size * 1.2;
     font-weight: 500;
 }
 
 .post-link { 
-    font-size: $base-font-size * 1.1;
+    font-size: $base-font-size; // * 1.1;
 }
 
 .post-link-child { 
@@ -121,6 +121,7 @@ li {
         
 .post-list {
     margin-left: 8%;
+    
 }
  
 .post-list-child {
@@ -128,6 +129,7 @@ li {
 } 
 .post-list li {
     margin-bottom: 1%;
+    font-size: $base-font-size; // * 1.1;
 }
   
   
