@@ -63,6 +63,8 @@ head(CO2)
 4. Make a table (data frame) of experimental groups indicating how many (hint: `tally()`) plants of each Type experienced each condition (Treatment and concentration). End your command by piping into the function `print.data.frame()` to see all rows. 
 	+ The command `unique()` will extract all unique rows from a data frame. Using this command (and others), select the tallied column from the dataframe and remove all duplicate rows. This result will tell you how many experimental treatments was each plant subjected to. (Hint: you should end up with **one** row.)
 
+
+<!--
 <br><br>
 
 ### **`Rmarkdown`** and **`ggplot2`** exercises
@@ -90,6 +92,7 @@ For this exercise, convert the questions/answers/code for the above `dplyr` exer
 + Question numbers (i.e. "Question 1") should be second-level headers (##)
 + Questions themselves should be in bold, beneath the relevant header. Code chunks should immediately follow the questions (i.e. there can be several code chunks per question, as needed).
 
+
 **Once this document knits without errors**, make new question headers to create the following figures in your Rmarkdown document:
 
 1. Histogram of CO2 uptake values for all plants
@@ -99,7 +102,7 @@ For this exercise, convert the questions/answers/code for the above `dplyr` exer
 5. Scatterplot of CO2 uptake against concentration (meaning CO2 is the **response** variable), where points are colored by Type. 
 6. Modify the scatterplot to make a *line plot* where a line goes through each plant. For this, you will need to specify a *group aesthetic* where each **Plant** is a grouping (but please also make without this aesthetic to compare).
 
-
+-->
 
 
 
