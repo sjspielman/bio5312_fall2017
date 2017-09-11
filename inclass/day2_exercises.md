@@ -4,6 +4,8 @@ title: Inclass exercises, Day II
 permalink: /inclass_exercises_day2/
 ---
 > Follow [this link]({{ '/day2_tidyverse1' | relative_url }}) for day 2 materials and notes
+> 
+> Solutions for these exercises are available [here]({{ '/inclass_exercises_day2_solutions' | relative_url }})
 
 <br>
 

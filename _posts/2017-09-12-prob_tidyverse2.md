@@ -5,23 +5,40 @@ date:   2017-09-12
 permalink: /day3_probability_tidyverse2
 ---
 
-**Forthcoming.**
 
-<!--
 ## Lecture 
 
-+ [Slides](./slides/day2_intro_to_tidyverse.pdf)
-+ [In-class exercises](./files/inclass/day3.html)
++ [Slides](./slides/day3_probability_tidyverse.pdf)
++ [In-class exercises]({{ site.baseurl }}{% link inclass/day3_exercises.md %})
 
 <br>
+## Probability Rules
+
++ Probability of **mutually exclusive** events A *or* B 
+  + \$$P[A\ or\ B] = P[A] + P[B]$$
+
+<br>
++ Probability of **not mutually exclusive** events A *or* B 
+  + \$$P[A\ or\ B] = P[A] + P[B] - P[A\ and\ B]$$
+
+<br>
++ Probability of **independent** events A *and* B 
+  + \$$P[A\ and\ B] = P[A]\ *\ P[B]$$
+
+<br>
++ Probability of **dependent** events A *and* B 
+  
+  + \$$P[A\ and\ B] = P[B\vert A]\ *\ P[B]$$ 
+  
+  + \$$P[B\ and\ A] = P[A\vert B]\ *\ P[A]$$  
+
+<br>
++ Together, the above probabilities reveal **Bayes Theorem**
+	+ \$$P[B\vert A] = \large{\frac{P[A\vert B]\ *\ P[B]}{P[A]}}$$
+
+
+<br>
+
 ## R lab
 
-#### `tidyr` functions
-
-Function  |  Use
----------|----------
-`spread()`  |  Spread a key-value pair across multiple columns (opposite of `gather()`)
-`gather()` | Gather columns into key-value pairs (opposite of `spread()`)
-`separate()`| Separate one column into multiple columns (opposite of `unite()`)
-`unite()` |  Unite multiple columns into one (opposite of `separate()`
--->
+All of today's new R materials are available in the lecture slides.

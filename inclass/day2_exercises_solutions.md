@@ -113,28 +113,3 @@ permalink: /inclass_exercises_day2_solutions/
 		unique()
 	</code></pre>
 	 
-	 
-<br><br>
-
-### `Rmarkdown` and `ggplot2` exercises
-
-Download/view the Rmarkdown solutions here:
-
-+ [RMarkdown file](./example_rmarkdown_solutions.Rmd)
-+ [HTML](./example_rmarkdown_solutions.html)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
