@@ -1,0 +1,268 @@
+```{r global_options, include=FALSE}
+library(knitr)
+library(dplyr)
+library(ggplot2)
+knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width=4.5)
+```
+---
+output: html_document
+---
+
+## Homework 3: Probability
+#### BIO5312
+#### Due 9/19/17 by 5:30 pm
+
+**Enter your name here**
+
+<br>
+
+### Instructions
+
+For parts 1 and 2 of this homework, you will use `dplyr` (primarily the functions `filter()` and `tally()`) to extract values and calculate probabilities directly from the dataset. Perform the following for each question:
+
++ Convert the written question into a probability statement
++ In a R code chunk, employ R as a calculator to compute values and probabilities
++ Provide the final probability answer
+
+Consider these example questions and answers as templates. For any probability statement with a corresponding probability equation (any probability with *and* or *or*, any conditional probability, or any Bayes Theorem question), be sure to provide the full probability equation (left and right of equals sign) as in example 2:
+
+**Example Question 1**
+What is the probability that a sampled iris is the species Setosa?
+
+**Example Answer 1**
+
+*Probability statement:* `P(species is setosa)`
+```{r example-calculation}
+total <- nrow(iris)
+iris %>% filter(Species == "setosa") %>% tally() -> setosa
+setosa/total
+```
+*The probability is* `0.3333333`
+
+<br>
+
+**Example Question 2**
+What is the probability that a sampled iris is the species Setosa and has sepal widths less than or equal to 3? Assume these variables are independent.
+
+<br>
+
+*Example Answer 2**
+
+**Probability statement:* `P(setosa and sepal width <= 3) = P(setosa) x P(sepal width >= 3)`
+```{r example-calculation2}
+total <- nrow(iris)
+iris %>% filter(Species == "setosa", Sepal.Width <= 3) %>% tally() -> setosa.sepal
+setosa.sepal/total
+```
+*The probability is* `0.05333333`
+
+
+<br><br>
+
+### Part One: Damselflies
+
+Questions in this section employ the datasets **damselfly_source.csv** and **damselfly_size.csv**. This data reports the results from a study of color pattern differences in the damselfly *Ischnura ramburii*. These damselflies display unique pigmentation: all males are blue-green, while some females are orange and some are blue-green like the males. The orange females are referred to as “gynomorphs” (female-like morphs) and the blue-green females are referred to as “andromorphs” (male-like morphs). This data set contains information about these damselflies collected from the Hawaiian islands Oahu, Kauai, and Hawaii, as well as from Texas. Assume all variables in this data are independent (with the exception of Sex and Morphology which are necessarily linked).
+
+
+
+<br>
+
+**1. Before you begin, use `dplyr` to _join_ the two CSV's to create a single new data frame called `damselfly`. Employ this new data frame for all subsequent questions in this section of the homework.** *(5 points)*
+
+```{r}
+#### Enter your code here to create and save the joined dataset
+```
+
+<br>
+
+**2. What is the probability that a damselfly in this dastaset is from Kauii?** *(6 points)*
+
+*Probability statement: * `provide statement here`
+```{r}
+### Enter your calculations here
+
+```
+*The probability is * `provide answer here`
+
+
+<br>
+
+**3. What is the probably that a damselfly is female and from Kauii?** *(6 points)*
+
+*Probability statement: * `provide statement here`
+```{r}
+### Enter your calculations here
+
+```
+*The probability is * `provide answer here`
+
+
+
+<br>
+
+**4. What is the probability that you observe an andro morph in this dataset that is _not_ from Oahu? (Hint: the operator `!=` stands for "not equal to", i.e. it is the opposite of `==`.)** *(6 points)*
+
+*Probability statement: * `provide statement here`.
+```{r}
+### Enter your calculations here
+
+```
+*The probability is * `provide answer here`.
+
+
+
+<br>
+
+**5. What is probability that an unmated damselfly is from Kauii?** *(6 points)*
+
+*Probability statement: * `provide statement here`.
+```{r}
+### Enter your calculations here
+
+```
+*The probability is * `provide answer here`.
+
+
+
+<br>
+
+**6. Again answer the question from #4 (What is probability that an unmated damselfly is from Kauii?), but this time use Bayes Theorem.** As before, you will still employ R as a calculator, but this time the probabilities you calculate will be used to fill in and solve Bayes Theorem. Check your answer by confirming it is the same as for #4. *(6 points)*
+
+*Probability statement: * `provide statement here (full Bayes theorem statement!)`.
+```{r}
+### Enter your calculations here
+
+```
+*The probability is * `provide answer here`.
+
+
+
+<br>
+
+**7. Make a barplot with ggplot2 to visualize the distribution of sex across damselflies. Fill your barplot based on morphology to create a _dodged group barplot_.** (Hint: see lecture 2, slide 41). *(4 points)*
+```{r}
+### Code for plot goes here. Be sure plot is displayed in knitted output.
+```
+
+
+<br>
+
+**8. Make a faceted scatterplot, across morphology, of abdomen length against wing size (i.e., abdomen length is the _response variable_). Color the points by Island.** *(4 points)*
+```{r}
+### Code for plot goes here. Be sure plot is displayed in knitted output.
+```
+
+
+<br>
+
+
+**8. Based _only_ on the plot you made for #7, what is the probability an andro morph in this dataset is from Hawaii?** Do not do any calculations for this question. *(2 points)*
+
+*The probability is * `provide answer here`.
+
+
+
+<br><br>
+
+### Part Two: Biopsies
+
+Questions in this section employ the dataset **biopsy.csv**. This dataset reports breast tumor biopsy results for 699 patients from the University of Wisconsin Hospitals, Madison. Nine attributes were measured each on a scale of 1-10, and the diagnosis for each patient is given in the column `outcome`. Assume all variables in this data are independent.
+
+
+<br>
+
+
+**1. Assume that individuals diagnosed with malignancies in this dataset have a 28% chance of survival, and individuals diagnosed with benign growths have a 96% chance of survival (they will not all survive because of false negative results). What is the probality that an individual in this dataset survives?** (Hint: You can survive with a benign growth *or* you can survive with a malignant growth.) *(6 points)*
+
+*Probability statement: * `provide statement here (including left and right of =)`.
+```{r}
+### Enter your calculations here
+
+```
+*The probability is * `provide answer here`.
+
+
+<br>
+
+
+**2. Now assume that there was an error in recording the final outcome: In reality, the outcome can be computed directly from clump thickness, where thickness >= 7 is always malignant and < 3 is always benign.** 
+
+<br> 
+
+**2a. What is the probability that an individual had a _false positive_ result? In other words, what is the probability that an individual with clump thickness < 3 was diagnosed with a malignancy?** *(6 points)*
+
+*Probability statement: * `provide statement here (including left and right of =)`.
+```{r}
+### Enter your calculations here
+
+```
+*The probability is * `provide answer here`.
+
+<br>
+
+
+**2b. What is the probability that an individual had a _false negative_ result. In other words, what is the probability that an individual with clump thickness >= 7 was diagnosed with a benign growth?** *(6 points)*
+
+*Probability statement: * `provide statement here (including left and right of =)`.
+```{r}
+### Enter your calculations here
+
+```
+*The probability is * `provide answer here`.
+
+<br><br>
+
+### Part Three
+
+The final part of this assignment does not have an external CSV dataset. Instead,  employ R as a calculator to answer questions with this background information:
+
+Researchers have discovered a new genetic marker for thyroid cancer. The total frequency of thyroid cancer in the general population is 0.01% (i.e. 0.0001). The marker has an overall frequency of 15% in the general population. Of all people with thryoid cancer, 37% carry the marker. 
+
+<br>
+
+
+**1. Write the probability statements for each of the three probabilities given above. The first one is provided for you.** *(4 points)*
+
+*Statement 1:* `P(thyroid cancer) = 0.0001`
+
+*Statement 2:* `Enter statement 2 here`
+
+*Statement 3:* `Enter statement 3 here`
+
+<br>
+
+
+**2. What is the probability that an individual has both the cancer and the marker?** *(6 points)*
+
+*Probability statement: * `provide statement here (including left and right of =)`.
+```{r}
+### Enter your calculations here
+
+```
+*The probability is * `provide answer here`.
+
+<br>
+
+
+**3. What is the probability that an individual who has the marker develops cancer?** *(6 points)*
+
+*Probability statement: * `provide statement here (including left and right of =)`.
+```{r}
+### Enter your calculations here
+
+```
+*The probability is * `provide answer here`.
+
+
+<br>
+
+
+**4. What is the probability that an individual who _doesn't_ develop cancer has the marker?** *(6 points)*
+
+*Probability statement: * `provide statement here (including left and right of =)`.
+```{r}
+### Enter your calculations here
+
+```
+*The probability is * `provide answer here`.
+
