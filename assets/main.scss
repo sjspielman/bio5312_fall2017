@@ -128,11 +128,16 @@ li {
     list-style-type: disc;
 } 
 .post-list li {
-    margin-bottom: 1%;
+    margin-bottom: 12%;
     font-size: $base-font-size; // * 1.1;
 }
   
   
+.img {
+    display: block;
+    width: 50%;
+    margin: auto;
+}
   
   
   
