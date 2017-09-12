@@ -20,11 +20,16 @@ output: html_document
 
 For parts 1 and 2 of this homework, you will use `dplyr` (primarily the functions `filter()` and `tally()`) to extract values and calculate probabilities directly from the dataset. Perform the following for each question:
 
-+ Convert the written question into a probability statement
-+ In a R code chunk, employ R as a calculator to compute values and probabilities
-+ Provide the final probability answer
++ Convert the written question into a probability statement or equation
+    + For any probability which requires calculations (generally, any probability with *and* or *or*, any conditional probability, or any Bayes Theorem question), be sure to provide the full probability equation (left and right of equals sign) as in example 2. For each question, it will be indicated whether a simple probability statement or equation is required. If neither is required, space will not be templated out to provide one.
++ In a R code chunk, employ R as a calculator to compute values and probabilities. *Make sure to show all of your work*
++ Provide the final probability answer. You can provide this as a decimal, percentage, or fully reduced fraction.
 
-Consider these example questions and answers as templates. For any probability statement with a corresponding probability equation (any probability with *and* or *or*, any conditional probability, or any Bayes Theorem question), be sure to provide the full probability equation (left and right of equals sign) as in example 2:
+Consider the example questions and answers below as templates. 
+
+<br><br>
+
+### Examples 
 
 **Example Question 1**
 What is the probability that a sampled iris is the species Setosa?
@@ -44,11 +49,9 @@ setosa/total
 **Example Question 2**
 What is the probability that a sampled iris is the species Setosa and has sepal widths less than or equal to 3? Assume these variables are independent.
 
-<br>
+**Example Answer 2**
 
-*Example Answer 2**
-
-**Probability statement:* `P(setosa and sepal width <= 3) = P(setosa) x P(sepal width >= 3)`
+*Probability equation:* `P(setosa and sepal width <= 3) = P(setosa) x P(sepal width >= 3)`
 ```{r example-calculation2}
 total <- nrow(iris)
 iris %>% filter(Species == "setosa", Sepal.Width <= 3) %>% tally() -> setosa.sepal
@@ -89,7 +92,7 @@ Questions in this section employ the datasets **damselfly_source.csv** and **dam
 
 **3. What is the probably that a damselfly is female and from Kauii?** *(6 points)*
 
-*Probability statement: * `provide statement here`
+*Probability equation: * `provide equation here`
 ```{r}
 ### Enter your calculations here
 
@@ -102,7 +105,7 @@ Questions in this section employ the datasets **damselfly_source.csv** and **dam
 
 **4. What is the probability that you observe an andro morph in this dataset that is _not_ from Oahu? (Hint: the operator `!=` stands for "not equal to", i.e. it is the opposite of `==`.)** *(6 points)*
 
-*Probability statement: * `provide statement here`.
+*Probability equation: * `provide equation here`.
 ```{r}
 ### Enter your calculations here
 
@@ -115,7 +118,7 @@ Questions in this section employ the datasets **damselfly_source.csv** and **dam
 
 **5. What is probability that an unmated damselfly is from Kauii?** *(6 points)*
 
-*Probability statement: * `provide statement here`.
+*Probability equation: * `provide equation here`.
 ```{r}
 ### Enter your calculations here
 
@@ -128,7 +131,7 @@ Questions in this section employ the datasets **damselfly_source.csv** and **dam
 
 **6. Again answer the question from #4 (What is probability that an unmated damselfly is from Kauii?), but this time use Bayes Theorem.** As before, you will still employ R as a calculator, but this time the probabilities you calculate will be used to fill in and solve Bayes Theorem. Check your answer by confirming it is the same as for #4. *(6 points)*
 
-*Probability statement: * `provide statement here (full Bayes theorem statement!)`.
+*Probability equation: * `provide equation here`.
 ```{r}
 ### Enter your calculations here
 
@@ -174,7 +177,7 @@ Questions in this section employ the dataset **biopsy.csv**. This dataset report
 
 **1. Assume that individuals diagnosed with malignancies in this dataset have a 28% chance of survival, and individuals diagnosed with benign growths have a 96% chance of survival (they will not all survive because of false negative results). What is the probality that an individual in this dataset survives?** (Hint: You can survive with a benign growth *or* you can survive with a malignant growth.) *(6 points)*
 
-*Probability statement: * `provide statement here (including left and right of =)`.
+*Probability equation: * `provide equation here`.
 ```{r}
 ### Enter your calculations here
 
@@ -191,7 +194,7 @@ Questions in this section employ the dataset **biopsy.csv**. This dataset report
 
 **2a. What is the probability that an individual had a _false positive_ result? In other words, what is the probability that an individual with clump thickness < 3 was diagnosed with a malignancy?** *(6 points)*
 
-*Probability statement: * `provide statement here (including left and right of =)`.
+*Probability equation: * `provide equation here`.
 ```{r}
 ### Enter your calculations here
 
@@ -203,7 +206,7 @@ Questions in this section employ the dataset **biopsy.csv**. This dataset report
 
 **2b. What is the probability that an individual had a _false negative_ result. In other words, what is the probability that an individual with clump thickness >= 7 was diagnosed with a benign growth?** *(6 points)*
 
-*Probability statement: * `provide statement here (including left and right of =)`.
+*Probability equation: * `provide equation here`.
 ```{r}
 ### Enter your calculations here
 
@@ -234,7 +237,7 @@ Researchers have discovered a new genetic marker for thyroid cancer. The total f
 
 **2. What is the probability that an individual has both the cancer and the marker?** *(6 points)*
 
-*Probability statement: * `provide statement here (including left and right of =)`.
+*Probability equation: * `provide equation here`.
 ```{r}
 ### Enter your calculations here
 
@@ -246,7 +249,7 @@ Researchers have discovered a new genetic marker for thyroid cancer. The total f
 
 **3. What is the probability that an individual who has the marker develops cancer?** *(6 points)*
 
-*Probability statement: * `provide statement here (including left and right of =)`.
+*Probability equation: * `provide equation here`.
 ```{r}
 ### Enter your calculations here
 
@@ -259,7 +262,7 @@ Researchers have discovered a new genetic marker for thyroid cancer. The total f
 
 **4. What is the probability that an individual who _doesn't_ develop cancer has the marker?** *(6 points)*
 
-*Probability statement: * `provide statement here (including left and right of =)`.
+*Probability equation: * `provide equation here`.
 ```{r}
 ### Enter your calculations here
 

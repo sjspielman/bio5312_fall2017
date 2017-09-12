@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  "Basic Probability and Tidyverse II"
+title:  "Introduction to Probability"
 date:   2017-09-12
-permalink: /day3_probability_tidyverse2
+permalink: /day3_probability
 ---
 
 
 ## Lecture 
 
-+ [Slides](./slides/day3_probability_tidyverse.pdf)
++ [Slides](./slides/day3_probability.pdf)
 + [In-class exercises]({{ site.baseurl }}{% link inclass/day3_exercises.md %})
 
 <br>

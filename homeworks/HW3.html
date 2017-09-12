@@ -133,11 +133,18 @@ $(document).ready(function () {
 <h3>Instructions</h3>
 <p>For parts 1 and 2 of this homework, you will use <code>dplyr</code> (primarily the functions <code>filter()</code> and <code>tally()</code>) to extract values and calculate probabilities directly from the dataset. Perform the following for each question:</p>
 <ul>
-<li>Convert the written question into a probability statement</li>
-<li>In a R code chunk, employ R as a calculator to compute values and probabilities</li>
-<li>Provide the final probability answer</li>
+<li>Convert the written question into a probability statement or equation
+<ul>
+<li>For any probability which requires calculations (generally, any probability with <em>and</em> or <em>or</em>, any conditional probability, or any Bayes Theorem question), be sure to provide the full probability equation (left and right of equals sign) as in example 2. For each question, it will be indicated whether a simple probability statement or equation is required. If neither is required, space will not be templated out to provide one.</li>
+</ul></li>
+<li>In a R code chunk, employ R as a calculator to compute values and probabilities. <em>Make sure to show all of your work</em></li>
+<li>Provide the final probability answer. You can provide this as a decimal, percentage, or fully reduced fraction.</li>
 </ul>
-<p>Consider these example questions and answers as templates. For any probability statement with a corresponding probability equation (any probability with <em>and</em> or <em>or</em>, any conditional probability, or any Bayes Theorem question), be sure to provide the full probability equation (left and right of equals sign) as in example 2:</p>
+<p>Consider the example questions and answers below as templates.</p>
+<p><br><br></p>
+</div>
+<div id="examples" class="section level3">
+<h3>Examples</h3>
 <p><strong>Example Question 1</strong> What is the probability that a sampled iris is the species Setosa?</p>
 <p><strong>Example Answer 1</strong></p>
 <p><em>Probability statement:</em> <code>P(species is setosa)</code></p>
@@ -149,9 +156,8 @@ setosa/total</code></pre>
 <p><em>The probability is</em> <code>0.3333333</code></p>
 <p><br></p>
 <p><strong>Example Question 2</strong> What is the probability that a sampled iris is the species Setosa and has sepal widths less than or equal to 3? Assume these variables are independent.</p>
-<p><br></p>
-<p>*Example Answer 2**</p>
-<p>**Probability statement:* <code>P(setosa and sepal width &lt;= 3) = P(setosa) x P(sepal width &gt;= 3)</code></p>
+<p><strong>Example Answer 2</strong></p>
+<p><em>Probability equation:</em> <code>P(setosa and sepal width &lt;= 3) = P(setosa) x P(sepal width &gt;= 3)</code></p>
 <pre class="r"><code>total &lt;- nrow(iris)
 iris %&gt;% filter(Species == &quot;setosa&quot;, Sepal.Width &lt;= 3) %&gt;% tally() -&gt; setosa.sepal
 setosa.sepal/total</code></pre>
@@ -162,37 +168,40 @@ setosa.sepal/total</code></pre>
 </div>
 <div id="part-one-damselflies" class="section level3">
 <h3>Part One: Damselflies</h3>
-<p>Questions in this section employ the dataset <strong>damselfly.csv</strong>. This dataset reports the results from a study of color pattern differences in the damselfly <em>Ischnura ramburii</em>. These damselflies display unique pigmentation: all males are blue-green, while some females are orange and some are blue-green like the males. The orange females are referred to as “gynomorphs” (female-like morphs) and the blue-green females are referred to as “andromorphs” (male-like morphs). This data set contains information about these damselflies collected from the Hawaiian islands Oahu, Kauai, and Hawaii, as well as from Texas. Assume all variables in this data are independent (with the exception of Sex and Morphology which are necessarily linked).</p>
+<p>Questions in this section employ the datasets <strong>damselfly_source.csv</strong> and <strong>damselfly_size.csv</strong>. This data reports the results from a study of color pattern differences in the damselfly <em>Ischnura ramburii</em>. These damselflies display unique pigmentation: all males are blue-green, while some females are orange and some are blue-green like the males. The orange females are referred to as “gynomorphs” (female-like morphs) and the blue-green females are referred to as “andromorphs” (male-like morphs). This data set contains information about these damselflies collected from the Hawaiian islands Oahu, Kauai, and Hawaii, as well as from Texas. Assume all variables in this data are independent (with the exception of Sex and Morphology which are necessarily linked).</p>
 <p><br></p>
-<p><strong>1. What is the probability that a damselfly in this dastaset is from Kauii?</strong> <em>(6 points)</em></p>
+<p><strong>1. Before you begin, use <code>dplyr</code> to <em>join</em> the two CSV’s to create a single new data frame called <code>damselfly</code>. Employ this new data frame for all subsequent questions in this section of the homework.</strong> <em>(5 points)</em></p>
+<pre class="r"><code>#### Enter your code here to create and save the joined dataset</code></pre>
+<p><br></p>
+<p><strong>2. What is the probability that a damselfly in this dastaset is from Kauii?</strong> <em>(6 points)</em></p>
 <p><em>Probability statement: </em> <code>provide statement here</code></p>
 <pre class="r"><code>### Enter your calculations here</code></pre>
 <p><em>The probability is </em> <code>provide answer here</code></p>
 <p><br></p>
-<p><strong>2. What is the probably that a damselfly is female and from Kauii?</strong> <em>(6 points)</em></p>
-<p><em>Probability statement: </em> <code>provide statement here</code></p>
+<p><strong>3. What is the probably that a damselfly is female and from Kauii?</strong> <em>(6 points)</em></p>
+<p><em>Probability equation: </em> <code>provide equation here</code></p>
 <pre class="r"><code>### Enter your calculations here</code></pre>
 <p><em>The probability is </em> <code>provide answer here</code></p>
 <p><br></p>
-<p><strong>3. What is the probability that you observe an andro morph in this dataset that is <em>not</em> from Oahu? (Hint: the operator <code>!=</code> stands for “not equal to”, i.e. it is the opposite of <code>==</code>.)</strong> <em>(6 points)</em></p>
-<p><em>Probability statement: </em> <code>provide statement here</code>.</p>
+<p><strong>4. What is the probability that you observe an andro morph in this dataset that is <em>not</em> from Oahu? (Hint: the operator <code>!=</code> stands for “not equal to”, i.e. it is the opposite of <code>==</code>.)</strong> <em>(6 points)</em></p>
+<p><em>Probability equation: </em> <code>provide equation here</code>.</p>
 <pre class="r"><code>### Enter your calculations here</code></pre>
 <p><em>The probability is </em> <code>provide answer here</code>.</p>
 <p><br></p>
-<p><strong>4. What is probability that an unmated damselfly is from Kauii?</strong> <em>(6 points)</em></p>
-<p><em>Probability statement: </em> <code>provide statement here</code>.</p>
+<p><strong>5. What is probability that an unmated damselfly is from Kauii?</strong> <em>(6 points)</em></p>
+<p><em>Probability equation: </em> <code>provide equation here</code>.</p>
 <pre class="r"><code>### Enter your calculations here</code></pre>
 <p><em>The probability is </em> <code>provide answer here</code>.</p>
 <p><br></p>
-<p><strong>5. Again answer the question from #4 (What is probability that an unmated damselfly is from Kauii?), but this time use Bayes Theorem.</strong> As before, you will still employ R as a calculator, but this time the probabilities you calculate will be used to fill in and solve Bayes Theorem. Check your answer by confirming it is the same as for #4. <em>(6 points)</em></p>
-<p><em>Probability statement: </em> <code>provide statement here (full Bayes theorem statement!)</code>.</p>
+<p><strong>6. Again answer the question from #4 (What is probability that an unmated damselfly is from Kauii?), but this time use Bayes Theorem.</strong> As before, you will still employ R as a calculator, but this time the probabilities you calculate will be used to fill in and solve Bayes Theorem. Check your answer by confirming it is the same as for #4. <em>(6 points)</em></p>
+<p><em>Probability equation: </em> <code>provide equation here</code>.</p>
 <pre class="r"><code>### Enter your calculations here</code></pre>
 <p><em>The probability is </em> <code>provide answer here</code>.</p>
 <p><br></p>
-<p><strong>6. Make a barplot with ggplot2 to visualize the distribution of sex across damselflies. Fill your barplot based on morphology to create a <em>dodged group barplot</em>.</strong> (Hint: see lecture 2, slide 41). <em>(4 points)</em></p>
+<p><strong>7. Make a barplot with ggplot2 to visualize the distribution of sex across damselflies. Fill your barplot based on morphology to create a <em>dodged group barplot</em>.</strong> (Hint: see lecture 2, slide 41). <em>(4 points)</em></p>
 <pre class="r"><code>### Code for plot goes here. Be sure plot is displayed in knitted output.</code></pre>
 <p><br></p>
-<p><strong>7. Make a faceted scatterplot, across morphology, of abdomen length against wing size (i.e., abdomen length is the <em>response variable</em>). Color the points by Island.</strong> <em>(4 points)</em></p>
+<p><strong>8. Make a faceted scatterplot, across morphology, of abdomen length against wing size (i.e., abdomen length is the <em>response variable</em>). Color the points by Island.</strong> <em>(4 points)</em></p>
 <pre class="r"><code>### Code for plot goes here. Be sure plot is displayed in knitted output.</code></pre>
 <p><br></p>
 <p><strong>8. Based <em>only</em> on the plot you made for #7, what is the probability an andro morph in this dataset is from Hawaii?</strong> Do not do any calculations for this question. <em>(2 points)</em></p>
@@ -204,19 +213,19 @@ setosa.sepal/total</code></pre>
 <p>Questions in this section employ the dataset <strong>biopsy.csv</strong>. This dataset reports breast tumor biopsy results for 699 patients from the University of Wisconsin Hospitals, Madison. Nine attributes were measured each on a scale of 1-10, and the diagnosis for each patient is given in the column <code>outcome</code>. Assume all variables in this data are independent.</p>
 <p><br></p>
 <p><strong>1. Assume that individuals diagnosed with malignancies in this dataset have a 28% chance of survival, and individuals diagnosed with benign growths have a 96% chance of survival (they will not all survive because of false negative results). What is the probality that an individual in this dataset survives?</strong> (Hint: You can survive with a benign growth <em>or</em> you can survive with a malignant growth.) <em>(6 points)</em></p>
-<p><em>Probability statement: </em> <code>provide statement here (including left and right of =)</code>.</p>
+<p><em>Probability equation: </em> <code>provide equation here</code>.</p>
 <pre class="r"><code>### Enter your calculations here</code></pre>
 <p><em>The probability is </em> <code>provide answer here</code>.</p>
 <p><br></p>
 <p><strong>2. Now assume that there was an error in recording the final outcome: In reality, the outcome can be computed directly from clump thickness, where thickness &gt;= 7 is always malignant and &lt; 3 is always benign.</strong></p>
 <p><br></p>
 <p><strong>2a. What is the probability that an individual had a <em>false positive</em> result? In other words, what is the probability that an individual with clump thickness &lt; 3 was diagnosed with a malignancy?</strong> <em>(6 points)</em></p>
-<p><em>Probability statement: </em> <code>provide statement here (including left and right of =)</code>.</p>
+<p><em>Probability equation: </em> <code>provide equation here</code>.</p>
 <pre class="r"><code>### Enter your calculations here</code></pre>
 <p><em>The probability is </em> <code>provide answer here</code>.</p>
 <p><br></p>
 <p><strong>2b. What is the probability that an individual had a <em>false negative</em> result. In other words, what is the probability that an individual with clump thickness &gt;= 7 was diagnosed with a benign growth?</strong> <em>(6 points)</em></p>
-<p><em>Probability statement: </em> <code>provide statement here (including left and right of =)</code>.</p>
+<p><em>Probability equation: </em> <code>provide equation here</code>.</p>
 <pre class="r"><code>### Enter your calculations here</code></pre>
 <p><em>The probability is </em> <code>provide answer here</code>.</p>
 <p><br><br></p>
@@ -232,17 +241,17 @@ setosa.sepal/total</code></pre>
 <p><em>Statement 3:</em> <code>Enter statement 3 here</code></p>
 <p><br></p>
 <p><strong>2. What is the probability that an individual has both the cancer and the marker?</strong> <em>(6 points)</em></p>
-<p><em>Probability statement: </em> <code>provide statement here (including left and right of =)</code>.</p>
+<p><em>Probability equation: </em> <code>provide equation here</code>.</p>
 <pre class="r"><code>### Enter your calculations here</code></pre>
 <p><em>The probability is </em> <code>provide answer here</code>.</p>
 <p><br></p>
 <p><strong>3. What is the probability that an individual who has the marker develops cancer?</strong> <em>(6 points)</em></p>
-<p><em>Probability statement: </em> <code>provide statement here (including left and right of =)</code>.</p>
+<p><em>Probability equation: </em> <code>provide equation here</code>.</p>
 <pre class="r"><code>### Enter your calculations here</code></pre>
 <p><em>The probability is </em> <code>provide answer here</code>.</p>
 <p><br></p>
 <p><strong>4. What is the probability that an individual who <em>doesn’t</em> develop cancer has the marker?</strong> <em>(6 points)</em></p>
-<p><em>Probability statement: </em> <code>provide statement here (including left and right of =)</code>.</p>
+<p><em>Probability equation: </em> <code>provide equation here</code>.</p>
 <pre class="r"><code>### Enter your calculations here</code></pre>
 <p><em>The probability is </em> <code>provide answer here</code>.</p>
 </div>

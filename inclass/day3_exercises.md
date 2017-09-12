@@ -5,7 +5,7 @@ permalink: /inclass_exercises_day3/
 ---
 > Follow [this link]({{ '/day2_tidyverse1' | relative_url }}) for day 2 (Introduction to Tidyverse) materials and notes
 >
-> Follow [this link]({{ '/day3_probability_tidyverse2' | relative_url }}) for day 3 (Probability and Tidyverse II) materials and notes
+> Follow [this link]({{ '/day3_probability' | relative_url }}) for day 3 (Probability and Tidyverse II) materials and notes
 
 <br>
 
@@ -23,7 +23,7 @@ Separate the `CO2` dataframe into two dataframes, named `x` and `y` (for conveni
 + `x` should have the columns Plant, Type, and Treatment
 + `y` should have the columns Plant, conc, and uptake
 
-Once you have confirmed that these data frames are correct, **join** these dataframes with `left_join()` to re-create `CO2`. Name the final dataset `CO22`. Compare `CO2` with your recreated `CO22` to ensure it correct.
+Once you have confirmed that these data frames are correct, **join** these dataframes with `left_join()` to re-create `CO2`. Name the final dataset `CO22`. Compare `CO2` with your recreated `CO22` to ensure it correct. 
 
 <br>
 
