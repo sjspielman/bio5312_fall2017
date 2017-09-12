@@ -5,7 +5,7 @@ permalink: /inclass_exercises_day3/
 ---
 > Follow [this link]({{ '/day2_tidyverse1' | relative_url }}) for day 2 (Introduction to Tidyverse) materials and notes
 >
-> Follow [this link]({{ '/day3_probability' | relative_url }}) for day 3 (Probability and Tidyverse II) materials and notes
+> Follow [this link]({{ '/day3_probability' | relative_url }}) for day 3 (Probability) materials and notes
 
 <br>
 
