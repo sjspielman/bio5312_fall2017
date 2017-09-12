@@ -41,4 +41,4 @@ permalink: /day3_probability
 
 ## R lab
 
-All of today's new R materials are available in the lecture slides.
+Most R materials are available in slides. In addition, the function `na.omit()` will remove **all rows with NA's** from a data frame. 
