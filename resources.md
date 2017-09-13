@@ -38,3 +38,6 @@ These books are mostly beyond the scope of this class, but are **really excellen
 
 + [R for Data Science Book](http://r4ds.had.co.nz/)
 + [Advanced R Book](http://adv-r.had.co.nz/)
++ [Data Visualization for Social Science: A practical introduction with R and ggplot2](http://socviz.co/)
++ [PeerJ Preprint: Declutter your R workflow with tidy tools
+](https://peerj.com/preprints/3180/)
