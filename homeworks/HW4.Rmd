@@ -1,0 +1,195 @@
+```{r global_options, include=FALSE}
+library(knitr)
+library(dplyr)
+library(ggplot2)
+library(purrr)
+knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width=4.5)
+```
+---
+output: html_document
+---
+
+## Homework 4: Probability distributions
+#### BIO5312
+#### Due 9/26/17 by 5:30 pm
+
+**Enter your name here**
+
+<br>
+
+## Preamble 
+
+**To use this homework, you must install the package `purrr`**. Please do so before proceeding to the assignment.
+
+ 
+
+<br>
+
+## Part One: Binomial distribution
+
+The questions in this section concern the following scenario:
+
+In a species of garden spider, the female attempts to eat the male after mating. More generally, research has shown that the female successfully eats the male 41% of the time. Further assume that all females of this species strictly mate 10 times in their entire lives, no more no less.
+
+Further note that the phrase "R distribution functions" refers to the family of functions `dxxx()`, `pxxx()`, `rxxx()`, and `qxxx()`.
+
+<br>
+
+**1. (5 pts)** Plot the probability mass function (PMF) of this binomial distribution. To aid in this task, the code provided below constructs the probability data frame that you should plot.
+```{r} 
+## Similar code seen in 9/19 class
+data.pmf <- tibble(k = 0:10, prob = map_dbl(0:10, dbinom, 10, 0.41))
+```
+
+```{r}
+### Code to plot PMF goes here.
+```
+
+<br>
+
+**2. (5 pts)** Plot the cumulative distribution function (CDF) of this binomial distribution. To make this plot, generate 1000 random numbers from this binomial distribution.
+```{r}
+### Code to plot CDF goes here.
+```
+
+<br>
+
+**3. (10 pts) ** What is the probability that a randomly-chosen female eats exactly 7 males over her lifetime? Answer this question using two approaches:
+
+  + Directly calculate the probability using the binomial probability formula (note: the function `choose()` can be used to calculate the binomial coefficient).
+  + Use one of R's distribution functions to determine the answer.
+  
+```{r}
+### Enter code for direct calculations here
+```
+
+```{r}
+### Enter code for R distribution function here
+```
+
+<br>
+
+**4. (5 pts) ** What is the probability that a randomly-chosen female eats at least 4 males over her lifetime? Solve this question using R distribution function(s).
+
+```{r}
+### Enter code here
+```
+
+<br>
+
+**5. (5 pts) ** What is the probability that a randomly-chosen female *does not eat* 3 males? Solve this question using R distribution function(s).
+
+```{r}
+### Enter code here
+```
+
+<br><br>
+
+## Part Two: Normal distribution
+
+
+The questions in this section concern the following scenario:
+
+There are two closely related species of crab, aptly named A and B. The mass (all units grams) of crab species A is normally distributed as N(35.4, 7), and the mass of crab species B is normally distributed as N(42, 10.2). In addition, a very interesting factoid about these crabs is that species B crabs are much more common than are species A crabs. Specifically, if you chose a random A or B crab, there is a 72% chance it would belong to species B.
+
+<br>
+
+**1. (5 pts)** Congratulations, you have a new species A pet crab that weights 32 g! What is the z-score for this crab?
+```{r}
+### Enter code here
+```
+
+<br>
+
+**2. (5 pts)** What is the probability that a randomly-chosen crab from species B weighs more than 46 g?
+```{r}
+### Enter code here
+```
+
+<br>
+
+**3. (5 pts)** What is the probability that a randomly-chosen crab from species B weighs between 40-50 grams?
+```{r}
+### Enter code here
+```
+
+<br>
+
+**4. (5 pts)** What is the probability that a randomly-chosen crab from species B weighs either 35-38 grams or 44-48 grams?
+```{r}
+### Enter code here
+```
+
+<br>
+
+**5. (5 pts)** How short does a species A crab have to be to be in the bottom 20% of crab A weights?
+```{r}
+### Enter code here
+```
+
+<br>
+
+**6. (10 pts) ** Congratulations again! You have a yet another new pet crab! Unfortunately, your excitement is tempered because you don't know what species the crab is. All you know is that this crab weighs less than 30 grams. Calculate the probability that the crab is species A as well as the probability that the crab is species B. Based on these probabilities, what species do you think your crab is (provide answer below code)?
+```{r}
+### Enter code here
+```
+
+**My crab belongs to species A/B**.
+
+
+<br><br>
+
+## Part Three: Sampling distribution
+
+The platypus genome sequence was completed in 2008 and has plenty of strange features. For this section, you will use data for the GC-content (percent of a gene that is nucleotide G or C, as opposed to A or T) across all platypus genes. Specifically, you will visualize and compare sampling distributions of the mean for platypus gene GC-content. Note that the GC-content of platypus genes has a mean of 51.16% and a standard deviation of 8.27%.
+
+Four sampling distributions of the mean have been prepared for you in the following datasets (you can download these from the course website):
+
+  + `platypus_gc_sampdist_n25.csv`, the means of 25 random samples of platypus gene GC contents
+  + `platypus_gc_sampdist_n75.csv`, the means of 75 random samples of platypus gene GC contents
+  + `platypus_gc_sampdist_n500.csv`, the means of 500 random samples of platypus gene GC contents
+  + `platypus_gc_sampdist_n2000.csv`, the means of 5000 random samples of platypus gene GC contents
+
+<br>
+
+**Question (25 pts) **
+Visualize each of these four sampling distributions as a histogram and compute the mean and standard error for each sampling distribution. Provide the latter values (be sure to also show all code in the appropriate chunk!) in the table below. When you are done, describe the patterns you observe (both in the histograms and the computed values) as the size of the sampling distribution of the mean increases. Are patterns what you expect? Why or why not? For any patterns deviate from your expectation, why do you think so? (Hint: think about the population parameters.)
+
+  
+<br>
+
+```{r}
+#### Read in all datasets here
+```
+
+```{r}
+### All code for N=25 sampling distribution goes here.
+```
+
+```{r}
+### All code for N=75 sampling distribution goes here.
+```
+
+```{r}
+### All code for N=500 sampling distribution goes here.
+```
+
+```{r}
+### All code for N=2000 sampling distribution goes here.
+```
+
+
+### Table of means and SE
+
+N    | mean | standard error
+-----|------|---------------
+25   |      |
+75   |      |
+500  |      |
+2000 |      |
+
+
+**Describe your results here in 3-5 sentences.**
+
+
+
