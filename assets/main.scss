@@ -22,9 +22,10 @@ $nice-grey: #585858;
 table, th, td {
    border-collapse: collapse;
    border: 1px solid black;
-   margin-left: 10%;
+   margin-left: 2%;
    margin-bottom: 5%;
    padding: 5px;
+   font-size: $base-font-size *0.8;
 }
 th {
    text-align: center;
@@ -34,6 +35,10 @@ td {
 }
 tr:nth-child(even) {background-color: #dcdcdc}
 
+
+code {
+    font-size: $base-font-size *0.8;
+}
 
 a {
   color: $cherry-color;
