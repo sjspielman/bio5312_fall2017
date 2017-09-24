@@ -6,12 +6,12 @@ permalink: /day5_htesting_ttests
 ---
 
 
-# Lecture 
+## Lecture 
 
 + [Slides](./slides/day5_hypothesis_testing_ttests.pdf)
 
 
-# R content
+## R content
 
 * Part I: [Sampling distribution of the mean](./#sampling-distribution-of-the-mean)
 * Part II: [Performing t-tests in R](./#performing-t-tests-in-r)
@@ -123,7 +123,7 @@ Use the function `t.test()` as follows:
 	+ Like one-sample tests with the `<vector of data>` containing the difference between samples and null of `mu=0`
 	+ Like two-sample tests with the added argument `paired=TRUE`
 
-
+<br><br>
 
 ### One-sample *t*-tests: Two-sided
 
@@ -167,7 +167,7 @@ Data follow the Q-Q line. Therefore data are normally distributed and we can per
 
 Our test statistic is 4.87 with 49 degrees of freedom. The P-value is $$1.2\times10{-5}$$, which is less than our $$\alpha$$ of 0.05. We therefore **reject** the null hypothesis and conclude that there is evidence that virginica sepal lengths differ from 6.15. We can further conclude that virginica sepal lengths are larger than 6.15 (sample mean = 6.59). We have a 95% confidence interval of [6.41, 6.76], meaning there is a 95% chance that the true population mean falls in this range. Indeed, the null of 6.15 does not fall in this interval, reflecting our significant result.
 
-
+<br><br>
 
 ### One-sample *t*-tests: One-sided
 
@@ -228,6 +228,7 @@ We have already confirmed assumptions above. Therefore proceed to test:
 
 Here, we have a P-value of 1, which a is a result of rounding $$1 - 6.02\times10{-6} = 0.999994 \approx 1$$. Whenever we have a P-value > 0.5, we have made the wrong directional choice. With P-value = 1, we **fail to reject** the null hypothesis. We have no evidence that virginica sepal lengths are shorter than 6.15. Our conclusion is further reflected in the CI, because the null 6.15 **is** is the interval.
 
+<br><br>
 
 ### Two-sample *t*-tests: One-sided
 
@@ -280,6 +281,8 @@ Our test statistic is 5.6292 with 94.025 degrees of freedom. The P-value is $$9.
 
 
 
+<br><br>
+
 ### Two-sample *t*-tests: Two-sided
 
 
@@ -309,6 +312,8 @@ We already confirmed assumptions above, so we can proceed to the test.
 </code></pre>
 
 Our test statistic is 5.6292 with 94.025 degrees of freedom. The P-value is $$1.87\times10{-8}$$, which is twice the value of our analogous one-sided P-value. It is also less than our $$\alpha$$ of 0.05. We therefore **reject** the null hypothesis and conclude that there is evidence that virginica sepal lengths differ from versicolor sepal lengths. Because of our significant result, we can make a **directional conclusion** (even though we did not perform a directional test): virginica are longer than versicolor, based on effect size of 0.652. We have a 95% confidence interval of [0.42, 0.88], meaning there is a 95% chance that the true difference in means falls in this range. Our conclusion is further reflected in the CI, because **0** (the null difference between means) is not in this CI.
+
+<br><br>
 
 
 ### Paired *t*-tests: Two-sided
