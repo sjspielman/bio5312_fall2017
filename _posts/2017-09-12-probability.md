@@ -28,9 +28,9 @@ permalink: /day3_probability
 <br>
 + Probability of **dependent** events A *and* B 
   
-  + \$$P[A\ and\ B] = P[B\vert A]\ *\ P[B]$$ 
+  + \$$P[A\ and\ B] = P[B\vert A]\ *\ P[A]$$ 
   
-  + \$$P[B\ and\ A] = P[A\vert B]\ *\ P[A]$$  
+  + \$$P[B\ and\ A] = P[A\vert B]\ *\ P[B]$$  
 
 <br>
 + Together, the above probabilities reveal **Bayes Theorem**
