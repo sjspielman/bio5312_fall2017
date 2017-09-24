@@ -13,8 +13,8 @@ permalink: /day5_htesting_ttests
 
 ## R content
 
-* Part I: [Sampling distribution of the mean](./#sampling-distribution-of-the-mean)
-* Part II: [Performing t-tests in R](./#performing-t-tests-in-r)
+* Part I: [Sampling distribution of the mean](./day5_htesting_ttests/#sampling-distribution-of-the-mean)
+* Part II: [Performing t-tests in R](./day5_htesting_ttests/#performing-t-tests-in-r)
 
 <br><br>
 
