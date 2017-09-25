@@ -1,0 +1,247 @@
+```{r global_options, include=FALSE}
+library(knitr)
+library(dplyr)
+library(ggplot2)
+library(readr)
+knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width=4.5)
+```
+---
+output: html_document
+---
+
+## Homework 5: Introduction to hypothesis testing and *t*-tests (100 pts)
+#### BIO5312
+#### Due 10/03/17 by 5:30 pm
+
+**Enter your name here**
+
+
+<br><br>
+
+### Part One: Concepts in Hypothesis testing (20 points)
+
+<br>
+
+**1. (6 points)** Consider the following scenario and answer the questions below:
+<br>
+<br>
+Two researchers independently carry out separate clinical trials to test the same null hypothesis, that COX-2 selective inhibitors (which are used to treat arthritis) have no effect on the risk of cardiac arrest. They use the same population for their study, but one experimenter uses a sample size of 60 subjects whereas the other uses a sample size of 100. Assume that all other aspects of the studies, including significance levels (i.e. $\alpha$), are the same between the two studies.
+<br>
+
+a) Which study has the higher probability of a Type II error (false negative), the 60-subject study or the 100-subject study?
+
+`Answer goes here.`
+
+b) Which study has higher power?
+
+`Answer goes here.`
+
+c) Which study has the higher probability of a Type I error (false positive)?
+
+`Answer goes here.`
+
+<br>
+
+**2. (4 points)** Consider the following scenario: You perform a one-sample *t*-test with a sample size of $n=100$ and a significance level $\alpha=0.1$. Answer the following questions in this context:
+
+a) Assume the null hypothesis is _true_. What is the probability of getting a Type I error (false positive)?
+
+`Answer goes here.`
+
+b) Assume the null hypothesis is _false_. What is the probability of getting a Type I error (false positive)?
+
+`Answer goes here.`
+
+<br>
+
+**3. (6 points)** Consider the following scenario: You perform a one-sample *t*-test with a sample size of $n=100$ and a significance level $\alpha=0.1$. Answer the following questions in this context:
+
+a) Assume the null hypothesis is _true_. What is the probability of getting a Type I error (false positive)?
+
+`Answer goes here.`
+
+b) Assume the null hypothesis is _false_. What is the probability of getting a Type I error (false positive)?
+
+`Answer goes here.`
+
+c) You perform a one-sided one-sample *t*-test and the data deviate in the wrong direction. What is the *minimum* P-value you could obtain in this scenario?
+
+`Answer goes here.`
+
+
+<br>
+
+**4. (2 points)** Assume, for a given test, that the null hypothesis is actually _true_. Which one of the following statements is _true_?
+
++ *Statement 1*: A study with a larger sample size is *more* likely than a smaller study to get the result P < 0.05.
++ *Statement 2*: A study with a larger sample size is *less* likely than a smaller study to get the result P < 0.05.
++ *Statement 3*: A study with a larger sample size is *equally* likely compared to a smaller study to get
+the result P < 0.05.
+
+`Answer goes here.`
+
+<br>
+
+**5. (2 points)** Assume, for a given test, that the null hypothesis is actually _false_. Which one of the following statements is _true_?
+
++ *Statement 1*: A study with a larger sample size is *more* likely than a smaller study to get the result P < 0.05.
++ *Statement 2*: A study with a larger sample size is *less* likely than a smaller study to get the result P < 0.05.
++ *Statement 3*: A study with a larger sample size is *equally* likely compared to a smaller study to get
+the result P < 0.05.
+
+`Answer goes here.`
+
+
+
+<br><br>
+
+### Part Two: *t*-tests (80 points)
+
+<br>
+
+#### Instructions
+
+Questions in this section concern the dataset `mammalian_life_history.csv`, which can be downloaded from the course website. This dataset contains information about various mammalian species, whose Order, Family, and Genus groupings are all recorded. Life history information for each mammalian species includes:
+
++ `mass_g`, the average adult mass, in grams 
++ `newborn_g`, the average newborn mass, in grams
++ `wean_mass_g`, the average mass at the time of weaning, in grams
++ `AFR_mo`, the age of first reproduction for females, in months  
++ `gestation_mo`, the duration of gestation, in months
++ `weaning_mo`, the duration of weaning, in months
++ `max_life_mo`, the age if the oldest individual ever recorded, in months     
++ `litter_size`, the average litter size
++ `litters_per_year`, the average number of litters per year
+
+
+This dataset contains **missing values** (coded as NA) that you will need to remove before performing any hypothesis testing. There are several ways to remove missing data. The **recommended** way for this assignment is the following approach:
+
+  + Subset the data frame to contain only the rows and columns you need to perform the test, and then use the function `na.omit()`. This function will remove all rows in the data that contain NA. It is best to remove NA's **after** subsetting data to avoid removing excessive rows (i.e. where a variable "we don't care about" was NA, but our variable of interest had a real value.)
+  + For two-sample *t*-tests, do this procedure separately for each sample.
+
+
+Assume $\alpha=0.05$ for all tests. Unless otherwise stated, use the function `t.test()` to perform hypothesis testing. For each hypothesis test, you will need to do the following:
+
++ State the null and alternative hypothesis
++ Check data assumptions using QQ plots
++ Report numeric results (including P-value, test statistic, confidence interval, and effect size) and give your conclusions
+
+<br>
+
+**Before you begin**, read the dataset into R:
+``` {r} 
+#### Read in the dataset here
+```
+
+<br>
+
+**1. (20 pts)** Perform a two-tailed one-sample t-test to address the question: Do adult squirrels weigh, on average, 275 g? Note that squirrels belong to the genus *Spermophilus*. Perform the hypothesis testing in **two ways** (note that you only need to state hypotheses, check assumptions, and report results/conclusions once):
+
++ Use R as a calculator to run the *t*-test and compute a 95% confidence interval
++ Use the function `t.test()`
+
+
+```{r}
+### Code to check assumptions goes here.
+```
+
+```{r}
+### Code to perform t-test and calculate CI using R as a calculator goes here.
+```
+
+```{r}
+### Code to to perform t-test with the function t.test() goes here.
+```
+
+<br>
+
+
+`H0: State the null hypothesis here`
+
+`HA: State the alternative hypothesis here`
+
+`Write your results and conclusions here, including a brief statement about results from checking assumptions`.
+
+
+<br><br>
+
+
+**2. (5 pts)** Make a figure depicting the probability density function of the *null distribution* used in the hypothesis test in question 1 above, overlayed on the Standard Normal distribution (similar to slides in class 5 showing different *t* distributions). 
+
+Helpful hints:
+
++ You will need to use the ggplot stat `stat_function()` (as in class4 and HW4). 
++ You can plot multiple distributions by adding more `stat_function()` arguments to the plot call, as in: `ggplot(data, aes(...)) + stat_function(first function) + stat_function(second function)`
++ The R function `dt()` may be used to calculate densities for the Student's *t* distribution and takes one argument: the degrees of freedom. 
++ Set the x-axis limits as `c(-4,4)`.
++ Make the *t* distribution line in red (specify `color="red"` in the relevant `stat_function()`), and keep the normal distribution line in black. *Do not fill the distributions*.
+
+After you make the figure, explain any differences you see between the *t* distribution plotted and the standard normal.
+
+```{r} 
+#### Code to plot null distribution goes here.
+```
+
+`Describe differences here in 2-3 sentences.`
+
+<br>
+
+**3. (10 pts)** Compute a 90% confidence interval for the test from question 1, using R as a calculator below. (Hint: to compute a 95% CI, we use $t_{0.025}$, with the appropriate degrees of freedom, to determine the limits. Think about which $t$ to use instead for a 90% CI).
+
+```{r} 
+#### R code goes here
+```
+
+
+<br>
+
+**4. (15 pts)** Perform a two-sided two-sample (independent) t-test to address the question: Do even-toed ungulates (Order Artiodactyla) and whales (Order Cetacea) have, on average, different litter sizes? Carry out this test using the function `t.test()`.
+
+```{r}
+### All R code goes here.
+```
+
+`H0: State the null hypothesis here`
+
+`HA: State the alternative hypothesis here`
+
+`Write your results and conclusions here, including a brief statement about results from checking assumptions`.
+
+<br><br>
+
+**5. (5 pts)** Based on the output from `t.test()`, answer the following questions. **Do not perform any additional t-tests, but minor calculations are fine**. 
+```{r}
+#### R code goes here.
+```
+
+a) What would the P-value have been for Question 2 if we had performed a **one-sided** *t*-test with the alternative hypothesis that Artiodactyla has, on average, *larger* litters than Cetacea?
+
+`The P-value would have been: Answer goes here.`
+
+b) What would the P-value have been for Question 2 if we had performed a **one-sided** *t*-test with the alternative hypothesis that Artiodactyla has, on average, *smaller* litters than Cetacea?
+
+`The P-value would have been: Answer goes here.`
+
+<br><br>
+
+**6. (15 pts).** Perform a two-sided two-tailed paired *t*-test to address the question: Do cows (Order Artiodactyla) and whales (Order Cetacea) have different litter sizes on average? Carry out this test using the function `t.test()`.
+
+```{r}
+### All R code goes here.
+```
+
+`H0: State the null hypothesis here`
+
+`HA: State the alternative hypothesis here`
+
+`Write your results and conclusions here, including a brief statement about results from checking assumptions`.
+
+<br><br>
+
+**7 (10 pts).** Perform the same hypothesis test as in question 4 (only the call to `t.test()`), but this time run it as an independent two-sample *t*-test (still two-sided). Compare the test output between this approach and the paired approach taken in question 4, focusing on differences between the resulting P-value and confidence intervals. Explain why these values differ between approaches. What do these findings tell you about the relative *power* of using either approach to compare paired data? 
+
+```{r}
+### All R code goes here.
+```
+
+`Compare test results here, in 3-5 sentences.`
