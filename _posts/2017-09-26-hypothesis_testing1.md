@@ -50,42 +50,58 @@ ggplot(n2000, aes(x = sample.mean)) + geom_histogram(fill = "white", color = "bl
 
 <pre><code class="language-r">
 
+#### Compute SE for N=<25,75,500,2000> sampling distributions of the mean
+se.n25_true <- 8.27/sqrt(25)
+se.n75_true <- 8.27/sqrt(75)
+se.n500_true <- 8.27/sqrt(500)
+se.n2000_true <- 8.27/sqrt(2000)
+
+
 #### Compute mean and SE for each. ####
 mean.n25 <- mean(n25$sample.mean)
-se.n25_true <- 8.27/sqrt(25)
-se.n25_approx  <- sd(n25$sample.mean)/sqrt(25)
+se.n25_sample  <- sd(n25$sample.mean)/sqrt(25)
 
 mean.n75 <- mean(n75$sample.mean)
-se.n75_true <- 8.27/sqrt(75)
-se.n75_approx <- sd(n75$sample.mean)/sqrt(75)
+se.n75_sample <- sd(n75$sample.mean)/sqrt(75)
 
 mean.n500 <- mean(n500$sample.mean)
-se.n500_true <- 8.27/sqrt(500)
-se.n500_approx <- sd(n500$sample.mean)/sqrt(500)
+se.n500_sample <- sd(n500$sample.mean)/sqrt(500)
 
 
 mean.n2000 <- mean(n2000$sample.mean)
-se.n2000_true <- 8.27/sqrt(2000)
-se.n2000_approx <- sd(n2000$sample.mean)/sqrt(2000)
+se.n2000_sample <- sd(n2000$sample.mean)/sqrt(2000)
 
 </code></pre>
 
-**Values computed in code above are seen in this table:**
+**Values computed in code above are seen in tables:**
 
-N | Mean  | SE true | SE approx
----|---|------|------------|---------
-25   |  51.4     | 1.65  | 0.53
-75   |  50.99    | 0.95  | 0.36 
-500  |  51.17   | 0.37  | 0.16
-2000 |  51.02    | 0.18  | 0.06
+**Parameter SE**:
 
-+ In the case where we **know the population parameters**, we can compute the standard error *directly* using the population standard deviation $$\sigma$$ ("SE true" in table). *This is the theoretical standard deviation of the sampling distribution of the mean for N=n*.
+N | SE  
+---|---
+25   |   1.654
+75   |  0.955    
+500  |  0.34     
+2000 |  0.18   
+
+**Sample estimates**
+
+N | Mean  | Sample SE
+---|---|------|------------
+25   |  51.4      | 0.53
+75   |  50.99     | 0.36 
+500  |  51.17     | 0.16
+2000 |  51.02     | 0.06
+
+<br>
+
++ To compute the standard error of the sampling distribution of the means, we using the population standard deviation $$\sigma$$ ("Parameter SE" table). *This is the standard deviation of the sampling distribution of the mean for N=n*.
 
 $$ \sigma_\bar{x} = \sigma / \sqrt{n}$$ 
 
 <br>
  
-+ In the case where we **do not know the population parameters**, we must  compute the standard error *approximately* using the sample standard deviation $$s$$ ("SE approx" in table):
++ In the case where we **do not know the population parameters** and **we are estimating from a sample**, we must compute the standard error *approximately* using the sample standard deviation $$s$$ ("Sample estimates" in table):
 
 $$ SE_\bar{x} = s / \sqrt{n} $$ 
 
