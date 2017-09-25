@@ -371,7 +371,7 @@ The assumption is met, so proceed to test:
 </code></pre>
 
 
-Our test statistic is 0.21331 with 9 degrees of freedom. The P-value is $0.84$$, which is greater than our $$\alpha$$ of 0.05. We therefore **fail to reject** the null hypothesis and conclude that there is **no evidence in this data** that training affected 100-meter runtime.
+Our test statistic is 0.21331 with 9 degrees of freedom. The P-value is 0.84, which is greater than our $$\alpha$$ of 0.05. We therefore **fail to reject** the null hypothesis and conclude that there is **no evidence in this data** that training affected 100-meter runtime.
 
 
 
