@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width
 output: html_document
 ---
 
-## Homework 5: Introduction to hypothesis testing and *t*-tests (100 pts)
+## Homework 5: Hypothesis testing and *t*-tests
 #### BIO5312
 #### Due 10/03/17 by 5:30 pm
 
@@ -129,7 +129,7 @@ Assume $\alpha=0.05$ for all tests. Unless otherwise stated, use the function `t
 
 **Before you begin**, read the dataset into R:
 ``` {r} 
-#### Read in the dataset here
+### read in csv
 ```
 
 <br>
@@ -138,6 +138,7 @@ Assume $\alpha=0.05$ for all tests. Unless otherwise stated, use the function `t
 
 + Use R as a calculator to run the *t*-test and compute a 95% confidence interval
 + Use the function `t.test()`
+
 
 
 ```{r}
