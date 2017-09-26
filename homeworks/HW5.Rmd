@@ -42,7 +42,8 @@ c) Which study has the higher probability of a Type I error (false positive)?
 
 <br>
 
-**2. (4 points)** Consider the following scenario: You perform a one-sample *t*-test with a sample size of $n=100$ and a significance level $\alpha=0.1$. Answer the following questions in this context:
+
+**2. (6 points)** Consider the following scenario: You perform a one-sample *t*-test with a sample size of $n=100$ and a significance level $\alpha=0.1$. Answer the following questions in this context:
 
 a) Assume the null hypothesis is _true_. What is the probability of getting a Type I error (false positive)?
 
@@ -52,46 +53,44 @@ b) Assume the null hypothesis is _false_. What is the probability of getting a T
 
 `Answer goes here.`
 
-<br>
-
-**3. (6 points)** Consider the following scenario: You perform a one-sample *t*-test with a sample size of $n=100$ and a significance level $\alpha=0.1$. Answer the following questions in this context:
-
-a) Assume the null hypothesis is _true_. What is the probability of getting a Type I error (false positive)?
-
-`Answer goes here.`
-
-b) Assume the null hypothesis is _false_. What is the probability of getting a Type I error (false positive)?
-
-`Answer goes here.`
-
-c) You perform a one-sided one-sample *t*-test and the data deviate in the wrong direction. What is the *minimum* P-value you could obtain in this scenario?
+c) You choose to perform a one-sided test and the data deviate in the wrong direction. What is the *minimum* P-value you could obtain in this scenario?
 
 `Answer goes here.`
 
 
 <br>
 
-**4. (2 points)** Assume, for a given test, that the null hypothesis is actually _true_. Which one of the following statements is _true_?
+**3. (2 points)** Assume, for a given test, that the null hypothesis is actually _true_. Which one of the following statements is _true_?
 
-+ *Statement 1*: A study with a larger sample size is *more* likely than a smaller study to get the result P < 0.05.
-+ *Statement 2*: A study with a larger sample size is *less* likely than a smaller study to get the result P < 0.05.
-+ *Statement 3*: A study with a larger sample size is *equally* likely compared to a smaller study to get
+a) A study with a larger sample size is *more* likely than a smaller study to get the result P < 0.05.
+b) A study with a larger sample size is *less* likely than a smaller study to get the result P < 0.05.
+c) A study with a larger sample size is *equally* likely compared to a smaller study to get
 the result P < 0.05.
 
 `Answer goes here.`
 
 <br>
 
-**5. (2 points)** Assume, for a given test, that the null hypothesis is actually _false_. Which one of the following statements is _true_?
+**4. (2 points)** Assume, for a given test, that the null hypothesis is actually _false_. Which one of the following statements is _true_?
 
-+ *Statement 1*: A study with a larger sample size is *more* likely than a smaller study to get the result P < 0.05.
-+ *Statement 2*: A study with a larger sample size is *less* likely than a smaller study to get the result P < 0.05.
-+ *Statement 3*: A study with a larger sample size is *equally* likely compared to a smaller study to get
+a) A study with a larger sample size is *more* likely than a smaller study to get the result P < 0.05.
+b) A study with a larger sample size is *less* likely than a smaller study to get the result P < 0.05.
+c) A study with a larger sample size is *equally* likely compared to a smaller study to get
 the result P < 0.05.
 
 `Answer goes here.`
 
+<br>
 
+**5. (4 points)** In which of the following cases is a paired analysis (as opposed to an independent analysis) more appropriate? Note: there may be more than one.
+
+a) Matt measures whether the right side of cars have more door dings than the left side of cars. He asks how many dings are on the left and right side of 50 cars and compares.
+b) Julian measures whether male tigers have more stripes than females tigers.
+c) An energy-drink company measures whether energy drinks enhance student exam performance. They measure by having a group of students take, on two different days, one test after consuming an energy drink and one test after consuming regular lemonade.
+d) Sarah measures the sweetness of strawberries of two different varieties. She takes measurement once a year over five growing seasons.
+e) Regina tests a new drug on 20 pairs of twins, by randomly subdividing the 40 people into two groups and giving one group a treatment and one a placebo.
+
+`Answer goes here.`
 
 <br><br>
 
@@ -186,12 +185,13 @@ After you make the figure, explain any differences you see between the *t* distr
 
 <br>
 
-**3. (10 pts)** Compute a 90% confidence interval for the test from question 1, using R as a calculator below. (Hint: to compute a 95% CI, we use $t_{0.025}$, with the appropriate degrees of freedom, to determine the limits. Think about which $t$ to use instead for a 90% CI).
+**3. (10 pts)** Compute a 90% confidence interval for the test from question 1, using R as a calculator below. (Hint: to compute a 95% CI, we use $t_{0.025}$, with the appropriate degrees of freedom, to determine the limits. Think about which $t$ to use instead for a 90% CI). Report your CI in the form `a += b` below.
 
 ```{r} 
 #### R code goes here
 ```
 
+`Report your CI here`
 
 <br>
 
@@ -238,7 +238,7 @@ b) What would the P-value have been for Question 2 if we had performed a **one-s
 
 <br><br>
 
-**7 (10 pts).** Perform the same hypothesis test as in question 4 (only the call to `t.test()`), but this time run it as an independent two-sample *t*-test (still two-sided). Compare the test output between this approach and the paired approach taken in question 4, focusing on differences between the resulting P-value and confidence intervals. Explain why these values differ between approaches. What do these findings tell you about the relative *power* of using either approach to compare paired data? 
+**7 (10 pts).** Perform the same hypothesis test as in question 4 (only the call to `t.test()`), but this time run it as an independent two-sample *t*-test (still two-sided). Compare the test output between this approach and the paired approach taken in question 4, focusing on differences between the resulting P-value and confidence intervals. Explain why these values differ between approaches and this difference tells you about the relative *power* of using either approach to compare paired data.
 
 ```{r}
 ### All R code goes here.
