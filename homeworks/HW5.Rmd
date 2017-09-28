@@ -225,7 +225,7 @@ b) What would the P-value have been for Question 2 if we had performed a **one-s
 
 <br><br>
 
-**6. (15 pts).** Perform a two-sided two-tailed paired *t*-test to address the question: Do cows (Order Artiodactyla) and whales (Order Cetacea) have different litter sizes on average? Carry out this test using the function `t.test()`.
+**6. (15 pts).** Perform an two-sided paired *t*-test to address the question: Do species in Order Bovidae (cows and similar) have different, on average, gestation times and weaning times? Carry out this test using the function `t.test()`.
 
 ```{r}
 ### All R code goes here.
@@ -239,7 +239,7 @@ b) What would the P-value have been for Question 2 if we had performed a **one-s
 
 <br><br>
 
-**7 (10 pts).** Perform the same hypothesis test as in question 4 (only the call to `t.test()`), but this time run it as an independent two-sample *t*-test (still two-sided). Compare the test output between this approach and the paired approach taken in question 4, focusing on differences between the resulting P-value and confidence intervals. Explain why these values differ between approaches and this difference tells you about the relative *power* of using either approach to compare paired data.
+**7 (10 pts).** Perform the same hypothesis test as in question 6 (only the call to `t.test()`), but this time run it as an independent two-sample *t*-test (still two-sided). Compare the test output between this approach and the paired approach taken in question 6, focusing on differences between the resulting P-value and confidence intervals. Explain why these values differ between approaches and this difference tells you about the relative *power* of using either approach to compare paired data.
 
 ```{r}
 ### All R code goes here.
