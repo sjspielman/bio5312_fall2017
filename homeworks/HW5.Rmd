@@ -215,11 +215,11 @@ After you make the figure, explain any differences you see between the *t* distr
 #### R code goes here.
 ```
 
-a) What would the P-value have been for Question 2 if we had performed a **one-sided** *t*-test with the alternative hypothesis that Artiodactyla has, on average, *larger* litters than Cetacea?
+a) What would the P-value have been for Question 4 if we had performed a **one-sided** *t*-test with the alternative hypothesis that Artiodactyla has, on average, *larger* litters than Cetacea?
 
 `The P-value would have been: Answer goes here.`
 
-b) What would the P-value have been for Question 2 if we had performed a **one-sided** *t*-test with the alternative hypothesis that Artiodactyla has, on average, *smaller* litters than Cetacea?
+b) What would the P-value have been for Question 4 if we had performed a **one-sided** *t*-test with the alternative hypothesis that Artiodactyla has, on average, *smaller* litters than Cetacea?
 
 `The P-value would have been: Answer goes here.`
 
