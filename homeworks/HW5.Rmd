@@ -225,7 +225,7 @@ b) What would the P-value have been for Question 4 if we had performed a **one-s
 
 <br><br>
 
-**6. (15 pts).** Perform an two-sided paired *t*-test to address the question: Do species in Order Bovidae (cows and similar) have different, on average, gestation times and weaning times? Carry out this test using the function `t.test()`.
+**6. (15 pts).** Perform an two-sided paired *t*-test to address the question: Do species in family Bovidae (cows and similar) have different, on average, gestation times and weaning times? Carry out this test using the function `t.test()`.
 
 ```{r}
 ### All R code goes here.
