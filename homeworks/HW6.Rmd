@@ -158,23 +158,23 @@ Daycare centers expose children to a wider variety of germs than children would 
 
 <br>
 
-*3b) What are the __odds__ that a child with ALL had significant social activity (i.e. daycare)? (5 points)*
+*3b) Calculate the __odds ratio__ for describing this dataset (report the OR that is greater than 1) and provide its interpretation (similar to in-class statements regarding the frogs). (5 points)*
 
 ```{r}
 ### R code calculations go here
 ```
 
-`The odds are: .`
+`Provide your OR statement here.`
 
 <br>
 
-*3c) How much more (or less) likely is a child in the ALL group to have significant social activity relative to a child in the non-ALL group? (5 points)*
+*3c) What is the **relative risk** of getting ALL for children who attend daycare? (5 points)*
 
 ```{r}
 ### R code calculations go here
 ```
 
-`State your answer here.`
+`The relative risk is: .`
 
 
 
