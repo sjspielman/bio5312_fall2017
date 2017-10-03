@@ -1,0 +1,258 @@
+```{r global_options, include=FALSE}
+library(knitr)
+library(dplyr)
+knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width=4.5)
+```
+---
+output: html_document
+---
+
+## Homework 6: Testing proportions ()
+#### BIO5312
+#### Due 10/10/17 by 5:30 pm
+
+**Enter your name here**
+
+<br>
+
+
+### Part One: Choose your own adventure (20 points, 4 each)
+
+For each of the following scenarios, indicate which statistical test we have learned would be most appropriate to employ. Tests may be any of the following:
+
++ $\chi^2$ goodness-of-fit test
++ $\chi^2$ contingency table test 
++ binomial test
++ two-sample *t*-test
++ paired *t*-test
++ one-sample *t*-test
+
+Your answer should contain these components:
+
++ What variable(s) is/are being measured? (Note these are the *response* variables).
++ Is/are the response variable(s) quantitative or categorical?
+    + For categorical variables, what are the categories?
++ What test should be used?
+
+<br>
+**For example**, in class we saw this question: Is there an association in frogs between having a trematode infection and being eaten by a bird? An example answer for this scenario would be:
+
+`There are two categorical variables being measured: Eaten (yes or no) and infected (yes or no). Test with a chi-squared contingency table test.`
+
+<br><br>
+
+
+
+**Scenario 1.** In some insect species (i.e. Drosophila), male sperm can have toxic effects on females, such that females who mate more frequently in their lives tend to die sooner. Amanda wants to test whether this phenomenon exists also in a certain species of flatworm. She sets up an experiment with two groups of females, where one group never mates and the other group is placed with males and can therefore mate (assume they all copulate a comparable number of times). She then asks, after two weeks, how many female worms are alive in either group. She asks, does mating influence survival in this species?
+
+`Answer goes here.`
+
+<br>
+
+**Scenario 2.**  Alex wants to test if a certain novel energy source can cause his favorite bacterial species to grow faster. He sets up an experiment where in plates 60 petri dishes with his bacteria. He randomly choses 30 plates to receive the novel energy source, and the remaining 30 plates receive the standard energy source. He then measures the growth rate for each petri dish. He asks, do bacteria tend to grow faster when exposed to the novel energy source?
+
+`Answer goes here.`
+
+
+<br>
+
+**Scenario 3.**  A clinical trial tests the effect of a new topical cream on male baldness. For this clinical trial, a group of bald men are given a placebo cream, and a second group of bald men are given the topical cream being tested. After 8 weeks of application, researchers asks how many men in each group have grown hair (measured as "yes" or "no"). They ask, did men receiving the topical cream tend to grow hair more frequently than men receiving the placebo cream?
+
+`Answer goes here.`
+
+
+<br>
+
+**Scenario 4.** A competing pharmaceutical firm seeks to test the effect of their new topical cream on male baldness. For this trial, they collect a random sample of 100 bald men and administer topical cream to all men for 8 weeks. They then ask how many men grew hair (yes/no). They ask, was the topical cream more successful than random chance at inducing hair growth?
+
+`Answer goes here.`
+
+
+<br>
+
+**Scenario 5.**  A researcher wants to determine if skull size and IQ are related. She divides a random sample of 500 adults into two groups: IQ above 120 and IQ below 120. She then measures skull size for each individual. She asks, do individuals in the different IQ groups tend to have significantly different skull sizes? 
+
+`Answer goes here.`
+
+
+<br><br>
+
+### Part Two: Hypothesis testing (80 points)
+
+For all hypothesis tests, use a built-in R function (`chisq.test()`, `binom.test()`, or `fisher.test()`), i.e. do not use the direct formulas. For all questions, space for stating hypotheses, performing test in an R chunk, and stating conclusions has been templated for you. 
+
+
+**1. At a western hospital there were a total of 932 births in 20 consecutive weeks. Of these births, 216 occurred on weekends. Are birth rates different on weekends and weekdays? Perform a binomial test to answer this question. [Hint: to determine the null hypothesis, consider the null that an individual has an equal chance of being born each day.] (10 points)**
+
+
+`Ho:`
+
+`Ha:`
+
+```{r}
+### R code to perform test goes here
+```
+
+`State your results and conclusions here.`
+
+<br>
+
+**2. Consider the following scenario:** In snapdragons, variation in flower color is determined by a single gene. RR individuals are red, Rr (heterozygous) individuals are pink, and rr individuals are white. In a cross between heterozygous individuals, the expected ratio of red-flowered:pink-flowered:white-flowered offspring is 1:2:1.
+
+*2a) The result of such a cross were 10 red-, 21 pink-, and 9 white-flowered offspring. Do these results differ significantly (at 5%) from the expected frequencies? Use a $\chi^2$ goodness-of-fit test to address this question. (10 points)*
+
+`Ho:`
+
+`Ha:`
+
+```{r}
+### R code to perform test goes here
+```
+
+`State your results and conclusions here.`
+
+<br>
+
+*2b) In another, larger experiment, you count 100 times as many flowers as in the experi- ment in part (a) and get 1000 red, 2100 pink, and 900 white. Do these results differ significantly from the expected 1:2:1 ratio? For this part, simply perform the test and state results and conclusions (i.e. no need for hypotheses). (5 points)*
+
+```{r}
+### R code to perform test goes here
+```
+
+`State your results and conclusions here.`
+
+
+<br>
+
+*2c) Explain why the observed proportions in the two experiments [i.e., in parts (a) and (b)] were the same but the results of the two hypothesis tests differed. (5 points)*
+
+`Answer goes here`.
+
+
+<br>
+
+**3. Consider the following scenario:**
+Daycare centers expose children to a wider variety of germs than children would be exposed to if they stayed at home more often. This has the obvious downside of frequent colds, but it also serves to challenge the immune system of children at a critical stage in their development. A study by Gilham et al. (2005) tested whether exposure of children to a daycare environment affected their probability of later developing acute lymphoblastic leukemia (ALL). Their data was as follows (note: You may field it helpful to view this table in the knitted document instead of the .Rmd file):
+
+  |         | **Children with ALL** | **Children without ALL** | **Total**|
+  |---------|-----------------------|--------------------------|-------    |                 
+|**daycare**    |  1020 | 5343 | *6363*|
+| **no daycare** |   252 | 895 | *1147*|
+| **Total**  | *1272* | *6238* | *7510*|
+
+
+<br>
+
+*3a) Perform a $\chi^2$ contingency table analysis to answer whether the probability of developing ALL is associated with having been in a daycare environment. (10 points)*
+
+`Ho:`
+
+`Ha:`
+
+```{r}
+### R code to perform test goes here
+```
+
+`State your results and conclusions here.`
+
+
+<br>
+
+*3b) What are the __odds__ that a child with ALL had significant social activity (i.e. daycare)? (5 points)*
+
+```{r}
+### R code calculations go here
+```
+
+`The odds are: .`
+
+<br>
+
+*3c) How much more (or less) likely is a child in the ALL group to have significant social activity relative to a child in the non-ALL group? (5 points)*
+
+```{r}
+### R code calculations go here
+```
+
+`State your answer here.`
+
+
+
+<br>
+
+**4. These questions use the dataset `sparrows.csv` (seen previously on homeworks 1 and 2).**
+
+<br>
+
+*4a) Test the hypothesis that young birds that birds survived the storm via random chance alone, i.e. 50% chance of survival. (10 points)*  
+
+`Ho:`
+
+`Ha:`
+
+```{r}
+### R code to perform test goes here
+```
+
+`State your results and conclusions here.`
+
+
+<br>
+
+*4b) Were heavy vs. light males equally likely to survive the storm? For this question, consider "heavy" males as those whose weight is greater than or equal to the median male weight (calculated from __all__ males in the data, regardless of age or survival), and "light" males as those whose weight is less than the median male weight. (10 points).*
+
+
+`Ho:`
+
+`Ha:`
+
+```{r}
+### R code to perform test goes here
+```
+
+`State your results and conclusions here.`
+
+
+<br>
+
+*4c) On average, do males and females (consider all males and females in the data, regardless of age or survival) have different femur lengths? (10 points)*
+
+
+`Ho:`
+
+`Ha:`
+
+```{r}
+### R code to perform test goes here
+```
+
+`State your results and conclusions here.`
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
