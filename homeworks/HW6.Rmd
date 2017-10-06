@@ -7,7 +7,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width
 output: html_document
 ---
 
-## Homework 6: Testing proportions ()
+## Homework 6: Testing proportions (100 points)
 #### BIO5312
 #### Due 10/10/17 by 5:30 pm
 
@@ -184,7 +184,7 @@ Daycare centers expose children to a wider variety of germs than children would 
 
 <br>
 
-*4a) Test the hypothesis that young birds that birds survived the storm via random chance alone, i.e. 50% chance of survival. (10 points)*  
+*4a) Test the hypothesis that young birds survived the storm via random chance alone, i.e. 50% chance of survival. (10 points)*  
 
 `Ho:`
 
