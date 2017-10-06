@@ -4,10 +4,9 @@ title: Inclass exercises, Day VI
 permalink: /inclass_exercises_day6/
 ---
 > Follow [this link]({{ '/day6_testing_proportions' | relative_url }}) for day 6 materials and notes
-
-<!--  
+>
 > Solutions for these exercises are available [here]({{ '/inclass_exercises_day6_solutions' | relative_url }})
--->
+
 
 <br>
 
