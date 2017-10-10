@@ -15,7 +15,7 @@ Weddell seals live in the Antarctic and feed on fish during long, deep dives in 
 
 ![figure]({{ '/files/post_figures/seals.jpg' | relative_url }}){: .img2}
 
-A set of researchers wanted to know whether these feeding long dives incurred an energetic expense, beyond the exertion a seal would experience while diving but not feeding. Researchers measured the oxygen use of seals as they surfaced for air after a dive. For 10 seals, they measured oxygen use (in $$\frac{mg O_2}{kg}$$) of 1 feeding dive and 1 non-feeding dives. Download the data [here]({{ '/datasets/seals.csv' | relative_url }}).
+A set of researchers wanted to know whether these feeding long dives incurred an energetic expense, beyond the exertion a seal would experience while diving but not feeding. Researchers measured the oxygen use of seals as they surfaced for air after a dive. For 10 seals, they measured oxygen use (in $$\frac{mg O_2}{kg}$$) of 1 feeding dive and 1 non-feeding dive. Download the data [here]({{ '/datasets/seals.csv' | relative_url }}).
 **Does feeding increase the metabolic costs of a dive?**
 
 Take the following steps:
