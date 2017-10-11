@@ -253,7 +253,7 @@ Using the final data frame, make a **faceted** histogram of incomes across relig
 
 ### Solution
 
-The plots below have some fun `ggplot` features:
+This plot is shown plot in two different ways below using some fun `ggplot` features:
 
 + Because we have the actual counts in the data, we must use `geom_bar(stat="identity")` to make our histograms
 + We use `facet_wrap()` instead of `facet_grid()` to get rows and columns in the faceting. Try both ways to compare!
