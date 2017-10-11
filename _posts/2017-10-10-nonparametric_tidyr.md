@@ -33,12 +33,12 @@ We have several tables (built-in data in `tidyr`) containing the same informatio
 
 Of these, only `table1` is tidy: Each column is a variable and each row is an observation.
 
-
+relative_rates
 <pre><code class="language-r">
 > table 1
 # A tibble: 6 x 4
       country  year  cases population
-*        \<chr\> \<int\>  \<int\>      \<int\>
+*        &lt;chr&gt; &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
 1 Afghanistan  1999    745   19987071
 2 Afghanistan  2000   2666   20595360
 3      Brazil  1999  37737  172006362
@@ -58,7 +58,7 @@ The tibble `table2` is not tidy because observations are spread across multiple 
 > table2
 # A tibble: 12 x 4
        country  year       type      count
-*         \<chr\> \<int\>      \<chr\>      \<int\>
+*         &lt;chr&gt; &lt;int&gt;      &lt;chr&gt;      &lt;int&gt;
  1 Afghanistan  1999      cases        745
  2 Afghanistan  1999 population   19987071
  3 Afghanistan  2000      cases       2666
@@ -75,7 +75,7 @@ The tibble `table2` is not tidy because observations are spread across multiple 
 > table2 %>% spread(type, count)
 # A tibble: 6 x 4
       country  year  cases population
-*       \<chr\> \<int\>  \<int\>      \<int\>
+*       &lt;chr&gt; &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
 1 Afghanistan  1999    745   19987071
 2 Afghanistan  2000   2666   20595360
 3      Brazil  1999  37737  172006362
@@ -94,7 +94,7 @@ The tibble `table3` is not because there are two variables contained in the colu
 > table3
 # A tibble: 6 x 3
       country  year              rate
-*       \<chr\> \<int\>             \<chr\>
+*       &lt;chr&gt; &lt;int&gt;             &lt;chr&gt;
 1 Afghanistan  1999      745/19987071
 2 Afghanistan  2000     2666/20595360
 3      Brazil  1999   37737/172006362
@@ -105,7 +105,7 @@ The tibble `table3` is not because there are two variables contained in the colu
 > table3 %>% separate(rate, into=c("cases", "population"), sep = "/")
 # A tibble: 6 x 4
       country  year  cases population
-*       \<chr\> \<int\>  \<chr\>      \<chr\>
+*       &lt;chr&gt; &lt;int&gt;  &lt;chr&gt;      &lt;chr&gt;
 1 Afghanistan  1999    745   19987071
 2 Afghanistan  2000   2666   20595360
 3      Brazil  1999  37737  172006362
@@ -117,7 +117,7 @@ The tibble `table3` is not because there are two variables contained in the colu
 > table3 %>% separate(rate, into=c("cases", "population"), sep = "/", convert = TRUE)
 # A tibble: 6 x 4
       country  year  cases population
-*       \<chr\> \<int\>  \<int\>      \<int\>
+*       &lt;chr&gt; &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
 1 Afghanistan  1999    745   19987071
 2 Afghanistan  2000   2666   20595360
 3      Brazil  1999  37737  172006362
@@ -136,7 +136,7 @@ The tibbles `table4a` and `table4b` together contain all information in `table1`
 > table4a
 # A tibble: 3 x 3
       country `1999` `2000`
-*       \<chr\>  \<int\>  \<int\>
+*       &lt;chr&gt;  &lt;int&gt;  &lt;int&gt;
 1 Afghanistan    745   2666
 2      Brazil  37737  80488
 3       China 212258 213766
@@ -146,7 +146,7 @@ The tibbles `table4a` and `table4b` together contain all information in `table1`
 > tidy4a
 # A tibble: 6 x 3
       country  year  cases
-        \<chr\> \<chr\>  \<int\>
+        &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;
 1 Afghanistan  1999    745
 2      Brazil  1999  37737
 3       China  1999 212258
@@ -157,7 +157,7 @@ The tibbles `table4a` and `table4b` together contain all information in `table1`
 > table4b
 # A tibble: 3 x 3
       country     `1999`     `2000`
-*       \<chr\>      \<int\>      \<int\>
+*       &lt;chr&gt;      &lt;int&gt;      &lt;int&gt;
 1 Afghanistan   19987071   20595360
 2      Brazil  172006362  174504898
 3       China 1272915272 1280428583
@@ -166,7 +166,7 @@ The tibbles `table4a` and `table4b` together contain all information in `table1`
 > table4b %>% gather(year, population, `1999`:`2000`) -> tidy4b
 # A tibble: 6 x 3
       country  year population
-        \<chr\> \<chr\>      \<int\>
+        &lt;chr&gt; &lt;chr&gt;      &lt;int&gt;
 1 Afghanistan  1999   19987071
 2      Brazil  1999  172006362
 3       China  1999 1272915272
@@ -179,7 +179,7 @@ The tibbles `table4a` and `table4b` together contain all information in `table1`
 
 # A tibble: 6 x 4
       country  year  cases population
-        \<chr\> \<chr\>  \<int\>      \<int\>
+        &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;      &lt;int&gt;
 1 Afghanistan  1999    745   19987071
 2      Brazil  1999  37737  172006362
 3       China  1999 212258 1272915272
@@ -197,7 +197,7 @@ The tibble `table5` is not tidy because two variables are split into two columns
 >table5
 ># A tibble: 6 x 4
       country century  year              rate
-*       \<chr\>   \<chr\> \<chr\>             \<chr\>
+*       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;             &lt;chr&gt;
 1 Afghanistan      19    99      745/19987071
 2 Afghanistan      20    00     2666/20595360
 3      Brazil      19    99   37737/172006362
@@ -207,7 +207,7 @@ The tibble `table5` is not tidy because two variables are split into two columns
 
 > table5 %>% unite(Year, century, year, sep="")
       country  Year              rate
-*       \<chr\> \<chr\>             \<chr\>
+*       &lt;chr&gt; &lt;chr&gt;             &lt;chr&gt;
 1 Afghanistan  1999      745/19987071
 2 Afghanistan  2000     2666/20595360
 3      Brazil  1999   37737/172006362
@@ -221,7 +221,7 @@ The tibble `table5` is not tidy because two variables are split into two columns
 	separate(rate, into=c("cases", "population"), sep = "/", convert=TRUE)
 # A tibble: 6 x 4
       country  Year  cases population
-*       \<chr\> \<chr\>  \<int\>      \<int\>
+*       &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;      &lt;int&gt;
 1 Afghanistan  1999    745   19987071
 2 Afghanistan  2000   2666   20595360
 3      Brazil  1999  37737  172006362
