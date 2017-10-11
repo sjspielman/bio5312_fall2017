@@ -4,7 +4,8 @@ title: Inclass exercises, Day VII
 permalink: /inclass_exercises_day7/
 ---
 > Follow [this link]({{ '/day7_nonparametric_tidyr' | relative_url }}) for day 7 materials and notes
-
+>
+> Solutions for these exercises are available [here]({{ '/inclass_exercises_day7_solutions' | relative_url }})
 
 <br>
 
@@ -58,11 +59,6 @@ Take the following steps:
 + State the null, alternative hypotheses 
 + Conduct the test
 + Report results, conclusions
-
-
-### Round 2
-
-Run a *t*-test anyways on the dataset and compare your results and conclusions from the Mann Whitney test. Return to class for discussion of what's going on.
 
 ## Tidying data with `tidyr`
 
