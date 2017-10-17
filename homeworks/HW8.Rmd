@@ -1,0 +1,142 @@
+```{r global_options, include=FALSE}
+library(knitr)
+library(dplyr)
+library(tidyr)
+library(readr)
+library(broom)
+library(modelr)
+knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width=4.5)
+```
+---
+output: html_document
+---
+
+## Homework 8: Resampling statistics and Multiple Testing 
+#### BIO5312
+#### Due 10/24/17 by 5:30 pm
+
+**Enter your name here**
+
+<br>
+
+Note that **all relevant packages** have been pre-loaded in the preamble to this homework. **Do not reload or load new packages in your code below as it may lead to unexpected behavior.**
+
+
+### Question 1 (40 points)
+
+The males of some cichlid fish species are infertile until a few days after they become the socially dominant male in the presence of females. Males without a territory (and therefore without a hope of mating) have atrophied genitalia, while males who control a territory with females around have well-developed genitalia. They can shift from one state to the other in a matter of days. The researchers wanted to test if the hormone gonadotropin-releasing hormone (GnRH) is associated with this switch. For each of six species, they measured the levels of the messenger RNA (mRNA) of GnRH for six territorial fish (T) and for six non-territorial fish (NT). Note that mRNA level reflects the amount of GnRH expression. The data from this study are in the file "cichlids.csv".
+
+Use a **one-tailed permutation test** to determine if, on average, NT fish have *higher* GnRH levels. Based on your results, can you infer if GnRH plays a role in the development of genitalia? 
+
+*Hints*:
+
++ Make sure to give your null and alternative hypothesis, results, conclusions, and answer the question above.
++ Make sure your data is tidy before running the permutation test
++ Think about how the experimental setup (i.e. data collection) informs how you should calculate your test statistic
++ Think about how the type of hypothesis test informs how you should calculate your test statistic
++ Use the "tilde" syntax for your t.test computations, i.e. `t.test(<numeric_column> ~ <categorical_column>, data = <name of dataframe>)`. Note that all regular arguments (`paired`, `alternative`, `conf.level`, etc.) can still be used. This syntax will additionally ensure consistent directionality between your calculated data t-statistic and the permuted t-statistics (think carefully about which direction this is and how you can find out).
+
+<br><br>
+```{r}
+### All R code goes here
+```
+
+**Provide your full answer here.**
+
+
+<br><br>
+
+### Question 2 (30 points)
+
+The stalk-eyed fly (*Cyrtodiopsis dalmanni*) is a bizarre-looking insect from Malaysia (see wikipedia [here](https://en.wikipedia.org/wiki/Stalk-eyed_fly)). Its eyes are at the end of long stalks that emerge from the top of its head. While these stalks are present in both males and females, males tend to have much longer stalks due to sexual selection (i.e. females will preferentially mate with males with longer eyestalks). Females judge eyestalk length by looking at male *eye-span*, the distance between the eyes. Researchers measured eye-spans (in mm) from a random sample of 9 males, results of which are in the file "stalkies.csv". 
+
+Use this data to perform the following tasks:
+
+<br>
+**Question 2a.** Estimate the mean and 90% confidence interval of the mean using the "standard" approach. 
+```{r}
+### All R code goes here
+```
+
+<br>
+**Question 2b.**  Estimate the **bootstrap** mean and 90% confidence interval of the mean, with 1e5 bootstrap replicates. 
+```{r}
+### All R code goes here
+```
+
+<br>
+**Question 2c.**  Estimate the **bootstrap** mean and 90% confidence interval of the mean, with 1e2 bootstrap replicates. 
+```{r}
+### All R code goes here
+```
+
+<br>
+**Question 2d.** Compare the results from all three approaches in 1-2 sentences. Which estimate/CI do you think is mostly reliable?
+
+**Answer goes here.**
+
+
+
+<br><br>
+
+### Question 3 (30 points)
+
+A recent GWAS study entitled "Genomic analyses identify hundreds of variants associated with age at menarche and support a role for puberty timing in cancer risk" by Day, et al. aimed to identify SNPs associated with age of first female menstruation. They collected SNP data from various databases, including 23andMe, and performed associations between all observed SNPs and age of first menstruation. 
+
+In the dataset "Dayetal_gwas_subset.csv", you will find (subsetted, due to large size) results from this GWAS. **Do not attempt to open this file directly as it is extremely large and may crash your computer**. The dataset has the following columns:
+
++ `Markername`, indicated as <chromosome>:<position on chromosome> (release 37). This is the genomic location of the SNP of interest
++ `Minor_allele`, the nucleotide representing the SNP at this site. This can be either "a", "c", "g", "t" indicating a nucleotide SNP, or "i" or "d" indicating an insertion or deletion of a nucleotide at the site.
++ `Effect`, the observed effect size (measured as years) for this SNP
++ `Pvalue`, the **uncorrected** P-value for the association between SNP and start of menstruation 
+
+
+<br>
+
+Perform the following tasks with this dataset (using $\alpha=0.01$). First, read in the dataset here **using the readr function `read_csv()`**.
+```{r}
+### Read in GWAS data here.
+```
+
+<br>
+
+**Question 3a**. Correct these P-values for multiple testing using the Bonferroni correction. Then answer, what proportion of SNPs show significance after correction? 
+```{r}
+### Code for Bonferroni correction goes here.
+```
+
+**The proportion of significant SNPs out of all SNPs, after a Bonferroni correction, is: **.
+
+<br>
+**Question 3b**. Correct these P-values for multiple testing using the Benjamini-Hotchberg (false discovery rate) correction. Then answer, what proportion of SNPs show significance after correction? 
+```{r}
+### Code for Benjamini-Hotchberg correction goes here.
+```
+
+**The proportion of significant SNPs out of all SNPs, after a Benjamini-Hotchberg correction, is: **.
+
+<br>
+**Question 3c**. Based on your corrected P-values under the Benjamini-Hotchberg correction, determine the 10 "most important" SNPs in two separate ways: i) the significant SNPs with the smallest corrected Pvalues, and ii) the significant SNPs with the largest absolute effects. Your answer to each of these should be given as a final subsetted dataframe containing only the 10 important rows for the applicable approach. 
+
+*Hints:*
+
++ `mutate()`, `ifelse()`, and `arrange()` are useful functions here
++ You can provide `head()` with an argument to specify how many rows to print, i.e. `head(df, 10)` prints the first 10 rows of dataframe named "df". The same (but for bottom rows) goes for the function `tail()`.
+
+
+<br>
+```{r}
+### Code for top-10 SNPs based on Pvalues goes here.
+```
+
+<br>
+```{r}
+### Code for top-10 SNPs based on Effect goes here.
+```
+
+
+
+
+
+
+
