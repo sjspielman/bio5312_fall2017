@@ -4,11 +4,9 @@ title: Inclass exercises, Day VIII
 permalink: /inclass_exercises_day8/
 ---
 > Follow [this link]({{ '/day8_resampling_multtesting' | relative_url }}) for day 8 materials and notes
-
-<!--
 >
 > Solutions for these exercises are available [here]({{ '/inclass_exercises_day8_solutions' | relative_url }})
--->
+
 <br>
 
 
