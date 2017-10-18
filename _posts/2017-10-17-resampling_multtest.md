@@ -139,9 +139,9 @@ t.test(Sepal.Length~Species, data=iris2)$statistic -> data.t
 ## Examine data for directional conclusion
 > iris2 %>% group_by(Species) %>% summarize(mean(Sepal.Length))
     Species `mean(Sepal.Length)`
-     <fctr>                <dbl>
 1    setosa                5.006
 2 virginica                6.588
+
 </code></pre>
 
 We have a permutated P-value of 0, which means our true P-value is going to be **extremely small**, and definitively smaller than $$\alpha = 0.05$$. We reject the null hypothesis and we conclude that setosa and virginica have different sepal lengths. We further find that virginica have longer sepal lengths than setosa, on average.
