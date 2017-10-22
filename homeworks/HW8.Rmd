@@ -2,6 +2,7 @@
 library(knitr)
 library(dplyr)
 library(tidyr)
+library(purrr)
 library(readr)
 library(broom)
 library(modelr)
