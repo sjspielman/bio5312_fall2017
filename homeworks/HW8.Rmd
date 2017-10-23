@@ -6,6 +6,7 @@ library(purrr)
 library(readr)
 library(broom)
 library(modelr)
+library(slipper)
 knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width=4.5)
 ```
 ---
