@@ -172,7 +172,7 @@ With 1e4 bootstrap replicates, we estimate that setosa petal lengths having a me
 
 <pre><code class="language-r">
 ### Use function p.adjust() to correct an array of P-values for multiple testing
-#### p.adjust(<p-value>, method = <correction method>)
+#### p.adjust(p-value, method = correction method)
 
 ## Default uses the Holm correction
 > my.pvalues <-c(0.05, 0.023, 0.001, 0.04, 0.035, 0.0007)
@@ -185,6 +185,7 @@ With 1e4 bootstrap replicates, we estimate that setosa petal lengths having a me
 [1] 0.050 0.046 0.003 0.048 0.048 0.003
 > p.adjust(my.pvalues, method = "bonferroni")
 [1] 0.3000 0.1380 0.0060 0.2400 0.2100 0.0042
+
 </code></pre>
 
 ### Functions that perform multiple testing
