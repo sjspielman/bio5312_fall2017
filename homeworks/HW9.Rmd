@@ -1,0 +1,119 @@
+```{r global_options, include=FALSE}
+library(knitr)
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(readr)
+library(broom)
+library(modelr)
+knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width=4.5)
+```
+---
+output: html_document
+---
+
+## Homework 9: LM1 and Scientific Inquiry
+#### BIO5312
+#### Due 10/31/17 by 5:30 pm
+
+**Enter your name here**
+
+<br>
+
+### Instructions 
+
+This assignment prompts you with several **scientific questions** concerning the dataset in the file "rowan.csv" (see below for details). The statistical approach you should use is indicated in the question. Each question 1-6 is worth 16 points.
+
+This dataset is from a field experiment studying the diversity of Chinese Rowan, or Mountain Ash, trees from the genus *Sorbus*. Researchers randomly sampled and recorded characteristics of leaves from three different Rowan species, and they further noted whether birds were actively nesting in each tree (recorded as y/n for yes/no). Altitude is recorded in meters (m), respiration rate (resp.rate) is recorded in per unit leaf mass, and leaf length (leaf.len) is recorded in centimeters (cm). 
+
+<br>
+
+You must include the following components in each answer:
+
++ Explain why (1-2 sentences) the statistical is appropriate to answer the question
++ Make a **figure** to visualize the data you are examining
+    + Hint: barplots (including grouped barplots) may be used for visualizing categorical data
++ Provide null and alternative hypotheses
++ Give results and conclusions. For linear models, this should include an interpretation of $R^2$ and coefficients, as well as an indication for whether the model is strong or weak (i.e. useful or not)
++ Be sure to address the question asked
+
+    
+### Questions (100 points)
+
+<br><br>
+
+
+**Question 0: Before proceeding to questions, indicate your chosen alpha for all tests:** `My chosen alpha is ______`. (4 points)
+
+<br>
+
+**Question 1: Do different Rowan species tend to have different leaf lengths, and if so, do all species have different leaf lengths, or do only some species have different leaf lengths from either other?** Answer this question using an ANOVA with the the *posthoc* Tukey's test. Your answer should also indicate, with a brief interpretation, the $R^2$ of the ANOVA, which you must calculate directly from the ANOVA summary (do not use output from `lm`!).
+
+<br>
+```{r}
+### All R code goes here
+```
+
+**Provide your full answer here.**
+
+<br>
+
+**Question 2: Do different Rowan species tend to have different leaf lengths, and if so, which species has the _shortest_ leaf length on average (also provide the length)?** Answer this question (it is intentionally quite similar to question 1) using multiple t-tests, corrected with an adjustment of your choice. You must perform all testing using a single line of code (note, you will need more code to determine the shortest species). Note further you should make a qualitatively different figure from question 1. 
+
+<br>
+```{r}
+### All R code goes here
+```
+
+**Provide your full answer here.**
+
+<br>
+
+
+**Question 3: Do birds nest equally frequently across Rowan species?** Answer this question using a $\chi^2$ contingency table analysis.   
+
+<br>
+```{r}
+### All R code goes here
+```
+
+**Provide your full answer here.**
+
+<br>
+
+**Question 4: Is there a relationship, and if so what is its magnitude and direction, between respiration rate and leaf length of the tree, specifically for the species _Sorbus microphylla_?** Answer this question using a correlation test.
+
+<br>
+```{r}
+### All R code goes here
+```
+
+**Provide your full answer here.**
+
+<br>
+
+**Question 5: Is altitude a robust predictor of tree respiration rate, specifically for the species _Sorbus sargentiana_?** Answer this question using a linear regression.
+
+<br>
+```{r}
+### All R code goes here
+```
+
+**Provide your full answer here.**
+
+<br>
+
+**Question 6: Using a model of the relationship between altitude and leaf length (considering all Rowan species), what would the leaf length be for hypothetical Rowan tree at at altitude of 800 m?** Answer this question using a linear regression, and be sure to include the estimated rate and its 95% confidence interval in your answer.
+
+<br>
+```{r}
+### All R code goes here
+```
+
+**Provide your full answer here.**
+
+
+
+
+
+
