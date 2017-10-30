@@ -103,7 +103,7 @@ You must include the following components in each answer:
 
 <br>
 
-**Question 6: Using a model of the relationship between altitude and leaf length (considering all Rowan species), what would the leaf length be for hypothetical Rowan tree at at altitude of 800 m?** Answer this question using a linear regression, and be sure to include the estimated rate and its 95% confidence interval in your answer.
+**Question 6: Using a model of the relationship between altitude and leaf length (considering all Rowan species), what would the leaf length be for hypothetical Rowan tree at at altitude of 800 m?** Answer this question using a linear regression, and be sure to include the estimated leaf length and its 95% confidence interval in your answer.
 
 <br>
 ```{r}
