@@ -99,7 +99,7 @@ sample estimates:
 0.8645635
 </code></pre>
 
-![figure]({{ '/files/post_figures/wineclass9.png' | relative_url }}){: .img2}
+![figure]({{ '../files/post_figures/wineclass9.png' | relative_url }}){: .img2}
 
 
 The Pearson correlation between Flavanoids and TotalPhenol is R=0.86, and is significantly different from 0 (P<2.2e-16). Therefore these two quantities have strong and positive linear relationship.
@@ -117,7 +117,6 @@ Using the `ggplot2` dataset `diamonds` (you can access it like any built-in data
 > head(diamonds)
 # A tibble: 6 x 10
   carat       cut color clarity depth table price     x     y     z
-  <dbl>     <ord> <ord>   <ord> <dbl> <dbl> <int> <dbl> <dbl> <dbl>
 1  0.23     Ideal     E     SI2  61.5    55   326  3.95  3.98  2.43
 2  0.21   Premium     E     SI1  59.8    61   326  3.89  3.84  2.31
 3  0.23      Good     E     VS1  56.9    65   327  4.05  4.07  2.31
@@ -202,6 +201,6 @@ Check linearity:
 Add regression line:
 ![figure]({{ '/files/post_figures/wine3class9.png' | relative_url }}){: .img2}
 
-Our model shows a moderate but significant relationship between flavanoids and non-flavanoid phenols. Our model's $$R^2 = 0.289 (P=9.74e-15) is highly significant and indicates that flavanoid content can explain ~29% of variation in non-flavanoid phenols. Therefore, while a significant model, it does not explain the majority of variation in non-flavanoid phenols.
+Our model shows a moderate but significant relationship between flavanoids and non-flavanoid phenols. Our model's $$R^2 = 0.289$$ (P=9.74e-15) is highly significant and indicates that flavanoid content can explain ~29% of variation in non-flavanoid phenols. Therefore, the model does not explain the majority of variation in non-flavanoid phenols.
 
 The flavanoid coefficient is -0.067 (P=9.74e-15), meaning that for every unit increase in flavanoid content, we expect non-flavanoid phenols to *decrease* by 0.067 units on average. The intercept is 0.498 (P=2.49e-66), so wine with 0 flavanoid content is expected to contain 0.497 units of non-flavanoid phenols, although this quantity is probably not meaningful in the context of actual wine. 

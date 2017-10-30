@@ -17,6 +17,8 @@ permalink: /day8_resampling_multtesting
 
 + [Broom vignette](https://cran.r-project.org/web/packages/broom/vignettes/broom.html)
 
+<br>
+
 
 ### Random sampling
 

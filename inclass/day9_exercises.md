@@ -14,6 +14,8 @@ permalink: /inclass_exercises_day9/
 
 Using the built-in dataset `PlantGrowth`, run an ANOVA to determine if plant weight differs across treatments.
 
+
+
 <br>
 
 
