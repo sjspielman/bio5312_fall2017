@@ -31,7 +31,7 @@ The following data are numbers of virions produced (burst sizes) for viruses tha
 + **Mutagen burst sizes**: 15, 29, 58, 103, 1048
 + **Control burst sizes**: 7, 29, 254, 921, 5611
 
-![figure]({{ '/files/post_figures/t4.png' | relative_url }}){: .img2}
+![figure]({{ '/files/post_figures/wineclass9.png' | relative_url }}){: .img2}
 
 
 <br>

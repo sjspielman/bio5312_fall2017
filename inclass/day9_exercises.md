@@ -4,6 +4,8 @@ title: Inclass exercises, Day 9
 permalink: /inclass_exercises_day9/
 ---
 > Follow [this link]({{ '/day9_lm1' | relative_url }}) for day 9 materials and notes
+>
+> Solutions for these exercises are available [here]({{ '/inclass_exercises_day9_solutions' | relative_url }})
 
 <br>
 
