@@ -33,4 +33,4 @@ Using the `dplyr` dataset `diamonds` (you can access it like any built-in datase
 
 ## Regression
 
-Using the dataset [wine.csv]({{ '/datasets/lm_datasets/wine.csv' | relative_url }}), construct a linear model that can predict the amount of Flavanoids from the amount of non-flavanoid phenols (NonflavPhenols) across all wine cultivars. Then, predict the Flavanoid content for a wine with non-flavanoid phenols of 0.12. 
+Using the dataset [wine.csv]({{ '/datasets/lm_datasets/wine.csv' | relative_url }}), construct a linear model that can predict the amount of non-flavanoid phenols (NonflavPhenols) from the amount of Flavanoids across all wine cultivars.
