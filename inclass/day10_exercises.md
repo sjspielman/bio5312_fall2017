@@ -29,7 +29,7 @@ wine$Cultivar <- factor(wine$Cultivar)
 Using the dataset [wine.csv]({{ '/datasets/lm_datasets/wine.csv' | relative_url }}), construct a linear model to predict wine Color *from all other columns* as independent predictors. Note: If you are running this in a separate R session from question above, you will need to re-code `wine$Cultivar` as a factor. Fully interpret your model. Think carefully how to interpret the coefficient for Cultivar (the only categorical variable). How can you fully understand its effect?  
 
 Happily, R makes your life easy to include all "other columns" as predictors:
-`lm(Color ~ ., data = wine)`, where the "." represents everything that isn't Alcohol. 
+`lm(Color ~ ., data = wine)`, where the "." represents everything that isn't Color. 
 
 
 <br>
