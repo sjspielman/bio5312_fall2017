@@ -4,11 +4,10 @@ title: Inclass exercises, Day 10
 permalink: /inclass_exercises_day10/
 ---
 > Follow [this link]({{ '/day10_lm2_logistic' | relative_url }}) for day 10 materials and notes
-
-<!--
 >
 > Solutions for these exercises are available [here]({{ '/inclass_exercises_day10_solutions' | relative_url }})
--->
+
+
 <br>
 
 
