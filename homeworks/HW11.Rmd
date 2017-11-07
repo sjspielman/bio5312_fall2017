@@ -6,6 +6,7 @@ library(ggplot2)
 library(purrr)
 library(modelr)
 library(broom)
+library(pROC)
 knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width=4.5)
 ```
 ---
@@ -115,7 +116,7 @@ This section uses the dataset `mammogram.csv`, which contains mammogram results,
 + `Shape`: mass shape
 + `Margin`: mass margin
 + `Density`: mass density
-+ `Severity`: final diagnosis, as begign or malignant
++ `Severity`: final diagnosis, as benign or malignant
 
 <br>
 
@@ -125,7 +126,7 @@ This section uses the dataset `mammogram.csv`, which contains mammogram results,
   + The AUC
   + The false discovery rate, at a cutoff of 0.5
   + The accuracy, at a cutoff of 0.5
-  + The true positive rate that corresponds to a *specificity* of 0.9, as assessed visually on the ROC curve
+  + The true positive rate that corresponds to a *specificity* of 0.9, as assessed *visually* from the ROC curve
   + For each of these quantites, be sure to explain what the quantity means in the context of the model.
       + **For example:**  in defining $R^2$ in a hypothetical bodyfat linear model, I would not define it as "the percent of y explained by x". I *would* define it as "the percent of variance in bodyfat explained by the model."
   + Based on all quantities and curves, indicate if this model has a strong performance.
@@ -155,3 +156,16 @@ This section uses the dataset `mammogram.csv`, which contains mammogram results,
 <br>
 
 **Answer goes here.**
+
+<br><br>
+
+**OPTIONAL BONUS QUESTION (20 points).** Make **violin plots** of *precision* and *accuracy* across the 10 folds, using a tidyverse-oriented strategy to obtain these values. An example for how to perform something similar can be found in the K-folds supplement on the course website. Additionally report and mean and standard deviation for these quantities.
+
+<br>
+
+```{r}
+
+### Code goes here
+
+```
+

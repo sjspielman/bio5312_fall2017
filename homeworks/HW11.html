@@ -193,7 +193,7 @@ $(document).ready(function () {
 <li><code>Shape</code>: mass shape</li>
 <li><code>Margin</code>: mass margin</li>
 <li><code>Density</code>: mass density</li>
-<li><code>Severity</code>: final diagnosis, as begign or malignant</li>
+<li><code>Severity</code>: final diagnosis, as benign or malignant</li>
 </ul>
 <p><br></p>
 <p><strong>Question 1 (25 points).</strong> Construct a logistic regression, using the full mammogram dataset, to predict breast cancer malignancy. Once the model is made, make two figures to accompany this model: an ROC curve and a plot of the logistic curve fitted (for the latter plot, show colored points). Then, provide an explanation which includes the following components:</p>
@@ -201,7 +201,7 @@ $(document).ready(function () {
 <li>The AUC</li>
 <li>The false discovery rate, at a cutoff of 0.5</li>
 <li>The accuracy, at a cutoff of 0.5</li>
-<li>The true positive rate that corresponds to a <em>specificity</em> of 0.9, as assessed visually on the ROC curve</li>
+<li>The true positive rate that corresponds to a <em>specificity</em> of 0.9, as assessed <em>visually</em> from the ROC curve</li>
 <li>For each of these quantites, be sure to explain what the quantity means in the context of the model.
 <ul>
 <li><strong>For example:</strong> in defining <span class="math inline">\(R^2\)</span> in a hypothetical bodyfat linear model, I would not define it as “the percent of y explained by x”. I <em>would</em> define it as “the percent of variance in bodyfat explained by the model.”</li>
@@ -216,6 +216,10 @@ $(document).ready(function () {
 <pre class="r"><code>### Code goes here</code></pre>
 <p><br></p>
 <p><strong>Answer goes here.</strong></p>
+<p><br><br></p>
+<p><strong>OPTIONAL BONUS QUESTION (20 points).</strong> Make <strong>violin plots</strong> of <em>precision</em> and <em>accuracy</em> across the 10 folds, using a tidyverse-oriented strategy to obtain these values. An example for how to perform something similar can be found in the K-folds supplement on the course website. Additionally report and mean and standard deviation for these quantities.</p>
+<p><br></p>
+<pre class="r"><code>### Code goes here</code></pre>
 </div>
 
 
