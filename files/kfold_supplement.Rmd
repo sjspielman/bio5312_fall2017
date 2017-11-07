@@ -64,7 +64,7 @@ In the above output, you can see that all rows corresponding to each `Sepal.Leng
 
 <br>
 
-The `tiydr::unnest()` undoes nesting, or on its own converts rows of a dataframe into a list, and stores this list in a column called `data`:
+The `tiydr::unnest()` undoes nestingL
 
 ```{r }
 iris2 %>% 

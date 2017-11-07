@@ -36,6 +36,7 @@
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
 % Add ',fontsize=\small' for more characters per line
 \usepackage{framed}
+\usepackage{float}
 \definecolor{shadecolor}{RGB}{248,248,248}
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
@@ -146,6 +147,8 @@ This demo requires several packages:
 
 \subsection{Background}\label{background}
 
+
+
 K-fold cross validation is a common approach to assess the performance
 of a given model. The method works by randomly dividing a dataset into
 \emph{K} equal ``folds'' (generally K=10 is a good choice). First, folds
@@ -158,9 +161,9 @@ used for testing, etc. In the end, the model will have been trained on K
 training dataset folds and evaluated with K test dataset folds. The
 final distribution of quantities can be assessed to validate the model.
 
-\begin{figure}
+\begin{figure}[H]
 \centering
-\includegraphics[width=4in]{k-fold.png}[H]
+\includegraphics[width=4in]{k-fold.png}
 \caption{K-fold cross validation schematic}
 \end{figure}
 
@@ -220,9 +223,7 @@ In the above output, you can see that all rows corresponding to each
 \texttt{Sepal.Length} value have been packaged into a list in a new
 column called \texttt{data}, for later use.
 
-The \texttt{tiydr::unnest()} undoes nesting, or on its own converts rows
-of a dataframe into a list, and stores this list in a column called
-\texttt{data}:
+The \texttt{tiydr::unnest()} undoes nesting:
 
 \begin{Shaded}
 \begin{Highlighting}[]
