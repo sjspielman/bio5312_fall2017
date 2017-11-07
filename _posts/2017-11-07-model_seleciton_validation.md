@@ -9,9 +9,6 @@ permalink: /day11_model_selection_validation
 ## Lecture 
 
 + [Slides](./slides/day11_model_selection_validation.pdf)
-+ [In-class exercises]({{ site.baseurl }}{% link inclass/day11_exercises.md %})
-+ [**Linear modeling supplement**]({{ site.baseurl }}{% link files/lm_supplement.pdf %})
-	+ An *excellent* overview of linear modeling, including model intepretation and fitting in R, written by [Claus Wilke, PhD](http://wilkelab.org).
 
 <br>
 ## R content
@@ -39,7 +36,7 @@ permalink: /day11_model_selection_validation
       
 </code></pre>
 
-![figure]({{ '/slides/slidefigures/lesson11/roc_biopsy.pdf' | relative_url }}){: .img}
+![figure]({{ '/slides/slidefigures/lesson11/roc_biopsy.png' | relative_url }}){: .img}
 
 <br>
 

@@ -1,0 +1,309 @@
+---
+title: "K-fold cross validation in the Tidyverse"
+author: "Stephanie J. Spielman"
+date: "11/7/2017"
+output: 
+  pdf_document:
+    fig_caption: yes
+    keep_tex: yes
+    highlight: tango
+geometry: margin=0.5in
+
+---
+
+```{r setup, include=FALSE}
+require(knitr)
+require(tidyverse)
+require(modelr)
+require(purrr)
+require(broom)
+require(pROC)
+knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=3, fig.width=3, result='asis')
+```
+
+## Requirements
+
+This demo requires several packages:
+
++ `tidyverse` (`dplyr`, `tidyr`, `tibble`, `ggplot2`)
++ `modelr`
++ `broom`
++ `pROC`
+
+## Background
+
+K-fold cross validation is a common approach to assess the performance of a given model. The method works by randomly dividing a dataset into *K* equal "folds" (generally K=10 is a good choice). First, folds 2-10 are used to *train* the model, and folds 1 is used to *test* the model. A quantity (such as RMSE for linear models, or AUC etc. for logistic regression) is calculated from the test predictions to help us determine the performance of the trained model on the test data.
+Next, folds 1 and 3-10 are used to train, and folds 2 is used for testing, etc. In the end, the model will have been trained on K training dataset folds and evaluated with K test dataset folds. The final distribution of quantities can be assessed to validate the model.
+
+![K-fold cross validation schematic](k-fold.png)
+
+## Necessary functions
+
+Before beginning, there are a few new functions to be familiar with.
+
+### `nest()` and `unnest()`
+
+The `tiydr::nest()` function converts rows of a dataframe into a list, and stores this list in a column called `data`:
+
+```{r }
+## To ensure "pretty printing", we must force our input dataframe to be a tibble:
+iris2 <- as.tibble(iris)
+
+iris2 %>% nest()
+```
+
+You can further specify that certain columns *not* be nested.
+
+```{r }
+
+### Subtract Sepal.Width from nest() to preserve it
+iris2 %>% nest(-Sepal.Width)
+```
+
+In the above output, you can see that all rows corresponding to each `Sepal.Length` value have been packaged into a list in a new column called `data`, for later use.
+
+<br>
+
+The `tiydr::unnest()` undoes nesting, or on its own converts rows of a dataframe into a list, and stores this list in a column called `data`:
+
+```{r }
+iris2 %>% 
+    nest() %>%  ### make it all one column
+    unnest() %>%   ### unnest to restore to original data frame state
+    head()
+```
+
+
+### `modelr::crossv_kfold()`
+
+This function uses random sampling to create K folds for you from a given dataset and produces a data frame with three columns:
+
++ `train`, the training fold
++ `test`, the associated testing fold
++ `.id`, the fold index for each train-test set. This column ranges from 1-K.
+
+```{r }
+set.seed(101)
+iris %>% crossv_kfold(5)
+```
+
+
+### `broom::augment()`
+
+We have seen this function before along with `tidy()` and `glance()`, but not really used it in depth. Now its utility is revealed: This function merges, into a single dataframe, the input data with the **fitted values** for a model, aka predictions! These values are stored in a column called `.fitted`. Below, I show you how you can directly see the true values of sepal length as well as what the model predicts the sepal lengths would be, for the relevant petal length.
+
+```{r, warning=FALSE }
+fit <- lm(Sepal.Length ~ Petal.Length, data=iris)
+augment(fit) %>% select(Sepal.Length, Petal.Length, .fitted) %>% head()
+```
+
+## Performing cross validation on a linear model
+
+This section demonstrates how to run a k-fold cross validation for a linear model. Specifically, we will validate the model: `lm(Sepal.Length ~ Petal.Length + Species)` with K=10 folds. 
+
+
+To begin, we will set the random seed to a random number of our choosing:
+```{r }
+set.seed(53629)
+```
+
+
+Next, we create the K=10 folds and create 10 models on the `train` column. Note that we have seen similar use of `purrr:map()` when running permutation tests.
+
+```{r }
+iris %>%
+  crossv_kfold(10) %>%
+  mutate(model = purrr::map(train, ~lm(Sepal.Length ~ Petal.Length, data=.))) -> trained.models
+
+trained.models
+```
+
+In the output, we see four columns:
+
+
++ `train`, the training fold, produced by `crossv_kfold()`
++ `test`, the associated testing fold, produced by `crossv_kfold()`
++ `.id`, the fold index for each train-test set, produced by `crossv_kfold()`
++ `model`, the fitted linear model, produced in the call to `purrr:map()`
+
+Now, we need to evaluate each trained model on its respective test data. Happily, `modelr` makes this easy with convenience functions `rmse()`. This function takes two arguments as follows: `rmse(fitted model, dataset)`. Therefore, in one call to `rmse()`, we can calculate the RMSE from the trained model on the test data.
+
+To accomplish this, we need to use the function `purrr::map2()`, which is like `map()` but when there are two inputs to the function of interest. We use this function as `purrr::map2_dbl()` to specify that we want numeric (double) output:
+
+```{r }
+map2_dbl(trained.models$model, trained.models$test, rmse) -> test.rmse
+
+test.rmse
+```
+
+These values correspond to the root mean square error of our model, which can be interpretted as the error in model inferences. Recall, we are predicting Sepal.Length in our model, which is distributed as:
+```{r }
+summary(iris$Sepal.Length)
+```
+
+Compared to the range of values for Sepal.Lengths, our errors are rather low (in the ~10% range), so our model is pretty good. We can further run some summary statistics on the RMSE:
+
+```{r }
+summary(test.rmse)
+sd(test.rmse)
+
+## Convert to data frame and plot:
+as.data.frame(test.rmse) %>% ggplot(aes(x="", y=test.rmse)) + geom_boxplot()
+```
+
+In the boxplot, there is one curious point (literally): the outlier > 0.5. This point probably corresponds to a slightly "pathological" test set, i.e. with different features from the rest of the data. 
+
+Finally, we can compare our RMSE from the test data to RMSE from the training data. If our model is robust, then these will have similar distributions:
+```{r }
+map2_dbl(trained.models$model, trained.models$train, rmse) -> train.rmse
+
+
+## Run a test on train/test rmse, remembering that these are PAIRED by k-fold! 
+wilcox.test(train.rmse, test.rmse, paired=T)
+```
+
+A quick hypothesis test to compare distributions (Wilcoxon signed-rank) gives P=0.695, suggesting that these RMSE values are from the same underlying distribution and do not significantly differ. In total, therefore, the K-fold cross validation showed us that we have a fairly robust model.
+
+
+## Performing cross validation on a logistic regression model
+
+The procedure for cross-validation is the same for any type of model, but `modelr` does not have any convenience functions to summarize validations (as in, `rmse()` above). Therefore, in this and other such circumstances, we'll need to go through the full procedure of predicting from our test data and evaluating the predictions directly.
+Here, we will fit the logistic regression: `glm(outcome ~ ., data = biopsy, family=binomial)`, as in class.
+
+We begin in much the same way:
+
+```{r }
+biopsy <- read.csv("biopsy.csv")
+
+## Make the folds and train the models
+biopsy %>%
+  crossv_kfold(10) %>%
+  mutate(model = purrr::map(train, ~glm(outcome ~ ., data=., family=binomial))) -> trained.models
+
+trained.models
+```
+
+Again, we have our training and test data, their associated IDs, and the models fit to the training data. We now must actually grab predictions out of test, using some `tidyverse` magic with the `unnest()` and `map2()` functions. We want to run `predict()`, as usual, with the testing data in the `test` column with the trained models in `model` column. We use `map2()` to send both these inputs into `predict()` (with `type = "response"` to actually get predicted probabilities), and we shove the whole thing into `unnest()` to reveal the output.
+
+```{r, warning=FALSE}
+trained.models %>% 
+  unnest( pred = map2( model, test, ~predict( .x, .y, type = "response")) ) -> test.predictions
+
+test.predictions
+```
+
+Our output here is a data frame where, for each row in each dataset (see the `.id` column!), we have predicted the probability of malignancy. In order to evaluate the model, we must compare these results to the **true** outcome in the test data. To do this, we need to modify our last line of code a little bit. We will include the function `broom::augment()` to get everything in one go. Recall: `augment()` not only does predictions, it also shows them in relation to the actual data (true outcome!). Therefore, we mainly use `augment()` to grab the `outcome` column from the test data. The function will do predictions as well (like the `predict()` line), but it will give us the *linear.predictors* when we really want the *fitted.values*, so we keep `predict()`.
+
+```{r, warning=FALSE}
+trained.models %>% 
+  unnest( fitted = map2(model, test, ~augment(.x, newdata = .y)),          
+  pred = map2( model, test, ~predict( .x, .y, type = "response")) ) -> test.predictions
+
+test.predictions %>% select(.id, outcome, pred )
+```
+
+Behold: A data frame with three columns:
+
++ `.id`, the fold 1-10
++ `outcome`, the TRUE outcome known from the test data
++ `pred`, the PREDICTED probability of malignancy for the test data using the respective Kth training model
+
+
+We can use this outcome to get an AUC for all testing folds, using the `pROC::roc()` function on columns in the dataframe:
+
+```{r}
+test.predictions %>% 
+    group_by(.id) %>%
+    summarize(auc = roc(outcome, .fitted)$auc) %>%  
+    select(auc)
+```
+Now, these are some insanely high AUC's (all >= 0.98!), showing that we have a great model here. Does the training data show something similar? Let's find out using the same procedure we used to fit the test data - we simply replace the `test` column with the `train` column:
+
+```{r, warning=FALSE}
+train.predictions <- trained.models %>% unnest(  fitted = map2(model, train, ~augment(.x, newdata = .y)),          
+                                                pred = map2( model, train, ~predict( .x, .y, type = "response")) )
+
+train.predictions %>% 
+  group_by(.id) %>%
+  summarize(auc = roc(outcome, .fitted)$auc) %>%  ### outcome from the true data, .fitted from augment's output. Run roc() on these columns and pull out $auc!
+  select(auc)
+```
+Just as good! We are confirmed that the training and testing data give similar predictions (a nearly perfect model).
+
+
+#### More advanced
+
+Not satified with just AUC and wanting some confusion matrix measures across folds? Here some complex but fantastic `tidyverse` magic to get you there.
+
+First, we need to convert the predicted test probabilities to predictions, assuming a cutoff of 0.5. We also need to summarize predictions across folds:
+
+
+```{r}
+## How to change pred column from probability to real prediction
+test.predictions %>% 
+  select(.id, outcome, pred ) %>%
+  mutate(pred = ifelse(pred >= 0.5, "malignant", "benign"))
+```
+
+
+
+
+
+```{r}
+## Tally it all up by fold
+test.predictions %>% 
+  select(.id, outcome, pred ) %>%
+  mutate(pred = ifelse(pred >= 0.5, "malignant", "benign")) %>%
+  group_by(.id, outcome, pred) %>% tally()
+```
+
+
+Here's what we see, for fold 1:
+
++ There are 38 benign predictions for benign patients, making **38 true negatives**
++ There are 2 benign predictions for malignant patients, making **2 false negatives**
++ There are 29 malignant predictions for malignant patients, making **29 true positive**
++ There are 0 malignant predictions for benign patients, making **0 false positives**
+
+Therefore, for fold 1, the True Positive rate is 29/(29+2) = 0.935.
+
+
+We can do this for all K's with a lot of (complicated but awesome) magic. I **strongly recommed** playing around with this code, line by line, until you understand what it does. Note in particular the `mutate()` line, which cycles through various conditions in order to assign either as True Positive (TP), FP, TN, or FN.
+```{r}
+## Create a dataframe confusion matrix
+test.predictions %>% 
+  select(.id, outcome, pred ) %>%
+  mutate(pred = ifelse(pred >= 0.5, "malignant", "benign")) %>%
+  group_by(.id, outcome, pred) %>% 
+  tally() %>%
+  mutate(class =  ifelse(outcome == pred & pred == "malignant", "TP",            
+                  ifelse(outcome != pred & pred == "malignant", "FP",            
+                  ifelse(outcome == pred & pred == "benign", "TN", "FN")))) %>%
+  ungroup() %>%  ### We want to ditch the `outcome` column, so remove it from grouping
+  select(.id, n, class) %>%  ### Retain only columns of interest; use spread to get a column per classification type
+  spread(class, n) -> confusion
+
+confusion
+
+## Use the tidyr::replace_na() function to replace all NA's in columns TP, TN, FP, FN with 0:
+confusion <- replace_na(confusion, list(TP=0, TN=0, FP=0, FN=0))
+confusion
+
+## Some classifer metric across all folds
+confusion %>%
+  group_by(.id) %>%
+  summarize(TPR     = TP/(TP+FN),
+            Accuracy = (TP+TN)/(TP+TN+FP+FN),
+            PPV      = TP/(TP+FP)) -> fold.metrics
+
+fold.metrics
+
+## Finally we can summarize:
+fold.metrics %>% summarize(meanTPR = mean(TPR), meanAcc = mean(Accuracy), meanPPV=mean(PPV))
+
+```
+
+**At long last**, our K-fold validation gave us a mean TPR of 0.95, mean accuracy of 0.966, and mean positive predictive of 0.95. Together, this all points to a very good model.
+
+
+
