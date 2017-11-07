@@ -1,0 +1,156 @@
+```{r global_options, include=FALSE}
+library(knitr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(modelr)
+library(broom)
+knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width=4.5)
+```
+---
+output: html_document
+---
+
+## Homework 11: Model Selection and Validation (100 points)
+#### BIO5312
+#### Due 11/14/17 by 5:30 pm
+
+**Enter your name here**
+
+<br>
+
+**Consider $\alpha=0.05$ as significant throughout this assignment.**
+<br>
+
+
+## Part One
+
+<br>
+
+This section uses the dataset `bodyfat.csv`, which contains various physical measurements from ~250 adult men. Variables in the dataset include the following:
+
++ `Percent`, body fat percentage
++ `Age`, in years
++ `Weight`, in lbs
++ `Height`, in inches
++ `Neck`, circumference in cm
++ `Chest`, circumference in cm
++ `Abdomen`, circumference in cm
++ `Hip`, circumference in cm
++ `Thigh`, circumference in cm
++ `Knee`, circumference in cm  
++ `Ankle`, circumference in cm 
++ `Biceps`, circumference in cm 
++ `Forearm`, circumference in cm
++ `Wrist`, circumference in cm
+
+<br>
+
+**Question 1 (15 points).** Use the `step()` function to construct a linear model that predicts body fat percentage in men (we will call this the "step-wise model"). 
+
+Be sure to use the argument `trace=0` when running `step`, i.e.: `step(lm(Y~X, data=data), trace=0)`. This will reduce the amount of unnecessary output. **You will lose points if you don't include this argument.**
+
+Then, provide an answer with the following components:
+
++ State which predictors `step()` removed from the model
++ Report the final AIC and BIC for the step-wise model
++ Fully interpret all coefficients (including the intercept) and the $R^2$, indicating its significance and what it means regarding the response variable
++ Indicate if you observe anything "unexpected" in the final model (Hint: there **are** several "unexpected" things in the output, which relates to answers under the previous bullet point!)
+<br>
+```{r}
+
+### Code goes here
+
+```
+
+<br>
+
+**Answer goes here.**
+
+<br><br>
+
+**Question 2 (15 points).** Perform a **likelihood ratio test** (LRT) between two bodyfat percentage models: the step-wise model determined in question 1, and a second model with all those same predictors *and an added effect* that is an interaction between *the two most significant predictors in the step-wise model*. 
+
+In other words, imagine an iris model as `lm(Petal.Length ~ Sepal.Width + Sepal.Length + Species, data = iris)`. To add in an interaction between Sepal.Width and Sepal.Length, we would do this:  `lm(Petal.Length ~ Sepal.Width + Sepal.Length + Species + Sepal.Width:Sepal.Length, data = iris)`.
+
+Then, provide an answer with the following components:
+
++ Based on the LRT, which model is preferred?
++ Compare the adjusted $R^2$ values between the two models. Does your LRT support the model with the higher $R^2$? 
++ Is your result consistent with what you would expect based on AIC and BIC differences between these two models? 
+
+<br>
+```{r}
+
+### Code goes here
+
+```
+
+
+<br>
+
+
+**Question 3 (20 points).** Using only the predictors in the step-wise model (not the model from question 2), perform a *k-fold cross validation* with K=10 to predict bodyfat percentage. Make sure to set your seed first! For each trained model, calculate RMSE for both the respective training and testing data. Visualize the final RMSE distributions (there will be 20 values, 10 from test data and 10 from training data) as boxplots, in a single call to `ggplot()`. Based on your results, explain how robust the model is.
+
+<br>
+```{r}
+
+### Code goes here
+
+```
+
+<br>
+
+**Answer goes here.**
+
+<br><br>
+
+## Part Two
+
+This section uses the dataset `mammogram.csv`, which contains mammogram results, and final diagonses, for 831 women. Variables in the dataset include the following:
+
++ `BIRADS`, the BI-RADS mammogram assessment, ranging from 1--5 here (see here: [https://en.wikipedia.org/wiki/BI-RADS](https://en.wikipedia.org/wiki/BI-RADS) as desired)
++ `Age`: patient's age in years
++ `Shape`: mass shape
++ `Margin`: mass margin
++ `Density`: mass density
++ `Severity`: final diagnosis, as begign or malignant
+
+<br>
+
+
+**Question 1 (25 points).** Construct a logistic regression, using the full mammogram dataset, to predict breast cancer malignancy. Once the model is made, make two figures to accompany this model: an ROC curve and a plot of the logistic curve fitted (for the latter plot, show colored points). Then, provide an explanation which includes the following components:
+
+  + The AUC
+  + The false discovery rate, at a cutoff of 0.5
+  + The accuracy, at a cutoff of 0.5
+  + The true positive rate that corresponds to a *specificity* of 0.9, as assessed visually on the ROC curve
+  + For each of these quantites, be sure to explain what the quantity means in the context of the model.
+      + **For example:**  in defining $R^2$ in a hypothetical bodyfat linear model, I would not define it as "the percent of y explained by x". I *would* define it as "the percent of variance in bodyfat explained by the model."
+  + Based on all quantities and curves, indicate if this model has a strong performance.
+
+<br>
+
+```{r}
+
+### Code goes here
+
+```
+
+
+<br>
+
+
+**Question 2 (25 points).** Perform a *k-fold cross validation* with K=10 to predict breast cancer incidence, using all predictors. Make sure to set your seed first! For each trained model, calculate AUC for both the respective training and testing data. Visualize the final AUC distributions (there will be 20 values, 10 from test data and 10 from training data) as violin plots, in a single call to `ggplot()`. Based on your results, explain how robust the model is.
+
+<br>
+
+```{r}
+
+### Code goes here
+
+```
+
+<br>
+
+**Answer goes here.**
