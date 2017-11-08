@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  7 NOV 2017 16:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  8 NOV 2017 09:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -824,14 +824,6 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \FrameRule=\dimen127
 \FrameSep=\dimen128
 )
-(/usr/local/texlive/2016/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count118
-\float@exts=\toks25
-\float@box=\box29
-\@float@everytoks=\toks26
-\@floatcapt=\box30
-)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -858,6 +850,14 @@ Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 486.
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2001/04/09 non-zero parskip adjustments
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count118
+\float@exts=\toks25
+\float@box=\box29
+\@float@everytoks=\toks26
+\@floatcapt=\box30
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/titling/titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
@@ -1008,10 +1008,10 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 <k-fold.png, id=36, 486.81876pt x 275.0275pt>
 File: k-fold.png Graphic file (type png)
  <use k-fold.png>
-Package pdftex.def Info: k-fold.png used on input line 166.
+Package pdftex.def Info: k-fold.png used on input line 164.
 (pdftex.def)             Requested size: 289.07764pt x 163.31395pt.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 175.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 173.
  [1
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}pdfTeX wa
@@ -1020,7 +1020,7 @@ ready used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.198 \begin{Shaded}
+l.196 \begin{Shaded}
                      <./k-fold.png>] [2] [3]
 <kfold_supplement_files/figure-latex/unnamed-chunk-10-1.pdf, id=62, 206.7725pt 
 x 206.7725pt>
@@ -1028,32 +1028,32 @@ File: kfold_supplement_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (
 type pdf)
  <use kfold_supplement_files/figure-latex/unnamed-chunk-10-1.pdf>
 Package pdftex.def Info: kfold_supplement_files/figure-latex/unnamed-chunk-10-1
-.pdf used on input line 451.
+.pdf used on input line 449.
 (pdftex.def)             Requested size: 206.77829pt x 206.77829pt.
 
 [4 <./kfold_supplement_files/figure-latex/unnamed-chunk-10-1.pdf>] [5] [6]
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 662
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 665
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [7] [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 883.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 886.
  [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 883.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 886.
 
 (./kfold_supplement.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 883.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 883.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 886.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 886.
 Package rerunfilecheck Info: File `kfold_supplement.out' has not changed.
 (rerunfilecheck)             Checksum: 3CB95A85D71F217A59D1497464D19DBC;1462.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 883.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 886.
  ) 
 Here is how much of TeX's memory you used:
- 12824 strings out of 493014
- 185738 string characters out of 6133351
+ 12823 strings out of 493014
+ 185728 string characters out of 6133351
  297456 words of memory out of 5000000
- 16154 multiletter control sequences out of 15000+600000
+ 16153 multiletter control sequences out of 15000+600000
  31639 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  32i,6n,38p,407b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1066,7 +1066,7 @@ m/lmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri10.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/lo
 cal/texlive/2016/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texliv
 e/2016/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on kfold_supplement.pdf (9 pages, 248314 bytes).
+Output written on kfold_supplement.pdf (9 pages, 248380 bytes).
 PDF statistics:
  136 PDF objects out of 1000 (max. 8388607)
  110 compressed objects within 2 object streams

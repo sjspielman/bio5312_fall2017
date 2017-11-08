@@ -83,7 +83,7 @@ This function uses random sampling to create K folds for you from a given datase
 + `.id`, the fold index for each train-test set. This column ranges from 1-K.
 
 ```{r }
-set.seed(101)
+set.seed(10392)
 iris %>% crossv_kfold(5)
 ```
 
@@ -104,7 +104,7 @@ This section demonstrates how to run a k-fold cross validation for a linear mode
 
 To begin, we will set the random seed to a random number of our choosing:
 ```{r }
-set.seed(53629)
+set.seed(1011)
 ```
 
 
@@ -158,11 +158,16 @@ Finally, we can compare our RMSE from the test data to RMSE from the training da
 map2_dbl(trained.models$model, trained.models$train, rmse) -> train.rmse
 
 
+## Convert these to **vectors** to run the test below
+as.numeric(test.rmse) -> test.rmse2
+as.numeric(train.rmse) -> train.rmse2
+
+
 ## Run a test on train/test rmse, remembering that these are PAIRED by k-fold! 
-wilcox.test(train.rmse, test.rmse, paired=T)
+wilcox.test(test.rmse2, train.rmse2, paired=T)
 ```
 
-A quick hypothesis test to compare distributions (Wilcoxon signed-rank) gives P=0.695, suggesting that these RMSE values are from the same underlying distribution and do not significantly differ. In total, therefore, the K-fold cross validation showed us that we have a fairly robust model.
+A quick hypothesis test to compare distributions (Wilcoxon signed-rank) gives P>0.05, suggesting that these RMSE values are from the same underlying distribution and do not significantly differ. In total, therefore, the K-fold cross validation showed us that we have a fairly robust model.
 
 
 ## Performing cross validation on a logistic regression model
