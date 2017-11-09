@@ -139,7 +139,7 @@ BIRADS,Age,Shape,Margin,Density,Severity
 5,72,irregular,spiculated,low,malignant
 4,46,oval,obscured,low,benign
 4,43,irregular,obscured,low,malignant
-?,52,irregular,ill_defined,low,benign
+3,52,irregular,ill_defined,low,benign
 4,46,round,circumscribed,high,benign
 4,69,globular,circumscribed,low,benign
 5,43,oval,circumscribed,low,malignant
@@ -257,7 +257,7 @@ BIRADS,Age,Shape,Margin,Density,Severity
 5,75,irregular,obscured,low,malignant
 5,87,irregular,ill_defined,low,malignant
 4,46,irregular,ill_defined,low,malignant
-55,46,irregular,obscured,low,malignant
+5,46,irregular,obscured,low,malignant
 5,61,round,circumscribed,low,malignant
 4,44,round,ill_defined,low,benign
 4,32,round,circumscribed,low,benign
