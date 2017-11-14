@@ -8,5 +8,5 @@ permalink: /day12_pca_clustering
 
 ## Lecture 
 
-+ [Slides](./slides/day12_day12_pca_clustering.pdf)
++ [Slides](./slides/day12_pca_clustering.pdf)
 
