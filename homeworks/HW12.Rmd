@@ -1,0 +1,126 @@
+```{r global_options, include=FALSE}
+library(knitr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(purrr)
+library(modelr)
+library(broom)
+knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width=4.5)
+```
+---
+output: html_document
+---
+
+## Homework 12: PCA and Clustering (100 points)
+#### BIO5312
+#### Due 11/28/17 by 5:30 pm
+
+**Enter your name here**
+
+
+<br><br>
+
+For this assignment, we will use the `wine.csv` dataset to attempt to recover Cultivar clusters. Recall, the Cultivar column here is a *categorical variable*, and to ensure it plots as such, you can refer to the column as `factor(Cultivar)` in your `ggplot()` code. Note that you may provide written answers in bullet point form, *but this must be formatted correctly* (knit the document to check!!!).
+
+
+<br><br>
+
+
+**Question 1 (10 points).** First, visualize the wine dataset by creating **three** scatterplots where points are colored by Cultivar. You may choose which variables are used for each plot, and variables can be reused between plots (just don't swap X-Y and call it a new plot). Then, state whether any of the plots show, or do not show, Cultivar groupings. (Note: You are doing this question to see that there may be limitations to only considering two numeric variables at a time for high dimensional data.)
+
+<br>
+
+```{r}
+
+### Code goes here
+
+```
+
+<br>
+
+**Answer goes here.**
+
+
+<br><br>
+
+**Question 2 (20 points).** Perform a Principal Components Analysis to ascertain whether the `wine.csv` dataset can recover cultivar groups. Visualize your PCA with the following plots:
+
++ Labeled barplots showing the percent of variation described by each PC
++ Labeled loading lines (this is the rotation matrix), shown for PC1 and PC2. Use arrows in our plot
++ **Two** scatterplots with points colored by Cultivar. The first should show PC2 against PC1 (i.e., PC1 is on the x-axis), and the second should showPC3 against PC1 (again, PC1 is on the x-axis).
+
+<br>
+
+```{r}
+
+### Code goes here
+
+```
+
+<br><br>
+
+**Question 3. (15 points)** Using the visualizations created in questions 2, interpret your PCA based on the following prompts.
+
+<br>
+**Question 3a:** Intepret your scatterplots: Does either PC1, PC2, or PC3 effectively separate cultivars? State which PC(s), if any, discriminate cultivar, and which PC(s) do not. Do you find that PCA was more effective at separating clusters than your original scatterplots with two random variables were?
+<br>
+**Answer goes here.**
+
+<br>
+**Question 3b:** Interpret your PC loadings: Which numeric variables are primarily discriminated by PC1? Which are primarily discriminated by PC2? Do any variables show *exact opposite* loadings, and if so which? Do you notice any *orthogonal variables* (or sets of variables) in PC1-2 space?
+<br>
+**Answer goes here.**
+
+<br><br>
+
+**Question 4 (20 points).** Perform *k-means clustering* on the wine data to ascertain whether clusters. Do this in two steps: i) Use the elbow method to visually determing how many clusters to make, and ii) Perform the k-means clustering with the *k* determined from the elbow method **three different times**. You should therefore end up creating 3 different variables of k-means data (all using the same k). Be sure to include a **comment** in your code indicating which K has been chosen based on the elbow.
+
+<br>
+
+```{r}
+
+### Code goes here
+
+```
+
+<br><br>
+
+**Question 5 (20 points).** Visualize your k-means results: Make  *faceted dodged bar plot*, where each facet is a k-means result, to visualize the distributions of clusters across cultivars. Use `.cluster` for the x axis, and fill by `Cultivar` (note you will need to specify to ggplot that these are factors). Based on this figure, address these questions: i) Are k-means results consistent or are they different from each other, in terms of the relationship between cluster and cultivar? (Hint: cluster index 1-k is totally arbitrary!), and ii) Do any cultivars seem to belong to, or not belong to, specific cluster(s)?
+
+<br>
+
+```{r}
+
+### Code goes here
+
+```
+
+<br>
+
+**Answer goes here.**
+
+
+<br><br>
+
+
+**Question 6 (15 points).**  Conduct a hypothesis test for **one** of your k-means results to determine whether there is an association between cluster and cultivar. Give your null/alternative hypotheses, results, and conclusions.
+
+<br>
+
+```{r}
+
+### Code goes here
+
+```
+
+<br>
+
+**Answer goes here.**
+
+
+<br><br>
+
+
+
+
