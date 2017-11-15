@@ -21,7 +21,7 @@ output: html_document
 
 <br><br>
 
-For this assignment, we will use the `wine.csv` dataset to attempt to recover Cultivar clusters. Recall, the Cultivar column here is a *categorical variable*, and to ensure it plots as such, you can refer to the column as `factor(Cultivar)` in your `ggplot()` code. Note that you may provide written answers in bullet point form, *but this must be formatted correctly* (knit the document to check!!!).
+For this assignment, we will use the `wine.csv` dataset to attempt to recover Cultivar clusters. Therefore, you should **remove** the Cultivar variable, which is *categorical*, from your data (as just as "Species" was removed in lecture from iris analysis) before running PCA or clustering. To ensure that Cultivar can be plotted as a categorical variable, you can refer to the column as `factor(Cultivar)` in your `ggplot()` code. Note that you may provide written answers in bullet point form, *but this must be formatted correctly* (knit the document to check!!!).
 
 
 <br><br>
