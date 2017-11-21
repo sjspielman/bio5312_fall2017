@@ -1,0 +1,131 @@
+```{r global_options, include=FALSE}
+#### Load any necessary libraries here. Some basics are loaded for you. ####
+require(knitr)
+require(dplyr)
+require(tidyr)
+require(ggplot2)
+require(purrr)
+require(readr)
+require(broom)
+knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width=4.5)
+```
+---
+output: html_document
+---
+
+## Final Project (200 points)
+### BIO5312
+
+**Your name goes here.**
+
+<br>
+
+**Instructions can be found on Canvas and on the course website. Please read them carefully!! Additionally, consult the example project on the course website to aid your project preparation.**
+
+<br><br>
+
+## Introduction
+
+Text for your introduction goes here. It should be formatted as "plain-text", as this text is written, with a bullet point describing variables. If references are used, please add a "References" section (two hashtag header) to the *end* of the document.
+
+<br><br>
+
+## Data Preparation
+
+```{r}
+### Any code used to prepare your data for analysis goes here.
+### Include comments throughout this code explaining how you wrangled the data. Note that not every line needs a comment: Instead, each general task you perform (i.e. "extract from database") should have an associated comment.
+## If no preparation is needed, simply read in your data here.
+```
+
+<br><br>
+
+## Questions
+
+<br>
+
+#### Question 1
+
+<br>
+
+**To address this question, I will use _________:**
+
+```{r}
+### R code to perform statistical analysis goes here. 
+```
+
+Interpret your analysis here.
+
+Intepret your figure here in a new paragraph.
+
+```{r}
+### R code visualize goes here.
+```
+
+<br>
+
+#### Question 2
+
+<br>
+
+**To address this question, I will use _________:**
+
+
+```{r}
+### R code to perform statistical analysis goes here. 
+```
+
+Interpret your analysis here.
+
+Intepret your figure here in a new paragraph.
+
+```{r}
+### R code visualize goes here.
+```
+
+<br>
+
+
+#### Question 3 
+
+
+<br>
+
+**To address this question, I will use _________:**
+
+
+```{r}
+### R code to perform statistical analysis goes here. 
+```
+
+Interpret your analysis here.
+
+Intepret your figure here in a new paragraph.
+
+```{r}
+### R code visualize goes here.
+```
+
+<br>
+
+#### Question 4
+
+<br>
+
+
+
+**To address this question, I will use _________:**
+
+
+```{r}
+### R code to perform statistical analysis goes here. 
+```
+
+Interpret your analysis here.
+
+Intepret your figure here in a new paragraph.
+
+```{r}
+### R code visualize goes here.
+```
+

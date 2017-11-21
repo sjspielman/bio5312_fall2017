@@ -1,0 +1,162 @@
+```{r global_options, include=FALSE}
+require(knitr)
+require(dplyr)
+require(tidyr)
+require(ggplot2)
+require(purrr)
+require(readr)
+require(broom)
+require(modelr)
+require(pROC)
+knitr::opts_chunk$set(echo = TRUE, fig.align="center", fig.height=4.5, fig.width=4.5)
+```
+---
+output: html_document
+---
+
+## Final Project EXAMPLE
+### BIO5312
+
+**Josiah S. Carberry**
+
+<br>
+
+**This document shows an example project, using the Kauii damselfly dataset (last known whereabouts, Probability homework). Note that while this example is shown only with three questions, your project must have _FOUR QUESTIONS_.**
+
+<br><br>
+
+## Introduction
+
+For this project, I analyze the dataset of results from a study of color pattern differences in the damselfly *Ischnura ramburii*. These damselflies display unique pigmentation: all males are blue-green, while some females are orange and some are blue-green like the males. The orange females are referred to as “gynomorphs” (female-like morphs) and the blue-green females are referred to as “andromorphs” (male-like morphs). This data contains information about these damselflies collected from the Hawaiian islands Oahu, Kauai, and Hawaii, as well as from Texas.
+
+These variables are contained in the dataset:
+
++ `Island`, (Categorical) The collection location of the damselfly specimen.
++ `Sex`,  (Categorical) The sex of the damselfly specimen
++ `Morphology`,  (Categorical) The morphology of the damselfly specimen
++ `Wing.size`, (Numeric), The wing size, in unit pixels, of the damselfly specimen
++ `Mating.status`, (Categorical), The mating status of the damselfly specimen
++ `Abdomen.length`, (Numeric), The abdomen length, in unit mm, of the damselfly specimen 
+
+<br><br>
+
+## Data Preparation
+
+No preparation was needed as the dataset was already tidy.
+
+```{r}
+damsel <- read.csv("damselfly.csv")
+```
+
+<br><br>
+
+## Questions
+
+<br>
+
+#### Question 1: Do males and females occur in equal proportions across collection sites?
+
+<br>
+
+**To address this question, I will use a contingency-table analysis:**
+
+```{r, warning=FALSE}
+## Determine contingency table values
+damsel %>%
+  group_by(Sex, Island) %>%
+  tally() 
+damsel.table <- rbind(c(5,11,15,12), c(6, 10,10, 7))
+
+## Confirm that expected counts are sufficiently high to meet assumptions (they are)
+chisq.test(damsel.table)$expected 
+
+## Now run and examine test output
+chisq.test(damsel.table)
+```
+
+My null hypothesis is that sex and island are unassociated. My alternative hypothesis is that sex and island are associated. I confirmed assumptions were met for a chi-squared contingency table analysis by checking expected counts: Only 1 expected count in the table was less than 5, and all were greater than 1. The chi-squared test gave a test-statistic of 1.1586 and P=0.763, which is higher than $\alpha$. Therefore I fail to reject the null hypothesis, and I have no evidence that sex and island are associated. In conclusion, my analysis suggested that sex are evenly distributed across collection sites.
+
+
+To accompany this analysis, I made a barplot of damselfly counts across sex and island. My plot shows that all counts are below 15. It appears that there are more males from Hawaii compared to females, but for all other Islands, there were relatively more females collected than males.
+
+```{r}
+## Visualize
+ggplot(damsel, aes(x = Sex, fill = Island)) + geom_bar(position = "dodge") 
+```
+
+
+<br>
+
+#### Question 2: Among females, do gynomorphs and andromorphs tend to have the same abdomen lengths?
+
+<br>
+
+**To address this question, I will use a Wilcoxon rank sum test**
+
+```{r, warning=FALSE}
+### Determine sample size: There are 21 andro and 22 gyno. This is small, we should check assumptions to see if t-test is usable:
+damsel %>%
+  filter(Sex == "female") %>%
+  group_by(Morphology) %>%
+  tally()
+
+### Check normal assumption, since small N
+damsel %>% filter(Morphology == "andro") -> andro
+damsel %>% filter(Morphology == "gyno") -> gyno
+
+qqnorm(andro$Abdomen.length, pch=20)
+qqline(andro$Abdomen.length, col = "blue")
+
+qqnorm(gyno$Abdomen.length, pch=20)
+qqline(gyno$Abdomen.length, col = "blue")
+
+### Run wilcoxon text
+wilcox.test(andro$Abdomen.length, gyno$Abdomen.length)
+
+## determine directionality with medians
+damsel %>%
+  filter(Sex == "female") %>%
+  group_by(Morphology) %>%
+  summarize(median(Abdomen.length))
+```
+
+My null hypothesis is that andro and gyno morphs tend to have the same abdomen lengthse. My alternative hypothesis is that andro and gyno morphs tend to have different abdomen lengths. There were 21 andromorphs and 22 gynomorphs, which are relatively small sample size. I used normal QQ plots to check their distributions. The andromorph plot was mostly normal, but the gynomorph plot showed strong deviations at higher values. Small sample size coupled with poor normality means a non-parametric test should be used. The Mann-Whitney U test gave a test-statistic of 129 and P=0.01258, which is lower than $\alpha$. Therefore I reject the null hypothesis, and I have evidence that gyno and andromorphs have different abdomen lengths. Looking at the actual median abdomen lengths, I find that andromorphs are generally shorter (24 mm) than gynomorphs (25.1 mm). In conclusion, my analysis suggested gynomorphs have significantly longer, albeit only by about 1 mm, abdomens compared to andromorphs.
+
+
+To accompany this analysis, I made a density plot of andromorph and gynomorph abdomen lengths. My plot shows that andromorphs have generally lower lengths with a single peak around 24, and that gynomorphs have a bimodal distribution with peaks around 25 and 28.
+
+```{r}
+## Visualize
+damsel %>%
+  filter(Sex == "female") %>%
+  ggplot(aes(x = Abdomen.length, fill = Morphology)) + geom_density(alpha=0.7)
+```
+
+<br>
+
+
+#### Question 2: Can variables in this dataset be used to predict wing size?
+
+
+<br>
+
+**To address this question, I will use a linear model**.
+
+```{r}
+## use step() function to determine "optimal" predictors for a model, with AIC criterion.
+model <- step(lm(Wing.size ~ ., data=damsel), trace=0)
+tidy(model)
+glance(model)
+```
+
+I constructed a linear model to predict wing size, using the `step()` function to ascertain optimal predictors and find the model with the best AIC. The final model contained two predictors: abdomen length and morphology, all of which were highly significant. The model has a significant intercept of 403.72 (P=4.88e-6), meaning that an andromorph damselful with 0 abdomen length will have a wing size of 403.72 mm. The gynomorph coefficient is 43.09 (P=9.7e-3), which means that a gynomorph will have on average 43.09 mm longer wing size compared to andromorphs. The male coefficient is -195.8 (P=9.89e-22), which means that a male will have on average 195.8 mm shorter wing size compared to andromorphs. The abdomen length coefficient is 72.8 (P=3.91e-33), so the predictors explain roughly 92% of the variation in wing size. Therefore, this is a very strong and robust model and this dataset can strongly predict wing size.
+
+
+To accompany this analysis, I made a scatterplot of wing size against abdomen length, with points colored by morphology and regression lines through each morphology.My plot shows a clear linear relationship between wing size and abdomen length, and there does not appear to be an interaction between abdomen and morphology. In general, females have larger wings than males. The figure suggests that gynomorph females may have slightly larger wing sizes compared to andromorph females.
+
+```{r}
+## visualize model
+ggplot(damsel, aes(x = Abdomen.length, y  = Wing.size, color = Morphology)) + geom_point() + geom_smooth(method = "lm")
+```
+
+
