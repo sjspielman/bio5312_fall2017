@@ -1,0 +1,7 @@
+ConceptName,Depth,Latitude,Longitude,Oxygen,RecordedDate,Salinity,Temperature
+Thalassocalyce,348.7,36.7,-122.0,1.4,1992-03-02,17:40:09,34.1,7.1
+Thalassocalyce,520.3,36.7,-122.0,0.5,1992-05-05,20:01:10,34.2,5.8
+Thalassocalyce,118.3,36.8,-121.9,1.5,1999-05-14,17:48:27,34.0,7.4
+Thalassocalyce,200.2,36.7,-122.0,1.6,1999-08-09,19:48:42,34.0,8.7
+Thalassocalyce,100.8,36.7,-122.0,2.3,1999-08-09,20:12:11,33.9,9.4
+Thalassocalyce,1509.6,36.5,-122.5,0.9,2000-04-17,20:04:23,34.4,2.7
