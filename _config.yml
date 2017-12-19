@@ -19,7 +19,7 @@ author: Stephanie J. Spielman, PhD
 email: stephanie.spielman@temple.edu
 description: > # this means to ignore newlines until "baseurl:"
   Materials for Biostatsitics (BIO5312) at Temple University in Fall 2017
-baseurl: "/courses/bio5312_fall2017" # the subpath of your site, e.g. /blog
+baseurl: "/bio5312_fall2017" # the subpath of your site, e.g. /blog
 url: "http://sjspielman.org" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
