@@ -7,8 +7,7 @@ permalink: /resources/
 ### Color your R plots
 + [Rcolor.pdf](./files/Rcolor.pdf)
 
-### Optional course textbook (PDF)
-+  [Fundamentals of Biostatistics, B. Rosner (7th Ed)](./files/Fundamentals_of_Biostatistics_7th_Edition.pdf)
++
 
 
 ### Introductory R tutorials (some content beyond the scope of class)
